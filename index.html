@@ -478,8 +478,25 @@
   <button class="nav-btn" onclick="showSection('current')">📰 Current Affairs</button>
   <button class="nav-btn" onclick="showSection('mcq')">✏️ MCQ Practice</button>
   <button class="nav-btn" onclick="showSection('feedback')">⭐ Feedback</button>
-  <button class="nav-btn" onclick="showSection('setup')">⚙️ Setup</button>
+  <!-- Setup button hidden — triple-click footer to access -->
 </nav>
+
+<!-- PASSWORD MODAL OVERLAY -->
+<div id="pwd-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(5,12,30,0.92); align-items:center; justify-content:center;">
+  <div style="background:#122752; border:1.5px solid rgba(212,175,55,0.35); border-radius:16px; padding:36px 32px; width:90%; max-width:360px; text-align:center;">
+    <div style="font-size:2rem; margin-bottom:10px;">🔐</div>
+    <div style="font-family:'Cinzel',serif; color:var(--gold); font-size:1.1rem; margin-bottom:6px;">Admin Access</div>
+    <div style="color:var(--text-muted); font-size:0.82rem; margin-bottom:22px;">Enter the admin password to open Setup</div>
+    <input id="pwd-input" type="password" placeholder="Enter password"
+      style="width:100%; background:rgba(11,28,62,0.9); border:1.5px solid rgba(212,175,55,0.3); border-radius:8px; color:var(--text-light); padding:11px 16px; font-family:'Lato',sans-serif; font-size:0.95rem; outline:none; margin-bottom:10px; text-align:center; letter-spacing:0.1em;"
+      onkeydown="if(event.key==='Enter') checkPassword()"/>
+    <div id="pwd-error" style="color:#E74C3C; font-size:0.8rem; min-height:18px; margin-bottom:10px;"></div>
+    <div style="display:flex; gap:10px; justify-content:center;">
+      <button onclick="closePwdModal()" style="background:transparent; border:1.5px solid rgba(212,175,55,0.25); border-radius:30px; color:var(--text-muted); padding:9px 22px; font-family:'Lato',sans-serif; cursor:pointer; font-size:0.88rem;">Cancel</button>
+      <button onclick="checkPassword()" style="background:var(--gold); border:none; border-radius:30px; color:var(--navy); padding:9px 22px; font-family:'Lato',sans-serif; font-weight:700; cursor:pointer; font-size:0.88rem;">Enter</button>
+    </div>
+  </div>
+</div>
 
 <!-- MAIN -->
 <main>
@@ -1014,6 +1031,51 @@ function resetQuiz() {
 
 // ===== INIT =====
 buildYearGrid();
+
+// ===== SECRET SETUP ACCESS =====
+// Password (change this to whatever you want)
+const ADMIN_PASSWORD = 'wosa@admin2025';
+
+// Triple-click on footer year text to open password prompt
+let footerClicks = 0, footerTimer = null;
+document.querySelector('footer').addEventListener('click', function() {
+  footerClicks++;
+  if(footerTimer) clearTimeout(footerTimer);
+  footerTimer = setTimeout(() => { footerClicks = 0; }, 600);
+  if(footerClicks >= 3) {
+    footerClicks = 0;
+    openPwdModal();
+  }
+});
+
+function openPwdModal() {
+  document.getElementById('pwd-input').value = '';
+  document.getElementById('pwd-error').textContent = '';
+  const overlay = document.getElementById('pwd-overlay');
+  overlay.style.display = 'flex';
+  setTimeout(() => document.getElementById('pwd-input').focus(), 100);
+}
+
+function closePwdModal() {
+  document.getElementById('pwd-overlay').style.display = 'none';
+}
+
+function checkPassword() {
+  const val = document.getElementById('pwd-input').value;
+  if(val === ADMIN_PASSWORD) {
+    closePwdModal();
+    showSection('setup');
+  } else {
+    document.getElementById('pwd-error').textContent = '✗ Incorrect password. Try again.';
+    document.getElementById('pwd-input').value = '';
+    document.getElementById('pwd-input').focus();
+  }
+}
+
+// Close modal on overlay background click
+document.getElementById('pwd-overlay').addEventListener('click', function(e) {
+  if(e.target === this) closePwdModal();
+});
 </script>
 </body>
 </html>
