@@ -723,18 +723,37 @@
     <div class="setup-card">
       <h3>
         <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:var(--gold)"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
-        How to Set Up Google Drive Backend
+        📁 How to Set Up Google Drive Folders
       </h3>
       <ol>
-        <li>Go to <strong style="color:var(--gold-light)">Google Drive</strong> and create folders for each subject (GK, GS, etc.)</li>
-        <li>Right-click a folder → <code>Share</code> → set to <code>Anyone with the link</code></li>
-        <li>Copy the folder ID from the URL: <code>drive.google.com/drive/folders/<strong style="color:var(--gold)">FOLDER_ID</strong></code></li>
-        <li>Paste each folder ID in the fields below and click <strong style="color:var(--gold-light)">Save</strong></li>
-        <li>For MCQs, create a <strong style="color:var(--gold-light)">Google Sheet</strong> with columns: <code>Question | A | B | C | D | Answer | Subject | Difficulty</code> — publish it and paste the Sheet ID below</li>
+        <li>Go to <strong style="color:var(--gold-light)">Google Drive</strong> and create folders for each subject and each year</li>
+        <li>Right-click a folder → <code>Share</code> → set to <code>Anyone with the link can view</code></li>
+        <li>Copy the Folder ID from the URL:<br><code>drive.google.com/drive/folders/<strong style="color:var(--gold)">FOLDER_ID_HERE</strong></code></li>
+        <li>Paste each ID in the fields below and click <strong style="color:var(--gold-light)">Save Configuration</strong></li>
       </ol>
     </div>
 
-    <div class="mcq-setup-card">
+    <div class="setup-card" style="margin-top:14px;">
+      <h3>
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:var(--gold)"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+        📊 How to Set Up Google Sheet for MCQ
+      </h3>
+      <ol>
+        <li>Open <strong style="color:var(--gold-light)">Google Sheets</strong> and create a new sheet</li>
+        <li>Add these exact column headers in Row 1:<br>
+          <code>Question</code> &nbsp;|&nbsp; <code>A</code> &nbsp;|&nbsp; <code>B</code> &nbsp;|&nbsp; <code>C</code> &nbsp;|&nbsp; <code>D</code> &nbsp;|&nbsp; <code>Answer</code> &nbsp;|&nbsp; <code>Subject</code><br>
+          <small style="color:var(--text-muted);">Answer column: put the correct option letter — A, B, C, or D</small><br>
+          <small style="color:var(--text-muted);">Subject column: gk / gs / ca / math / english</small>
+        </li>
+        <li>Fill in your MCQ data from Row 2 onwards</li>
+        <li>Click <strong style="color:var(--gold-light)">File → Share → Publish to web</strong></li>
+        <li>Choose <code>Sheet1</code> and format <code>Comma-separated values (.csv)</code> → Click <strong style="color:var(--gold-light)">Publish</strong></li>
+        <li>Copy the URL. It looks like:<br><code style="font-size:0.78rem; word-break:break-all;">https://docs.google.com/spreadsheets/d/<strong style="color:var(--gold)">SHEET_ID</strong>/pub?output=csv</code></li>
+        <li>Copy only the <strong style="color:var(--gold-light)">SHEET_ID</strong> part and paste it below</li>
+      </ol>
+    </div>
+
+    <div class="mcq-setup-card" style="margin-top:20px;">
       <h3>🗂️ GK & GS Folder IDs</h3>
       <div class="form-row">
         <div class="form-group"><label>General Knowledge Folder ID</label><input id="cfg-gk" type="text" placeholder="e.g. 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs"></div>
@@ -744,15 +763,33 @@
         <div class="form-group"><label>Mathematics Folder ID</label><input id="cfg-math" type="text" placeholder="Folder ID"></div>
         <div class="form-group"><label>English Folder ID</label><input id="cfg-english" type="text" placeholder="Folder ID"></div>
       </div>
-      <h3 style="margin-top:20px; margin-bottom:14px;">📰 Current Affairs Folder IDs (2025–2050)</h3>
-      <div id="year-cfg-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px; margin-bottom:18px;"></div>
-      <h3 style="margin-top:10px; margin-bottom:14px;">✏️ MCQ Google Sheet ID</h3>
-      <div class="form-group" style="margin-bottom:18px;"><label>Published Google Sheet ID</label><input id="cfg-sheet" type="text" placeholder="Paste your Google Sheet ID here"></div>
+
+      <h3 style="margin-top:24px; margin-bottom:6px;">📰 Current Affairs Folder IDs — Year Wise (2025 to 2050)</h3>
+      <div class="info-box" style="margin-bottom:14px;">
+        <svg viewBox="0 0 24 24"><path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0012 2z"/></svg>
+        <span>Create one Google Drive folder per year, paste each Folder ID below. Leave blank if not needed yet.</span>
+      </div>
+      <div id="year-cfg-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:10px; margin-bottom:20px;"></div>
+
+      <h3 style="margin-top:4px; margin-bottom:14px;">✏️ MCQ Google Sheet ID</h3>
+      <div class="info-box" style="margin-bottom:12px;">
+        <svg viewBox="0 0 24 24"><path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0012 2z"/></svg>
+        <span>Paste only the Sheet ID (not the full URL). When a Sheet ID is saved, quiz will load your questions from Google Sheets. Otherwise built-in sample questions are used.</span>
+      </div>
+      <div class="form-group" style="margin-bottom:8px;">
+        <label>Published Google Sheet ID</label>
+        <input id="cfg-sheet" type="text" placeholder="e.g. 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74tMdKv">
+      </div>
+      <div style="margin-bottom:18px;">
+        <button class="btn-outline" onclick="testSheetConnection()" style="font-size:0.82rem; padding:8px 16px;">🔗 Test Sheet Connection</button>
+        <span id="sheet-test-msg" style="margin-left:10px; font-size:0.82rem;"></span>
+      </div>
+
       <button class="btn-gold" onclick="saveConfig()">
         <svg viewBox="0 0 24 24"><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>
         Save Configuration
       </button>
-      <span id="save-msg" style="margin-left:14px; color:#27AE60; font-size:0.88rem; display:none;">✓ Saved!</span>
+      <span id="save-msg" style="margin-left:14px; color:#27AE60; font-size:0.88rem; display:none;">✓ Saved successfully!</span>
     </div>
   </section>
 
@@ -789,14 +826,16 @@ function saveConfig() {
 function loadConfigUI() {
   ['gk','gs','math','english','sheet'].forEach(k => {
     const el = document.getElementById('cfg-' + k);
-    if(el && config[k]) el.value = config[k];
+    if(el) el.value = config[k] || '';
   });
   const grid = document.getElementById('year-cfg-grid');
+  if(!grid) return;
   grid.innerHTML = '';
   YEARS.forEach(y => {
     const div = document.createElement('div');
     div.className = 'form-group';
-    div.innerHTML = `<label>${y} Folder ID</label><input id="cfg-year-${y}" type="text" placeholder="${y} Folder ID" value="${config['year_' + y] || ''}">`;
+    const saved = config['year_' + y] || '';
+    div.innerHTML = `<label>📅 ${y} — Current Affairs Folder ID</label><input id="cfg-year-${y}" type="text" placeholder="Paste ${y} folder ID here" value="${saved}">`;
     grid.appendChild(div);
   });
 }
@@ -943,10 +982,92 @@ function shuffle(arr) {
   return arr.slice().sort(() => Math.random() - 0.5);
 }
 
-function startQuiz() {
+function parseCSV(text) {
+  const lines = text.trim().split('\n');
+  if(lines.length < 2) return [];
+  // Skip header row (row 0), parse data rows
+  const questions = [];
+  for(let i = 1; i < lines.length; i++) {
+    // Handle quoted CSV fields properly
+    const cols = [];
+    let cur = '', inQ = false;
+    for(let c = 0; c < lines[i].length; c++) {
+      const ch = lines[i][c];
+      if(ch === '"') { inQ = !inQ; }
+      else if(ch === ',' && !inQ) { cols.push(cur.trim()); cur = ''; }
+      else { cur += ch; }
+    }
+    cols.push(cur.trim());
+    // Columns: Question(0), A(1), B(2), C(3), D(4), Answer(5), Subject(6)
+    if(cols.length >= 6 && cols[0]) {
+      const ansLetter = (cols[5] || 'A').trim().toUpperCase();
+      const ansIndex = ['A','B','C','D'].indexOf(ansLetter);
+      questions.push({
+        q: cols[0],
+        opts: [cols[1]||'', cols[2]||'', cols[3]||'', cols[4]||''],
+        ans: ansIndex >= 0 ? ansIndex : 0,
+        subject: (cols[6]||'gk').trim().toLowerCase()
+      });
+    }
+  }
+  return questions;
+}
+
+async function testSheetConnection() {
+  const sheetId = document.getElementById('cfg-sheet').value.trim();
+  const msg = document.getElementById('sheet-test-msg');
+  if(!sheetId) { msg.style.color='#E74C3C'; msg.textContent = '✗ Please enter a Sheet ID first'; return; }
+  msg.style.color = 'var(--text-muted)'; msg.textContent = '⏳ Testing...';
+  try {
+    const url = `https://docs.google.com/spreadsheets/d/${sheetId}/pub?output=csv`;
+    const res = await fetch(url);
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const text = await res.text();
+    const rows = parseCSV(text);
+    if(rows.length === 0) { msg.style.color='#E74C3C'; msg.textContent = '✗ Connected but no valid MCQ rows found. Check column format.'; }
+    else { msg.style.color='#27AE60'; msg.textContent = `✓ Connected! Found ${rows.length} questions.`; }
+  } catch(e) {
+    msg.style.color='#E74C3C';
+    msg.textContent = '✗ Cannot connect. Make sure sheet is published as CSV (File → Share → Publish to web → CSV).';
+  }
+}
+
+async function startQuiz() {
   const subject = document.getElementById('quiz-subject').value;
   const count = parseInt(document.getElementById('quiz-count').value);
-  const pool = shuffle(SAMPLE_MCQ[subject] || SAMPLE_MCQ['gk']);
+  const sheetId = config['sheet'] || '';
+
+  // Show loading state
+  const startBtn = document.querySelector('#mcq-setup .btn-gold');
+  const origHTML = startBtn.innerHTML;
+  startBtn.innerHTML = '<span class="spinner"></span> Loading...';
+  startBtn.disabled = true;
+
+  let pool = [];
+
+  if(sheetId) {
+    try {
+      const url = `https://docs.google.com/spreadsheets/d/${sheetId}/pub?output=csv`;
+      const res = await fetch(url);
+      if(!res.ok) throw new Error('fetch failed');
+      const text = await res.text();
+      const allRows = parseCSV(text);
+      // Filter by subject; if none match, use all rows
+      const filtered = allRows.filter(r => r.subject === subject);
+      pool = shuffle(filtered.length > 0 ? filtered : allRows);
+      if(pool.length === 0) throw new Error('empty');
+    } catch(e) {
+      // Fallback to sample MCQ with a notice
+      pool = shuffle(SAMPLE_MCQ[subject] || SAMPLE_MCQ['gk']);
+      setTimeout(() => alert('⚠️ Could not load from Google Sheets. Using built-in sample questions.\n\nMake sure your sheet is published as CSV (File → Share → Publish to web).'), 100);
+    }
+  } else {
+    pool = shuffle(SAMPLE_MCQ[subject] || SAMPLE_MCQ['gk']);
+  }
+
+  startBtn.innerHTML = origHTML;
+  startBtn.disabled = false;
+
   quizQuestions = pool.slice(0, Math.min(count, pool.length));
   currentQ = 0; score = 0;
   document.getElementById('mcq-setup').style.display = 'none';
