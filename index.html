@@ -1,1202 +1,854 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Way Of Success Academy</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --gold: #D4AF37;
-    --gold-light: #F5E27A;
-    --gold-dark: #A07C10;
-    --navy: #0B1C3E;
-    --navy-light: #122752;
-    --navy-mid: #1A3A6A;
-    --cream: #FDF9EE;
-    --text-light: #FAF7EE;
-    --text-muted: #B8C0CC;
-    --accent-red: #C0392B;
-    --radius: 12px;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --gold:#FFD700;--gold-light:#FFE55C;--gold-dark:#B8860B;
+  --navy:#0A0F2C;--navy-mid:#111836;--navy-light:#1A2550;
+  --crimson:#C0392B;--white:#F8F6F0;--gray:#A0A8C0;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--navy);color:var(--white);font-family:'Rajdhani',sans-serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse at 20% 30%,rgba(255,215,0,.07) 0%,transparent 55%),
+             radial-gradient(ellipse at 80% 70%,rgba(192,57,43,.07) 0%,transparent 55%);}
 
-  body {
-    font-family: 'Lato', sans-serif;
-    background: var(--navy);
-    color: var(--text-light);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+/* HEADER */
+header{position:relative;z-index:10;background:linear-gradient(135deg,#060A1A,#0D1530,#060A1A);border-bottom:2px solid var(--gold-dark);}
+header::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),var(--crimson),var(--gold),transparent);animation:shimmer 3s infinite;}
+@keyframes shimmer{0%,100%{opacity:.5}50%{opacity:1}}
+.header-inner{max-width:1200px;margin:0 auto;padding:18px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.logo-crest{width:68px;height:68px;flex-shrink:0;}
+.logo-crest svg{width:100%;height:100%;}
+.header-text{flex:1;min-width:200px;}
+.academy-name{font-family:'Cinzel Decorative',serif;font-size:clamp(13px,2.8vw,22px);font-weight:900;color:var(--gold);
+  text-shadow:0 0 28px rgba(255,215,0,.5),2px 2px 0 var(--gold-dark);line-height:1.2;}
+.academy-tagline{font-size:11px;color:var(--gray);letter-spacing:3px;text-transform:uppercase;margin-top:4px;}
+.header-contact{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+.contact-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3);
+  border-radius:20px;padding:6px 13px;font-size:13px;font-weight:600;color:var(--gold);text-decoration:none;transition:all .3s;white-space:nowrap;}
+.contact-pill:hover{background:rgba(255,215,0,.2);}
+.feedback-pill{background:rgba(192,57,43,.15);border-color:rgba(192,57,43,.4);color:#FF6B5B;}
 
-  /* ========= ANIMATED BG ========= */
-  .bg-pattern {
-    position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    background:
-      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,175,55,0.10) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(26,58,106,0.5) 0%, transparent 60%),
-      linear-gradient(160deg, #0B1C3E 0%, #0d2248 40%, #0B1C3E 100%);
-  }
-  .bg-pattern::after {
-    content: '';
-    position: absolute; inset: 0;
-    background-image: repeating-linear-gradient(
-      0deg, transparent, transparent 60px, rgba(212,175,55,0.025) 60px, rgba(212,175,55,0.025) 61px
-    ), repeating-linear-gradient(
-      90deg, transparent, transparent 60px, rgba(212,175,55,0.025) 60px, rgba(212,175,55,0.025) 61px
-    );
-  }
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(6,10,26,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,215,0,.2);}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;overflow-x:auto;scrollbar-width:none;padding:0 8px;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-btn{white-space:nowrap;padding:13px 16px;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;color:var(--gray);background:none;border:none;
+  border-bottom:3px solid transparent;cursor:pointer;transition:all .25s;}
+.nav-btn:hover{color:var(--gold);}
+.nav-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
 
-  /* ========= HEADER ========= */
-  header {
-    position: relative; z-index: 10;
-    text-align: center;
-    padding: 48px 20px 32px;
-    border-bottom: 1px solid rgba(212,175,55,0.2);
-  }
-  .logo-ring {
-    width: 90px; height: 90px;
-    border: 3px solid var(--gold);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 18px;
-    background: rgba(212,175,55,0.06);
-    animation: pulse-ring 3s ease-in-out infinite;
-  }
-  .logo-ring svg { width: 46px; height: 46px; fill: var(--gold); }
-  @keyframes pulse-ring {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(212,175,55,0.3); }
-    50% { box-shadow: 0 0 0 14px rgba(212,175,55,0); }
-  }
-  .institute-name {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(1.5rem, 4vw, 2.6rem);
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 0.04em;
-    line-height: 1.15;
-    text-shadow: 0 2px 20px rgba(212,175,55,0.25);
-  }
-  .institute-tagline {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: var(--gold-light);
-    font-size: 1rem;
-    margin-top: 8px;
-    opacity: 0.85;
-  }
-  .header-contact {
-    margin-top: 16px;
-    display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
-  }
-  .contact-pill {
-    display: flex; align-items: center; gap: 8px;
-    background: rgba(212,175,55,0.1);
-    border: 1px solid rgba(212,175,55,0.25);
-    border-radius: 40px;
-    padding: 7px 18px;
-    font-size: 0.85rem;
-    color: var(--gold-light);
-    text-decoration: none;
-    transition: background 0.25s, border-color 0.25s;
-  }
-  .contact-pill:hover { background: rgba(212,175,55,0.2); border-color: var(--gold); }
-  .contact-pill svg { width: 16px; height: 16px; fill: var(--gold); flex-shrink: 0; }
+/* SECTIONS */
+.section{display:none;max-width:1200px;margin:0 auto;padding:24px 16px 70px;position:relative;z-index:1;}
+.section.active{display:block;animation:fadeIn .35s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.sec-title{font-family:'Cinzel Decorative',serif;font-size:clamp(15px,2.5vw,21px);color:var(--gold);
+  margin-bottom:6px;display:flex;align-items:center;gap:12px;}
+.sec-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold-dark),transparent);}
+.sec-sub{color:var(--gray);font-size:13px;margin-bottom:24px;}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold-dark),transparent);margin:30px 0;}
 
-  /* ========= NAV ========= */
-  nav {
-    position: relative; z-index: 10;
-    display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;
-    padding: 20px;
-    background: rgba(11,28,62,0.7);
-    backdrop-filter: blur(8px);
-  }
-  .nav-btn {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    padding: 10px 22px;
-    border: 1.5px solid rgba(212,175,55,0.35);
-    border-radius: 40px;
-    background: transparent;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .nav-btn:hover, .nav-btn.active {
-    background: var(--gold);
-    color: var(--navy);
-    border-color: var(--gold);
-    transform: translateY(-1px);
-  }
+/* HERO */
+.hero{text-align:center;padding:50px 16px 34px;max-width:800px;margin:0 auto;}
+.hero-badge{display:inline-block;background:linear-gradient(135deg,var(--crimson),#8B0000);
+  color:#fff;font-size:11px;font-weight:700;letter-spacing:3px;padding:5px 18px;border-radius:20px;margin-bottom:16px;text-transform:uppercase;}
+.hero h1{font-family:'Cinzel Decorative',serif;font-size:clamp(22px,5vw,44px);font-weight:900;line-height:1.15;margin-bottom:14px;}
+.hero h1 span{background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero p{font-size:15px;color:var(--gray);line-height:1.7;max-width:560px;margin:0 auto;}
 
-  /* ========= MAIN ========= */
-  main {
-    position: relative; z-index: 5;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 40px 20px 80px;
-  }
+/* FEATURE CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:28px;}
+.feat-card{background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));border:1px solid rgba(255,215,0,.14);
+  border-radius:14px;padding:22px;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;}
+.feat-card:hover{border-color:rgba(255,215,0,.5);transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.5);}
+.feat-card .ci{font-size:32px;margin-bottom:12px;display:block;}
+.feat-card .ct{font-family:'Cinzel Decorative',serif;font-size:13px;color:var(--gold);margin-bottom:7px;}
+.feat-card .cd{font-size:13px;color:var(--gray);line-height:1.55;}
+.feat-card .cbadge{position:absolute;top:12px;right:12px;color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:10px;}
 
-  /* ========= SECTION ========= */
-  .section { display: none; animation: fadeIn 0.4s ease; }
-  .section.visible { display: block; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+/* INFO CARDS */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
+.info-card{background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));border:1px solid rgba(255,215,0,.1);border-radius:14px;padding:22px;}
+.info-card .ic{font-size:30px;margin-bottom:10px;display:block;}
+.info-card .it{font-family:'Cinzel Decorative',serif;font-size:13px;color:var(--gold);margin-bottom:6px;}
+.info-card .id{font-size:13px;color:var(--gray);line-height:1.55;}
+/* Photo wrapper for cards 1 & 2 */
+.ic-photo-wrap{width:100%;height:140px;border-radius:10px;overflow:hidden;margin-bottom:12px;
+  background:rgba(255,215,0,.06);border:1px solid rgba(255,215,0,.12);
+  display:flex;align-items:center;justify-content:center;}
+.ic-photo-wrap img{width:100%;height:100%;object-fit:cover;border-radius:10px;}
+.ic-emoji{font-size:38px;}
 
-  .section-header {
-    display: flex; align-items: center; gap: 14px;
-    margin-bottom: 28px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid rgba(212,175,55,0.2);
-  }
-  .section-icon {
-    width: 48px; height: 48px; border-radius: 12px;
-    background: rgba(212,175,55,0.12);
-    border: 1.5px solid rgba(212,175,55,0.3);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .section-icon svg { width: 24px; height: 24px; fill: var(--gold); }
-  .section-title { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--gold); }
-  .section-sub { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+/* SUBJECT CARDS */
+.sub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;}
+.sub-card{background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));border:1px solid rgba(255,215,0,.15);
+  border-radius:12px;overflow:hidden;transition:all .3s;display:flex;flex-direction:column;}
+.sub-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.5);}
+.sub-top{padding:18px 12px 12px;text-align:center;flex:1;}
+.sub-icon{font-size:28px;margin-bottom:8px;display:block;}
+.sub-name{font-weight:700;font-size:14px;color:var(--white);line-height:1.3;margin-bottom:3px;}
+.sub-hint{font-size:11px;color:var(--gray);}
+.sub-btn{display:block;width:100%;background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+  color:var(--navy);border:none;padding:9px 6px;font-family:'Rajdhani',sans-serif;font-size:12px;
+  font-weight:700;cursor:pointer;letter-spacing:.3px;transition:filter .2s;}
+.sub-btn:hover{filter:brightness(1.12);}
+.sub-btn.soon{background:rgba(160,168,192,.12);color:rgba(160,168,192,.5);cursor:default;}
 
-  /* ========= FOLDER CARD ========= */
-  .folder-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-  .folder-card {
-    background: rgba(18,39,82,0.7);
-    border: 1.5px solid rgba(212,175,55,0.2);
-    border-radius: var(--radius);
-    padding: 22px 18px 18px;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.25s;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-  .folder-card:hover {
-    border-color: var(--gold);
-    background: rgba(212,175,55,0.08);
-    transform: translateY(-3px);
-  }
-  .folder-icon { font-size: 2.4rem; margin-bottom: 10px; line-height: 1; }
-  .folder-label {
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: var(--text-light);
-    line-height: 1.3;
-  }
-  .folder-sub { font-size: 0.78rem; color: var(--text-muted); margin-top: 5px; }
+/* YEAR GRID */
+.year-grid{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
+.year-btn{background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.22);color:var(--gold);
+  padding:7px 15px;border-radius:18px;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .25s;}
+.year-btn:hover,.year-btn.active{background:var(--gold);color:var(--navy);border-color:var(--gold);}
 
-  /* ========= YEAR GRID ========= */
-  .year-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-    gap: 10px;
-  }
-  .year-btn {
-    background: rgba(18,39,82,0.7);
-    border: 1.5px solid rgba(212,175,55,0.18);
-    border-radius: 10px;
-    padding: 14px 8px;
-    text-align: center;
-    font-family: 'Cinzel', serif;
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .year-btn:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-    background: rgba(212,175,55,0.07);
-    transform: translateY(-2px);
-  }
+/* DRIVE OPEN BOX */
+.drive-open-box{background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));border:1px solid rgba(255,215,0,.22);
+  border-radius:16px;padding:40px 28px;text-align:center;position:relative;overflow:hidden;}
+.drive-open-box::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(255,215,0,.04) 0%,transparent 70%);pointer-events:none;}
+.dob-icon{font-size:52px;margin-bottom:14px;display:block;}
+.dob-title{font-family:'Cinzel Decorative',serif;font-size:17px;color:var(--gold);margin-bottom:8px;}
+.dob-sub{font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:22px;}
+.dob-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+  color:var(--navy);border:none;border-radius:12px;padding:13px 28px;font-family:'Rajdhani',sans-serif;
+  font-size:15px;font-weight:700;cursor:pointer;transition:all .3s;text-decoration:none;}
+.dob-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,215,0,.35);}
+.dob-note{margin-top:14px;font-size:12px;color:rgba(160,168,192,.55);}
 
-  /* ========= MCQ CARD ========= */
-  .mcq-setup-card {
-    background: rgba(18,39,82,0.6);
-    border: 1.5px solid rgba(212,175,55,0.2);
-    border-radius: var(--radius);
-    padding: 28px;
-    margin-bottom: 24px;
-  }
-  .mcq-setup-card h3 {
-    font-family: 'Cinzel', serif;
-    color: var(--gold);
-    font-size: 1.1rem;
-    margin-bottom: 18px;
-  }
-  .form-row { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 14px; }
-  .form-group { flex: 1; min-width: 160px; }
-  .form-group label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px; }
-  .form-group select, .form-group input {
-    width: 100%;
-    background: rgba(11,28,62,0.8);
-    border: 1.5px solid rgba(212,175,55,0.25);
-    border-radius: 8px;
-    color: var(--text-light);
-    padding: 10px 14px;
-    font-family: 'Lato', sans-serif;
-    font-size: 0.9rem;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .form-group select:focus, .form-group input:focus { border-color: var(--gold); }
-  .form-group select option { background: var(--navy-light); }
+/* PLACEHOLDER */
+.placeholder{text-align:center;padding:60px 20px;color:var(--gray);}
+.placeholder .pi{font-size:48px;margin-bottom:14px;}
+.placeholder p{font-size:14px;line-height:1.8;}
+.placeholder strong{color:var(--gold);}
 
-  .btn-gold {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--gold);
-    color: var(--navy);
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 12px 28px;
-    border: none;
-    border-radius: 40px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
-  .btn-gold svg { width: 18px; height: 18px; fill: var(--navy); }
+/* COURSE BANNER */
+.course-banner{background:linear-gradient(135deg,#6B0000,#C0392B,#6B0000);border-radius:16px;padding:34px 24px;
+  text-align:center;margin-bottom:24px;position:relative;overflow:hidden;}
+.course-banner::before{content:'🎓';position:absolute;font-size:110px;opacity:.07;top:-10px;right:-5px;transform:rotate(-15deg);}
+.course-banner h2{font-family:'Cinzel Decorative',serif;font-size:clamp(16px,3vw,24px);color:var(--gold);margin-bottom:8px;}
+.course-banner p{color:rgba(255,255,255,.8);font-size:14px;margin-bottom:18px;}
 
-  /* ========= QUIZ ========= */
-  #quiz-area { display: none; }
-  .quiz-progress {
-    display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
-  }
-  .progress-bar {
-    flex: 1; height: 6px; border-radius: 3px;
-    background: rgba(212,175,55,0.15);
-    overflow: hidden;
-  }
-  .progress-fill { height: 100%; background: var(--gold); border-radius: 3px; transition: width 0.4s ease; }
-  .progress-label { font-size: 0.82rem; color: var(--text-muted); white-space: nowrap; }
+/* BUTTONS */
+.gold-btn{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--navy);border:none;
+  border-radius:10px;padding:11px 22px;font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;
+  cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block;}
+.gold-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(255,215,0,.3);}
+.red-btn{background:linear-gradient(135deg,#8B0000,var(--crimson));color:#fff;border:none;border-radius:10px;
+  padding:11px 22px;font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;
+  cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block;}
+.red-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(192,57,43,.3);}
 
-  .question-card {
-    background: rgba(18,39,82,0.7);
-    border: 1.5px solid rgba(212,175,55,0.2);
-    border-radius: var(--radius);
-    padding: 28px;
-    margin-bottom: 18px;
-  }
-  .question-text {
-    font-size: 1.05rem;
-    line-height: 1.65;
-    color: var(--text-light);
-    margin-bottom: 22px;
-  }
-  .options-list { display: flex; flex-direction: column; gap: 10px; }
-  .option-btn {
-    display: flex; align-items: center; gap: 14px;
-    background: rgba(11,28,62,0.6);
-    border: 1.5px solid rgba(212,175,55,0.18);
-    border-radius: 10px;
-    padding: 13px 18px;
-    cursor: pointer;
-    text-align: left;
-    color: var(--text-light);
-    font-family: 'Lato', sans-serif;
-    font-size: 0.92rem;
-    transition: all 0.2s;
-    width: 100%;
-  }
-  .option-btn:hover { border-color: var(--gold); background: rgba(212,175,55,0.06); }
-  .option-btn.correct { border-color: #27AE60; background: rgba(39,174,96,0.12); color: #7DEFA7; }
-  .option-btn.wrong { border-color: var(--accent-red); background: rgba(192,57,43,0.12); color: #F1948A; }
-  .option-label {
-    width: 30px; height: 30px; border-radius: 50%;
-    background: rgba(212,175,55,0.12);
-    border: 1.5px solid rgba(212,175,55,0.3);
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 0.8rem; color: var(--gold);
-    flex-shrink: 0;
-  }
+/* TOAST */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--navy-light);border:1px solid var(--gold);
+  color:var(--white);padding:12px 18px;border-radius:10px;font-size:13px;z-index:9999;
+  display:none;animation:slideUp .3s ease;max-width:300px;}
+@keyframes slideUp{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
 
-  .quiz-nav { display: flex; gap: 12px; justify-content: space-between; align-items: center; margin-top: 20px; }
-  .btn-outline {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: transparent;
-    color: var(--gold);
-    border: 1.5px solid rgba(212,175,55,0.4);
-    border-radius: 40px;
-    padding: 10px 22px;
-    font-family: 'Lato', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .btn-outline:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); }
+/* ADMIN OVERLAY */
+#admin-overlay{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.92);
+  backdrop-filter:blur(10px);align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;}
+#admin-overlay.open{display:flex;}
+.admin-panel{background:linear-gradient(135deg,#0C1228,#162048);border:1px solid var(--gold-dark);
+  border-radius:18px;padding:26px;width:min(680px,96vw);margin:auto;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.8);}
+.admin-panel>h2{font-family:'Cinzel Decorative',serif;font-size:16px;color:var(--gold);margin-bottom:4px;}
+.admin-top-sub{font-size:12px;color:var(--gray);margin-bottom:18px;line-height:1.6;padding-bottom:14px;border-bottom:1px solid rgba(255,215,0,.1);}
+.admin-close{position:absolute;top:14px;right:14px;background:rgba(192,57,43,.2);border:1px solid rgba(192,57,43,.4);
+  color:#FF6B5B;width:30px;height:30px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;}
+.admin-close:hover{background:rgba(192,57,43,.4);}
+.admin-tabs{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap;}
+.atab{background:rgba(255,215,0,.06);border:1px solid rgba(255,215,0,.15);color:var(--gray);
+  padding:7px 14px;border-radius:18px;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all .3s;}
+.atab:hover{color:var(--gold);}
+.atab.active{background:rgba(255,215,0,.15);border-color:var(--gold);color:var(--gold);}
+.atab-panel{display:none;}
+.atab-panel.active{display:block;}
+.afield{margin-bottom:14px;}
+.afield label{display:block;font-size:11px;font-weight:700;color:var(--gold);margin-bottom:5px;letter-spacing:1px;text-transform:uppercase;}
+.ainput{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,215,0,.2);border-radius:8px;
+  padding:10px 13px;color:var(--white);font-family:'Rajdhani',sans-serif;font-size:13px;outline:none;transition:border-color .3s;}
+.ainput:focus{border-color:var(--gold);}
+.ainput::placeholder{color:rgba(160,168,192,.35);}
+.atextarea{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,215,0,.2);border-radius:8px;
+  padding:10px 13px;color:var(--white);font-family:'Rajdhani',sans-serif;font-size:13px;outline:none;
+  transition:border-color .3s;resize:vertical;min-height:65px;}
+.atextarea:focus{border-color:var(--gold);}
+.arow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.asave{width:100%;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--navy);border:none;
+  border-radius:10px;padding:13px;font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;
+  cursor:pointer;transition:all .3s;margin-top:10px;}
+.asave:hover{box-shadow:0 8px 22px rgba(255,215,0,.3);}
+.aok{background:rgba(39,174,96,.12);border:1px solid rgba(39,174,96,.3);border-radius:8px;padding:8px 13px;
+  font-size:12px;color:#6EDB8F;margin-bottom:12px;display:none;}
+.asec-title{font-size:12px;font-weight:700;color:var(--gold-light);margin:16px 0 8px;
+  padding-bottom:5px;border-bottom:1px solid rgba(255,215,0,.1);}
+.ahint{font-size:11px;color:var(--gray);margin-top:3px;line-height:1.5;}
+.admin-login-title{font-family:'Cinzel Decorative',serif;font-size:15px;color:var(--gold);margin-bottom:6px;}
+.admin-login-sub{font-size:12px;color:var(--gray);margin-bottom:18px;line-height:1.6;}
+.admin-err{color:#FF6B5B;font-size:13px;margin-top:8px;display:none;text-align:center;}
+.howto-box{background:rgba(255,215,0,.04);border:1px solid rgba(255,215,0,.1);border-radius:8px;
+  padding:11px 13px;margin-bottom:16px;font-size:12px;color:var(--gray);line-height:1.8;}
+.howto-box strong{color:var(--gold-light);}
+code{background:rgba(255,215,0,.08);padding:2px 5px;border-radius:3px;font-size:11px;color:var(--gold-light);}
 
-  /* ========= RESULT ========= */
-  #result-area {
-    display: none;
-    text-align: center;
-    padding: 40px 20px;
-    background: rgba(18,39,82,0.6);
-    border: 1.5px solid rgba(212,175,55,0.2);
-    border-radius: var(--radius);
-  }
-  .score-ring {
-    width: 120px; height: 120px;
-    border-radius: 50%;
-    border: 5px solid var(--gold);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    margin: 0 auto 20px;
-    animation: pulse-ring 2.5s ease-in-out infinite;
-  }
-  .score-number { font-family: 'Cinzel', serif; font-size: 2.2rem; color: var(--gold); line-height: 1; }
-  .score-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
-  .result-msg { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--gold-light); margin-bottom: 8px; }
-  .result-sub { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 28px; }
+/* ADMIN TRIGGER */
+.admin-trigger{position:fixed;bottom:16px;left:16px;z-index:500;width:30px;height:30px;border-radius:50%;
+  background:rgba(255,255,255,.01);border:1px solid rgba(255,255,255,.02);color:rgba(255,255,255,.04);
+  font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .5s;}
+.admin-trigger:hover{background:rgba(255,215,0,.07);color:rgba(255,215,0,.3);border-color:rgba(255,215,0,.1);}
 
-  /* ========= FEEDBACK ========= */
-  .feedback-card {
-    background: rgba(18,39,82,0.6);
-    border: 1.5px solid rgba(212,175,55,0.2);
-    border-radius: var(--radius);
-    padding: 32px;
-    text-align: center;
-  }
-  .feedback-title { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--gold); margin-bottom: 10px; }
-  .feedback-sub { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; line-height: 1.6; }
-  .stars { display: flex; justify-content: center; gap: 10px; margin-bottom: 24px; }
-  .star { font-size: 2.5rem; cursor: pointer; transition: transform 0.15s; filter: grayscale(1) opacity(0.5); }
-  .star:hover, .star.lit { filter: none; transform: scale(1.2); }
-  .btn-feedback {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: #EA4335;
-    color: #fff;
-    border: none;
-    border-radius: 40px;
-    padding: 14px 32px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    font-size: 0.95rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .btn-feedback:hover { background: #D93025; transform: translateY(-2px); }
-  .btn-feedback svg { width: 20px; height: 20px; fill: #fff; }
-
-  /* ========= SETUP INSTRUCTIONS ========= */
-  .setup-card {
-    background: rgba(18,39,82,0.5);
-    border: 1.5px dashed rgba(212,175,55,0.3);
-    border-radius: var(--radius);
-    padding: 28px;
-    margin-bottom: 20px;
-  }
-  .setup-card h3 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-  .setup-card ol { padding-left: 20px; }
-  .setup-card li { color: var(--text-muted); font-size: 0.88rem; line-height: 1.8; }
-  .setup-card code {
-    background: rgba(212,175,55,0.12);
-    border: 1px solid rgba(212,175,55,0.2);
-    border-radius: 5px;
-    padding: 1px 7px;
-    font-family: monospace;
-    font-size: 0.85rem;
-    color: var(--gold-light);
-  }
-
-  /* ========= FOOTER ========= */
-  footer {
-    position: relative; z-index: 5;
-    text-align: center;
-    padding: 28px 20px;
-    border-top: 1px solid rgba(212,175,55,0.12);
-    color: var(--text-muted);
-    font-size: 0.82rem;
-  }
-  footer span { color: var(--gold); }
-
-  /* ========= LOADING SPINNER ========= */
-  .spinner {
-    display: inline-block;
-    width: 22px; height: 22px;
-    border: 3px solid rgba(212,175,55,0.2);
-    border-top-color: var(--gold);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    vertical-align: middle;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  .info-box {
-    background: rgba(212,175,55,0.07);
-    border: 1px solid rgba(212,175,55,0.2);
-    border-radius: 10px;
-    padding: 14px 18px;
-    margin-bottom: 20px;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    display: flex; gap: 10px; align-items: flex-start;
-  }
-  .info-box svg { width: 18px; height: 18px; fill: var(--gold); flex-shrink: 0; margin-top: 1px; }
+/* FOOTER */
+footer{position:relative;z-index:1;background:#060A1A;border-top:2px solid var(--gold-dark);text-align:center;padding:26px 20px;margin-top:40px;}
+footer p{color:var(--gray);font-size:13px;line-height:1.8;}
+footer strong{color:var(--gold);}
+.footer-links{display:flex;justify-content:center;gap:16px;margin-top:12px;flex-wrap:wrap;}
+.footer-links a{color:var(--gray);text-decoration:none;font-size:13px;transition:color .3s;}
+.footer-links a:hover{color:var(--gold);}
 </style>
 </head>
 <body>
 
-<div class="bg-pattern" aria-hidden="true"></div>
-
 <!-- HEADER -->
 <header>
-  <div class="logo-ring" aria-hidden="true">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-  </div>
-  <div class="institute-name">The Way Of Success Academy</div>
-  <div class="institute-tagline">Knowledge is the Way — Success is the Destination</div>
-  <div class="header-contact">
-    <a class="contact-pill" href="tel:9088846651">
-      <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-      9088846651
-    </a>
-    <a class="contact-pill" href="https://g.page/r/CYSScHBNe2d3EBM/review" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-      Rate Us on Google
-    </a>
+  <div class="header-inner">
+    <div class="logo-crest">
+      <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="40,5 55,20 75,25 60,42 65,62 40,52 15,62 20,42 5,25 25,20" fill="none" stroke="#FFD700" stroke-width="2"/>
+        <circle cx="40" cy="40" r="18" fill="none" stroke="#FFD700" stroke-width="1.5"/>
+        <text x="40" y="37" text-anchor="middle" font-size="10" fill="#FFD700" font-family="serif" font-weight="bold">THE</text>
+        <text x="40" y="49" text-anchor="middle" font-size="8" fill="#B8860B" font-family="serif">WAY</text>
+      </svg>
+    </div>
+    <div class="header-text">
+      <div class="academy-name">The Way Of Success Academy</div>
+      <div class="academy-tagline">Knowledge · Excellence · Achievement</div>
+    </div>
+    <div class="header-contact">
+      <a href="tel:9088846651" class="contact-pill">📞 9088846651</a>
+      <a href="https://g.page/r/CYSScHBNe2d3EBM/review" target="_blank" class="contact-pill feedback-pill">⭐ Give Feedback</a>
+    </div>
   </div>
 </header>
 
 <!-- NAV -->
 <nav>
-  <button class="nav-btn active" onclick="showSection('home')">🏠 Home</button>
-  <button class="nav-btn" onclick="showSection('gkgs')">📚 GK &amp; GS</button>
-  <button class="nav-btn" onclick="showSection('current')">📰 Current Affairs</button>
-  <button class="nav-btn" onclick="showSection('mcq')">✏️ MCQ Practice</button>
-  <button class="nav-btn" onclick="showSection('feedback')">⭐ Feedback</button>
-  <!-- Setup button hidden — triple-click footer to access -->
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showSection('home')">🏠 Home</button>
+    <button class="nav-btn" onclick="showSection('gkgs')">📚 GK / GS</button>
+    <button class="nav-btn" onclick="showSection('current')">📰 Current Affairs</button>
+    <button class="nav-btn" onclick="showSection('mcq')">✏️ MCQ</button>
+    <button class="nav-btn" onclick="showSection('course')">🎓 Our Course</button>
+  </div>
 </nav>
 
-<!-- PASSWORD MODAL OVERLAY -->
-<div id="pwd-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(5,12,30,0.92); align-items:center; justify-content:center;">
-  <div style="background:#122752; border:1.5px solid rgba(212,175,55,0.35); border-radius:16px; padding:36px 32px; width:90%; max-width:360px; text-align:center;">
-    <div style="font-size:2rem; margin-bottom:10px;">🔐</div>
-    <div style="font-family:'Cinzel',serif; color:var(--gold); font-size:1.1rem; margin-bottom:6px;">Admin Access</div>
-    <div style="color:var(--text-muted); font-size:0.82rem; margin-bottom:22px;">Enter the admin password to open Setup</div>
-    <input id="pwd-input" type="password" placeholder="Enter password"
-      style="width:100%; background:rgba(11,28,62,0.9); border:1.5px solid rgba(212,175,55,0.3); border-radius:8px; color:var(--text-light); padding:11px 16px; font-family:'Lato',sans-serif; font-size:0.95rem; outline:none; margin-bottom:10px; text-align:center; letter-spacing:0.1em;"
-      onkeydown="if(event.key==='Enter') checkPassword()"/>
-    <div id="pwd-error" style="color:#E74C3C; font-size:0.8rem; min-height:18px; margin-bottom:10px;"></div>
-    <div style="display:flex; gap:10px; justify-content:center;">
-      <button onclick="closePwdModal()" style="background:transparent; border:1.5px solid rgba(212,175,55,0.25); border-radius:30px; color:var(--text-muted); padding:9px 22px; font-family:'Lato',sans-serif; cursor:pointer; font-size:0.88rem;">Cancel</button>
-      <button onclick="checkPassword()" style="background:var(--gold); border:none; border-radius:30px; color:var(--navy); padding:9px 22px; font-family:'Lato',sans-serif; font-weight:700; cursor:pointer; font-size:0.88rem;">Enter</button>
+<!-- ══ HOME ══ -->
+<section id="home" class="section active">
+  <div class="hero">
+    <div class="hero-badge">Welcome to Excellence</div>
+    <h1>Your Path to <span>Success</span> Starts Here</h1>
+    <p>Comprehensive study materials, current affairs, MCQ practice, and expert-curated courses — all in one place for competitive exam aspirants.</p>
+  </div>
+  <div class="card-grid">
+    <div class="feat-card" onclick="showSection('gkgs')">
+      <span class="cbadge" style="background:var(--crimson)">NEW</span>
+      <span class="ci">📚</span><div class="ct">GK / GS Subjects</div>
+      <div class="cd">General Knowledge & General Studies covering all major topics for competitive exams.</div>
+    </div>
+    <div class="feat-card" onclick="showSection('current')">
+      <span class="ci">📰</span><div class="ct">Current Affairs</div>
+      <div class="cd">Year-wise current affairs from 2025 to 2050. Stay updated with important events.</div>
+    </div>
+    <div class="feat-card" onclick="showSection('mcq')">
+      <span class="ci">✏️</span><div class="ct">MCQ Practice</div>
+      <div class="cd">Practice thousands of Multiple Choice Questions. Strengthen your preparation daily.</div>
+    </div>
+    <div class="feat-card" onclick="showSection('course')">
+      <span class="cbadge" style="background:var(--gold-dark);color:var(--navy)">ENROLL</span>
+      <span class="ci">🎓</span><div class="ct">Our Course</div>
+      <div class="cd">Structured courses to maximise your exam success. Full study material & expert guidance.</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="info-grid">
+
+    <!-- CARD 1: Proven Results — student photo -->
+    <div class="info-card">
+      <div id="ic-photo-0" class="ic-photo-wrap">
+        <span class="ic-emoji">🏆</span>
+      </div>
+      <div class="it" id="ic-title-0">Proven Results</div>
+      <div class="id" id="ic-desc-0">Students consistently achieve top ranks in competitive examinations across India.</div>
+    </div>
+
+    <!-- CARD 2: Digital Materials — note image -->
+    <div class="info-card">
+      <div id="ic-photo-1" class="ic-photo-wrap">
+        <span class="ic-emoji">📲</span>
+      </div>
+      <div class="it" id="ic-title-1">Digital Materials</div>
+      <div class="id" id="ic-desc-1">All study materials accessible online via Google Drive. Study anytime, anywhere.</div>
+    </div>
+
+    <!-- CARD 3: Regular Updates — Google Drive folder button -->
+    <div class="info-card">
+      <span class="ic">🔄</span>
+      <div class="it" id="ic-title-2">Regular Updates</div>
+      <div class="id" id="ic-desc-2">Content updated regularly to reflect latest exam patterns and current events.</div>
+      <div id="ic-drive-2" style="margin-top:14px;display:none;">
+        <a id="ic-drive-btn-2" href="#" target="_blank" rel="noopener"
+          style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+          color:var(--navy);border-radius:8px;padding:9px 18px;font-family:'Rajdhani',sans-serif;
+          font-size:13px;font-weight:700;text-decoration:none;transition:all .3s;">
+          📂 Open Updates Folder
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ GK / GS ══ -->
+<section id="gkgs" class="section">
+  <div class="sec-title">📚 GK / GS Subjects</div>
+  <div class="sec-sub">Click any subject below to open its study material folder in Google Drive</div>
+  <!-- SUBJECT CARDS — hardcoded in HTML, always visible -->
+  <div class="sub-grid">
+    <div class="sub-card">
+      <div class="sub-top"><span class="sub-icon">🏛️</span><div class="sub-name">History</div><div class="sub-hint">Ancient · Medieval · Modern</div></div>
+      <button class="sub-btn" id="btn-history" onclick="openSubject('history')">📂 Open Folder</button>
+    </div>
+    <div class="sub-card">
+      <div class="sub-top"><span class="sub-icon">🌍</span><div class="sub-name">Geography</div><div class="sub-hint">Physical · Human · Indian</div></div>
+      <button class="sub-btn" id="btn-geography" onclick="openSubject('geography')">📂 Open Folder</button>
+    </div>
+    <div class="sub-card">
+      <div class="sub-top"><span class="sub-icon">⚖️</span><div class="sub-name">Indian Polity</div><div class="sub-hint">Constitution · Governance</div></div>
+      <button class="sub-btn" id="btn-polity" onclick="openSubject('polity')">📂 Open Folder</button>
+    </div>
+    <div class="sub-card">
+      <div class="sub-top"><span class="sub-icon">📈</span><div class="sub-name">Economy</div><div class="sub-hint">Macro · Micro · Indian</div></div>
+      <button class="sub-btn" id="btn-economy" onclick="openSubject('economy')">📂 Open Folder</button>
+    </div>
+    <div class="sub-card">
+      <div class="sub-top"><span class="sub-icon">🔬</span><div class="sub-name">General Science</div><div class="sub-hint">Physics · Chemistry · Biology</div></div>
+      <button class="sub-btn" id="btn-science" onclick="openSubject('science')">📂 Open Folder</button>
+    </div>
+    <div class="sub-card">
+      <div class="sub-top"><span class="sub-icon">🌿</span><div class="sub-name">Environment</div><div class="sub-hint">Ecology · Climate · Biodiversity</div></div>
+      <button class="sub-btn" id="btn-env" onclick="openSubject('env')">📂 Open Folder</button>
+    </div>
+    <div class="sub-card">
+      <div class="sub-top"><span class="sub-icon">🎭</span><div class="sub-name">Art & Culture</div><div class="sub-hint">Indian Heritage & Traditions</div></div>
+      <button class="sub-btn" id="btn-culture" onclick="openSubject('culture')">📂 Open Folder</button>
+    </div>
+    <div class="sub-card">
+      <div class="sub-top"><span class="sub-icon">🗂️</span><div class="sub-name">Static GK</div><div class="sub-hint">Facts · Awards · Books</div></div>
+      <button class="sub-btn" id="btn-staticgk" onclick="openSubject('staticgk')">📂 Open Folder</button>
+    </div>
+    <div class="sub-card">
+      <div class="sub-top"><span class="sub-icon">🧠</span><div class="sub-name">Reasoning & Aptitude</div><div class="sub-hint">Logical · Verbal · Non-Verbal</div></div>
+      <button class="sub-btn" id="btn-reasoning" onclick="openSubject('reasoning')">📂 Open Folder</button>
+    </div>
+    <div class="sub-card">
+      <div class="sub-top"><span class="sub-icon">💻</span><div class="sub-name">Computer GK</div><div class="sub-hint">Basics · Internet · MS Office</div></div>
+      <button class="sub-btn" id="btn-computer" onclick="openSubject('computer')">📂 Open Folder</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CURRENT AFFAIRS ══ -->
+<section id="current" class="section">
+  <div class="sec-title">📰 Current Affairs</div>
+  <div class="sec-sub">Year-wise current affairs 2025–2050 — select a year to open its folder</div>
+  <!-- YEAR BUTTONS — hardcoded in HTML, always visible -->
+  <div class="year-grid">
+    <button class="year-btn" onclick="openYear(2025)">2025</button>
+    <button class="year-btn" onclick="openYear(2026)">2026</button>
+    <button class="year-btn" onclick="openYear(2027)">2027</button>
+    <button class="year-btn" onclick="openYear(2028)">2028</button>
+    <button class="year-btn" onclick="openYear(2029)">2029</button>
+    <button class="year-btn" onclick="openYear(2030)">2030</button>
+    <button class="year-btn" onclick="openYear(2031)">2031</button>
+    <button class="year-btn" onclick="openYear(2032)">2032</button>
+    <button class="year-btn" onclick="openYear(2033)">2033</button>
+    <button class="year-btn" onclick="openYear(2034)">2034</button>
+    <button class="year-btn" onclick="openYear(2035)">2035</button>
+    <button class="year-btn" onclick="openYear(2036)">2036</button>
+    <button class="year-btn" onclick="openYear(2037)">2037</button>
+    <button class="year-btn" onclick="openYear(2038)">2038</button>
+    <button class="year-btn" onclick="openYear(2039)">2039</button>
+    <button class="year-btn" onclick="openYear(2040)">2040</button>
+    <button class="year-btn" onclick="openYear(2041)">2041</button>
+    <button class="year-btn" onclick="openYear(2042)">2042</button>
+    <button class="year-btn" onclick="openYear(2043)">2043</button>
+    <button class="year-btn" onclick="openYear(2044)">2044</button>
+    <button class="year-btn" onclick="openYear(2045)">2045</button>
+    <button class="year-btn" onclick="openYear(2046)">2046</button>
+    <button class="year-btn" onclick="openYear(2047)">2047</button>
+    <button class="year-btn" onclick="openYear(2048)">2048</button>
+    <button class="year-btn" onclick="openYear(2049)">2049</button>
+    <button class="year-btn" onclick="openYear(2050)">2050</button>
+  </div>
+  <div id="current-result" class="placeholder">
+    <div class="pi">📅</div>
+    <p>Select a year above to open that year's current affairs folder.</p>
+  </div>
+</section>
+
+<!-- ══ MCQ ══ -->
+<section id="mcq" class="section">
+  <div class="sec-title">✏️ MCQ Practice</div>
+  <div class="sec-sub">Browse all Multiple Choice Question sets — click to open in Google Drive</div>
+  <div id="mcq-result" class="placeholder">
+    <div class="pi">✏️</div>
+    <p>MCQ folder will appear here once added by admin.<br>Contact: <strong>📞 9088846651</strong></p>
+  </div>
+</section>
+
+<!-- ══ OUR COURSE ══ -->
+<section id="course" class="section">
+  <div class="course-banner">
+    <h2>🎓 Our Course</h2>
+    <p>Complete structured courses by The Way Of Success Academy</p>
+    <a href="tel:9088846651" class="gold-btn">📞 Enroll Now — 9088846651</a>
+  </div>
+  <div id="course-result" class="placeholder">
+    <div class="pi">🎓</div>
+    <p>Course materials will appear here once added by admin.<br>For enrollment: <strong>📞 9088846651</strong></p>
+  </div>
+  <div class="divider"></div>
+  <div style="text-align:center;padding:8px 0 18px;">
+    <a href="https://g.page/r/CYSScHBNe2d3EBM/review" target="_blank" class="red-btn">⭐ Rate Us on Google</a>
+    <p style="margin-top:12px;color:var(--gray);font-size:13px;">Your feedback helps us grow!</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>The Way Of Success Academy</strong><br>Knowledge · Excellence · Achievement<br>
+  📞 <a href="tel:9088846651" style="color:var(--gold);text-decoration:none;">9088846651</a></p>
+  <div class="footer-links">
+    <a href="#" onclick="showSection('home');return false;">Home</a>
+    <a href="#" onclick="showSection('gkgs');return false;">GK / GS</a>
+    <a href="#" onclick="showSection('current');return false;">Current Affairs</a>
+    <a href="#" onclick="showSection('mcq');return false;">MCQ</a>
+    <a href="#" onclick="showSection('course');return false;">Our Course</a>
+    <a href="https://g.page/r/CYSScHBNe2d3EBM/review" target="_blank">⭐ Feedback</a>
+  </div>
+  <p style="margin-top:12px;font-size:11px;color:rgba(160,168,192,.3);">© 2025 The Way Of Success Academy. All rights reserved.</p>
+</footer>
+
+<!-- ADMIN TRIGGER (tiny, bottom-left) -->
+<button class="admin-trigger" onclick="openAdmin()">⚙</button>
+<div class="toast" id="toast"></div>
+
+<!-- ADMIN OVERLAY -->
+<div id="admin-overlay">
+  <div class="admin-panel">
+    <button class="admin-close" onclick="closeAdmin()">✕</button>
+
+    <!-- LOGIN -->
+    <div id="admin-login">
+      <div class="admin-login-title">🔐 Admin Panel</div>
+      <div class="admin-login-sub">Only for The Way Of Success Academy admin.</div>
+      <input class="ainput" type="password" id="admin-pwd" placeholder="Enter admin password"
+        onkeydown="if(event.key==='Enter')checkPwd()" style="margin-bottom:12px;">
+      <button class="asave" onclick="checkPwd()">🔓 Unlock</button>
+      <div class="admin-err" id="admin-err">❌ Wrong password.</div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="admin-dashboard" style="display:none;">
+      <h2>⚙️ Content Manager</h2>
+      <div class="admin-top-sub">Students <strong style="color:var(--gold)">never see folder IDs.</strong> Paste IDs below and save.</div>
+
+      <div class="howto-box">
+        <strong>Get Folder ID from Google Drive URL:</strong><br>
+        <code>drive.google.com/drive/folders/<strong style="color:var(--gold)">COPY_THIS_PART</strong></code><br>
+        Set sharing: <strong>"Anyone with the link → Viewer"</strong>
+      </div>
+
+      <div class="aok" id="aok">✅ Saved! Students can now access the content.</div>
+
+      <div class="admin-tabs">
+        <button class="atab active" onclick="switchTab(event,'tab-gkgs')">📚 GK/GS</button>
+        <button class="atab" onclick="switchTab(event,'tab-current')">📰 Current Affairs</button>
+        <button class="atab" onclick="switchTab(event,'tab-mcq')">✏️ MCQ</button>
+        <button class="atab" onclick="switchTab(event,'tab-course')">🎓 Course</button>
+        <button class="atab" onclick="switchTab(event,'tab-home')">🏠 Home Cards</button>
+        <button class="atab" onclick="switchTab(event,'tab-pwd')">🔑 Password</button>
+      </div>
+
+      <!-- GK/GS TAB -->
+      <div class="atab-panel active" id="tab-gkgs">
+        <div style="font-size:12px;color:var(--gray);margin-bottom:12px;">Paste a separate Google Drive Folder ID for each subject.</div>
+        <div class="afield"><label>🏛️ History</label><input class="ainput" id="ag-history" placeholder="Folder ID"></div>
+        <div class="afield"><label>🌍 Geography</label><input class="ainput" id="ag-geography" placeholder="Folder ID"></div>
+        <div class="afield"><label>⚖️ Indian Polity</label><input class="ainput" id="ag-polity" placeholder="Folder ID"></div>
+        <div class="afield"><label>📈 Economy</label><input class="ainput" id="ag-economy" placeholder="Folder ID"></div>
+        <div class="afield"><label>🔬 General Science</label><input class="ainput" id="ag-science" placeholder="Folder ID"></div>
+        <div class="afield"><label>🌿 Environment</label><input class="ainput" id="ag-env" placeholder="Folder ID"></div>
+        <div class="afield"><label>🎭 Art & Culture</label><input class="ainput" id="ag-culture" placeholder="Folder ID"></div>
+        <div class="afield"><label>🗂️ Static GK</label><input class="ainput" id="ag-staticgk" placeholder="Folder ID"></div>
+        <div class="afield"><label>🧠 Reasoning & Aptitude</label><input class="ainput" id="ag-reasoning" placeholder="Folder ID"></div>
+        <div class="afield"><label>💻 Computer GK</label><input class="ainput" id="ag-computer" placeholder="Folder ID"></div>
+      </div>
+
+      <!-- CURRENT AFFAIRS TAB -->
+      <div class="atab-panel" id="tab-current">
+        <div style="font-size:12px;color:var(--gray);margin-bottom:12px;">Paste a folder ID for each year. Leave blank if not yet available.</div>
+        <div class="afield"><label>📅 2025</label><input class="ainput" id="ay-2025" placeholder="Folder ID for 2025"></div>
+        <div class="afield"><label>📅 2026</label><input class="ainput" id="ay-2026" placeholder="Folder ID for 2026"></div>
+        <div class="afield"><label>📅 2027</label><input class="ainput" id="ay-2027" placeholder="Folder ID for 2027"></div>
+        <div class="afield"><label>📅 2028</label><input class="ainput" id="ay-2028" placeholder="Folder ID for 2028"></div>
+        <div class="afield"><label>📅 2029</label><input class="ainput" id="ay-2029" placeholder="Folder ID for 2029"></div>
+        <div class="afield"><label>📅 2030</label><input class="ainput" id="ay-2030" placeholder="Folder ID for 2030"></div>
+        <div class="afield"><label>📅 2031</label><input class="ainput" id="ay-2031" placeholder="Folder ID for 2031"></div>
+        <div class="afield"><label>📅 2032</label><input class="ainput" id="ay-2032" placeholder="Folder ID for 2032"></div>
+        <div class="afield"><label>📅 2033</label><input class="ainput" id="ay-2033" placeholder="Folder ID for 2033"></div>
+        <div class="afield"><label>📅 2034</label><input class="ainput" id="ay-2034" placeholder="Folder ID for 2034"></div>
+        <div class="afield"><label>📅 2035</label><input class="ainput" id="ay-2035" placeholder="Folder ID for 2035"></div>
+        <div class="afield"><label>📅 2036</label><input class="ainput" id="ay-2036" placeholder="Folder ID for 2036"></div>
+        <div class="afield"><label>📅 2037</label><input class="ainput" id="ay-2037" placeholder="Folder ID for 2037"></div>
+        <div class="afield"><label>📅 2038</label><input class="ainput" id="ay-2038" placeholder="Folder ID for 2038"></div>
+        <div class="afield"><label>📅 2039</label><input class="ainput" id="ay-2039" placeholder="Folder ID for 2039"></div>
+        <div class="afield"><label>📅 2040</label><input class="ainput" id="ay-2040" placeholder="Folder ID for 2040"></div>
+        <div class="afield"><label>📅 2041</label><input class="ainput" id="ay-2041" placeholder="Folder ID for 2041"></div>
+        <div class="afield"><label>📅 2042</label><input class="ainput" id="ay-2042" placeholder="Folder ID for 2042"></div>
+        <div class="afield"><label>📅 2043</label><input class="ainput" id="ay-2043" placeholder="Folder ID for 2043"></div>
+        <div class="afield"><label>📅 2044</label><input class="ainput" id="ay-2044" placeholder="Folder ID for 2044"></div>
+        <div class="afield"><label>📅 2045</label><input class="ainput" id="ay-2045" placeholder="Folder ID for 2045"></div>
+        <div class="afield"><label>📅 2046</label><input class="ainput" id="ay-2046" placeholder="Folder ID for 2046"></div>
+        <div class="afield"><label>📅 2047</label><input class="ainput" id="ay-2047" placeholder="Folder ID for 2047"></div>
+        <div class="afield"><label>📅 2048</label><input class="ainput" id="ay-2048" placeholder="Folder ID for 2048"></div>
+        <div class="afield"><label>📅 2049</label><input class="ainput" id="ay-2049" placeholder="Folder ID for 2049"></div>
+        <div class="afield"><label>📅 2050</label><input class="ainput" id="ay-2050" placeholder="Folder ID for 2050"></div>
+      </div>
+
+      <!-- MCQ TAB -->
+      <div class="atab-panel" id="tab-mcq">
+        <div class="afield">
+          <label>✏️ MCQ Folder ID</label>
+          <input class="ainput" id="a-mcq" placeholder="Google Drive Folder ID for MCQ">
+          <div class="ahint">All MCQ sets in this folder. Students click "Open Folder" to browse.</div>
+        </div>
+      </div>
+
+      <!-- COURSE TAB -->
+      <div class="atab-panel" id="tab-course">
+        <div class="afield">
+          <label>🎓 Our Course Folder ID</label>
+          <input class="ainput" id="a-course" placeholder="Google Drive Folder ID for Course">
+          <div class="ahint">Course materials folder. Students click "Open Folder" to access.</div>
+        </div>
+      </div>
+
+      <!-- HOME CARDS TAB -->
+      <div class="atab-panel" id="tab-home">
+        <div style="font-size:12px;color:var(--gray);margin-bottom:14px;line-height:1.7;">Edit the 3 info cards on the Home page.</div>
+
+        <div class="asec-title">🏆 Card 1 — Proven Results (Student Photo)</div>
+        <div class="afield">
+          <label>Student Photo — Paste Image URL</label>
+          <input class="ainput" id="ic-img-0" placeholder="https://example.com/student-photo.jpg">
+          <div class="ahint">Paste a direct image link (ends in .jpg/.png). Upload your photo to Google Photos / ImgBB / Drive and copy the direct link.</div>
+        </div>
+        <div class="afield"><label>Title</label><input class="ainput" id="ic-t-0" placeholder="Proven Results"></div>
+        <div class="afield"><label>Description</label><textarea class="atextarea" id="ic-d-0"></textarea></div>
+
+        <div class="asec-title">📲 Card 2 — Digital Materials (Notes Image)</div>
+        <div class="afield">
+          <label>Notes Image — Paste Image URL</label>
+          <input class="ainput" id="ic-img-1" placeholder="https://example.com/notes-image.jpg">
+          <div class="ahint">Paste a direct image link of your notes. Upload to ImgBB or Google Photos and copy the direct image URL.</div>
+        </div>
+        <div class="afield"><label>Title</label><input class="ainput" id="ic-t-1" placeholder="Digital Materials"></div>
+        <div class="afield"><label>Description</label><textarea class="atextarea" id="ic-d-1"></textarea></div>
+
+        <div class="asec-title">🔄 Card 3 — Regular Updates (Google Drive Folder)</div>
+        <div class="afield">
+          <label>Google Drive Folder ID for Updates</label>
+          <input class="ainput" id="ic-drive-id-2" placeholder="Paste Google Drive Folder ID here">
+          <div class="ahint">Students will see a "Open Updates Folder" button linking to this Drive folder.</div>
+        </div>
+        <div class="afield"><label>Title</label><input class="ainput" id="ic-t-2" placeholder="Regular Updates"></div>
+        <div class="afield"><label>Description</label><textarea class="atextarea" id="ic-d-2"></textarea></div>
+      </div>
+
+      <!-- PASSWORD TAB -->
+      <div class="atab-panel" id="tab-pwd">
+        <div class="afield">
+          <label>🔑 New Password</label>
+          <input class="ainput" type="password" id="a-newpwd" placeholder="Min 4 characters">
+          <div class="ahint">Default: <strong style="color:var(--gold)">admin123</strong> — change it!</div>
+        </div>
+      </div>
+
+      <button class="asave" onclick="saveAdmin()">💾 Save & Publish All Changes</button>
     </div>
   </div>
 </div>
 
-<!-- MAIN -->
-<main>
-
-  <!-- HOME -->
-  <section class="section visible" id="home">
-    <div style="text-align:center; padding: 20px 0 40px;">
-      <div style="font-family:'Cinzel',serif; font-size:clamp(1.1rem,3vw,1.6rem); color:var(--gold); margin-bottom:14px;">Welcome to Your Learning Portal</div>
-      <p style="color:var(--text-muted); font-size:0.95rem; max-width:560px; margin:0 auto 36px; line-height:1.8;">Explore our curated study materials, current affairs, and practice MCQs — all powered by Google Drive. One click away from success.</p>
-    </div>
-    <div class="folder-grid">
-      <div class="folder-card" onclick="showSection('gkgs')">
-        <div class="folder-icon">📚</div>
-        <div class="folder-label">GK & GS</div>
-        <div class="folder-sub">General Knowledge & Science</div>
-      </div>
-      <div class="folder-card" onclick="showSection('current')">
-        <div class="folder-icon">📰</div>
-        <div class="folder-label">Current Affairs</div>
-        <div class="folder-sub">2025 – 2050 Year-wise</div>
-      </div>
-      <div class="folder-card" onclick="showSection('mcq')">
-        <div class="folder-icon">✏️</div>
-        <div class="folder-label">MCQ Practice</div>
-        <div class="folder-sub">Test your knowledge</div>
-      </div>
-      <div class="folder-card" onclick="showSection('feedback')">
-        <div class="folder-icon">⭐</div>
-        <div class="folder-label">Your Feedback</div>
-        <div class="folder-sub">Rate us on Google</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GK & GS -->
-  <section class="section" id="gkgs">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-      </div>
-      <div>
-        <div class="section-title">GK & General Science</div>
-        <div class="section-sub">Open study material stored in your Google Drive</div>
-      </div>
-    </div>
-    <div class="info-box">
-      <svg viewBox="0 0 24 24"><path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0012 2z"/></svg>
-      <span>Set your Google Drive Folder IDs in the <strong style="color:var(--gold)">Setup</strong> section. Folders will open directly in Google Drive.</span>
-    </div>
-    <div class="folder-grid" id="gkgs-folders">
-      <a class="folder-card" id="link-gk" href="#" target="_blank" rel="noopener" onclick="return openDriveFolder('gk')">
-        <div class="folder-icon">🌍</div>
-        <div class="folder-label">General Knowledge</div>
-        <div class="folder-sub">History, Geography, Polity…</div>
-      </a>
-      <a class="folder-card" id="link-gs" href="#" target="_blank" rel="noopener" onclick="return openDriveFolder('gs')">
-        <div class="folder-icon">🔬</div>
-        <div class="folder-label">General Science</div>
-        <div class="folder-sub">Physics, Chemistry, Biology…</div>
-      </a>
-      <a class="folder-card" id="link-math" href="#" target="_blank" rel="noopener" onclick="return openDriveFolder('math')">
-        <div class="folder-icon">📐</div>
-        <div class="folder-label">Mathematics</div>
-        <div class="folder-sub">Arithmetic, Reasoning…</div>
-      </a>
-      <a class="folder-card" id="link-english" href="#" target="_blank" rel="noopener" onclick="return openDriveFolder('english')">
-        <div class="folder-icon">📖</div>
-        <div class="folder-label">English</div>
-        <div class="folder-sub">Grammar, Comprehension…</div>
-      </a>
-    </div>
-  </section>
-
-  <!-- CURRENT AFFAIRS -->
-  <section class="section" id="current">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 10l-9 7z"/></svg>
-      </div>
-      <div>
-        <div class="section-title">Current Affairs</div>
-        <div class="section-sub">Year-wise — 2025 to 2050</div>
-      </div>
-    </div>
-    <div class="info-box">
-      <svg viewBox="0 0 24 24"><path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0012 2z"/></svg>
-      <span>Each year opens a dedicated Google Drive folder. Add folder IDs in <strong style="color:var(--gold)">Setup</strong>.</span>
-    </div>
-    <div class="year-grid" id="year-grid"></div>
-  </section>
-
-  <!-- MCQ -->
-  <section class="section" id="mcq">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-      </div>
-      <div>
-        <div class="section-title">MCQ Practice</div>
-        <div class="section-sub">Sharpen your skills with quick quizzes</div>
-      </div>
-    </div>
-
-    <div id="mcq-setup">
-      <div class="mcq-setup-card">
-        <h3>📋 Configure Your Quiz</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Subject</label>
-            <select id="quiz-subject">
-              <option value="gk">General Knowledge</option>
-              <option value="gs">General Science</option>
-              <option value="ca">Current Affairs</option>
-              <option value="math">Mathematics</option>
-              <option value="english">English</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Number of Questions</label>
-            <select id="quiz-count">
-              <option value="5">5 Questions</option>
-              <option value="10" selected>10 Questions</option>
-              <option value="20">20 Questions</option>
-              <option value="30">30 Questions</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Difficulty</label>
-            <select id="quiz-difficulty">
-              <option value="easy">Easy</option>
-              <option value="medium" selected>Medium</option>
-              <option value="hard">Hard</option>
-              <option value="mixed">Mixed</option>
-            </select>
-          </div>
-        </div>
-        <div class="info-box" style="margin-top:4px;">
-          <svg viewBox="0 0 24 24"><path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0012 2z"/></svg>
-          <span>To load MCQs from Google Drive, set a <strong style="color:var(--gold)">Google Sheets ID</strong> in Setup containing your MCQ data. The sample questions below are built-in.</span>
-        </div>
-        <button class="btn-gold" onclick="startQuiz()">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-          Start Quiz
-        </button>
-      </div>
-    </div>
-
-    <div id="quiz-area">
-      <div class="quiz-progress">
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
-        <div class="progress-label" id="progress-label">0 / 10</div>
-      </div>
-      <div class="question-card">
-        <div class="question-text" id="question-text">Loading…</div>
-        <div class="options-list" id="options-list"></div>
-      </div>
-      <div class="quiz-nav">
-        <button class="btn-outline" onclick="resetQuiz()">← Restart</button>
-        <div style="font-size:0.85rem; color:var(--text-muted);" id="answer-hint"></div>
-        <button class="btn-gold" id="next-btn" onclick="nextQuestion()" style="display:none;">
-          Next →
-        </button>
-      </div>
-    </div>
-
-    <div id="result-area">
-      <div class="score-ring">
-        <div class="score-number" id="final-score">0</div>
-        <div class="score-label">/ <span id="final-total">10</span></div>
-      </div>
-      <div class="result-msg" id="result-msg">Great work!</div>
-      <div class="result-sub" id="result-sub">You answered correctly.</div>
-      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-        <button class="btn-gold" onclick="resetQuiz()">
-          <svg viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
-          Try Again
-        </button>
-        <a class="btn-outline" href="https://g.page/r/CYSScHBNe2d3EBM/review" target="_blank" rel="noopener" style="text-decoration:none;">⭐ Rate Us</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEEDBACK -->
-  <section class="section" id="feedback">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-      </div>
-      <div>
-        <div class="section-title">Your Feedback</div>
-        <div class="section-sub">Help us improve — every review matters!</div>
-      </div>
-    </div>
-    <div class="feedback-card">
-      <div class="feedback-title">How was your experience?</div>
-      <div class="feedback-sub">Your feedback helps The Way Of Success Academy grow and serve students better. Tap a star and leave us a Google review!</div>
-      <div class="stars" id="stars">
-        <span class="star" onclick="rateStar(1)">⭐</span>
-        <span class="star" onclick="rateStar(2)">⭐</span>
-        <span class="star" onclick="rateStar(3)">⭐</span>
-        <span class="star" onclick="rateStar(4)">⭐</span>
-        <span class="star" onclick="rateStar(5)">⭐</span>
-      </div>
-      <a class="btn-feedback" href="https://g.page/r/CYSScHBNe2d3EBM/review" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" style="fill:white"><path d="M21.35 11.1H12.18V13.83H18.69C18.36 17.64 15.19 19.27 12.19 19.27C8.36 19.27 5 16.25 5 12C5 7.9 8.2 4.73 12.2 4.73C15.29 4.73 17.1 6.7 17.1 6.7L19 4.72C19 4.72 16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12C2.03 17.05 6.16 22 12.25 22C17.6 22 21.5 18.33 21.5 12.91C21.5 11.76 21.35 11.1 21.35 11.1Z"/></svg>
-        Write a Google Review
-      </a>
-      <p style="color:var(--text-muted); font-size:0.8rem; margin-top:16px;">📞 Call us: <a href="tel:9088846651" style="color:var(--gold);">9088846651</a></p>
-    </div>
-  </section>
-
-  <!-- SETUP -->
-  <section class="section" id="setup">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
-      </div>
-      <div>
-        <div class="section-title">Setup & Configuration</div>
-        <div class="section-sub">Connect your Google Drive folders</div>
-      </div>
-    </div>
-
-    <div class="setup-card">
-      <h3>
-        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:var(--gold)"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
-        📁 How to Set Up Google Drive Folders
-      </h3>
-      <ol>
-        <li>Go to <strong style="color:var(--gold-light)">Google Drive</strong> and create folders for each subject and each year</li>
-        <li>Right-click a folder → <code>Share</code> → set to <code>Anyone with the link can view</code></li>
-        <li>Copy the Folder ID from the URL:<br><code>drive.google.com/drive/folders/<strong style="color:var(--gold)">FOLDER_ID_HERE</strong></code></li>
-        <li>Paste each ID in the fields below and click <strong style="color:var(--gold-light)">Save Configuration</strong></li>
-      </ol>
-    </div>
-
-    <div class="setup-card" style="margin-top:14px;">
-      <h3>
-        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:var(--gold)"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
-        📊 How to Set Up Google Sheet for MCQ
-      </h3>
-      <ol>
-        <li>Open <strong style="color:var(--gold-light)">Google Sheets</strong> and create a new sheet</li>
-        <li>Add these exact column headers in Row 1:<br>
-          <code>Question</code> &nbsp;|&nbsp; <code>A</code> &nbsp;|&nbsp; <code>B</code> &nbsp;|&nbsp; <code>C</code> &nbsp;|&nbsp; <code>D</code> &nbsp;|&nbsp; <code>Answer</code> &nbsp;|&nbsp; <code>Subject</code><br>
-          <small style="color:var(--text-muted);">Answer column: put the correct option letter — A, B, C, or D</small><br>
-          <small style="color:var(--text-muted);">Subject column: gk / gs / ca / math / english</small>
-        </li>
-        <li>Fill in your MCQ data from Row 2 onwards</li>
-        <li>Click <strong style="color:var(--gold-light)">File → Share → Publish to web</strong></li>
-        <li>Choose <code>Sheet1</code> and format <code>Comma-separated values (.csv)</code> → Click <strong style="color:var(--gold-light)">Publish</strong></li>
-        <li>Copy the URL. It looks like:<br><code style="font-size:0.78rem; word-break:break-all;">https://docs.google.com/spreadsheets/d/<strong style="color:var(--gold)">SHEET_ID</strong>/pub?output=csv</code></li>
-        <li>Copy only the <strong style="color:var(--gold-light)">SHEET_ID</strong> part and paste it below</li>
-      </ol>
-    </div>
-
-    <div class="mcq-setup-card" style="margin-top:20px;">
-      <h3>🗂️ GK & GS Folder IDs</h3>
-      <div class="form-row">
-        <div class="form-group"><label>General Knowledge Folder ID</label><input id="cfg-gk" type="text" placeholder="e.g. 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs"></div>
-        <div class="form-group"><label>General Science Folder ID</label><input id="cfg-gs" type="text" placeholder="e.g. 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs"></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label>Mathematics Folder ID</label><input id="cfg-math" type="text" placeholder="Folder ID"></div>
-        <div class="form-group"><label>English Folder ID</label><input id="cfg-english" type="text" placeholder="Folder ID"></div>
-      </div>
-
-      <h3 style="margin-top:24px; margin-bottom:6px;">📰 Current Affairs Folder IDs — Year Wise (2025 to 2050)</h3>
-      <div class="info-box" style="margin-bottom:14px;">
-        <svg viewBox="0 0 24 24"><path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0012 2z"/></svg>
-        <span>Create one Google Drive folder per year, paste each Folder ID below. Leave blank if not needed yet.</span>
-      </div>
-      <div id="year-cfg-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:10px; margin-bottom:20px;"></div>
-
-      <h3 style="margin-top:4px; margin-bottom:14px;">✏️ MCQ Google Sheet ID</h3>
-      <div class="info-box" style="margin-bottom:12px;">
-        <svg viewBox="0 0 24 24"><path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 002 12a10 10 0 0010 10 10 10 0 0010-10A10 10 0 0012 2z"/></svg>
-        <span>Paste only the Sheet ID (not the full URL). When a Sheet ID is saved, quiz will load your questions from Google Sheets. Otherwise built-in sample questions are used.</span>
-      </div>
-      <div class="form-group" style="margin-bottom:8px;">
-        <label>Published Google Sheet ID</label>
-        <input id="cfg-sheet" type="text" placeholder="e.g. 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74tMdKv">
-      </div>
-      <div style="margin-bottom:18px;">
-        <button class="btn-outline" onclick="testSheetConnection()" style="font-size:0.82rem; padding:8px 16px;">🔗 Test Sheet Connection</button>
-        <span id="sheet-test-msg" style="margin-left:10px; font-size:0.82rem;"></span>
-      </div>
-
-      <button class="btn-gold" onclick="saveConfig()">
-        <svg viewBox="0 0 24 24"><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>
-        Save Configuration
-      </button>
-      <span id="save-msg" style="margin-left:14px; color:#27AE60; font-size:0.88rem; display:none;">✓ Saved successfully!</span>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div style="margin-bottom:6px; font-family:'Cinzel',serif; font-size:0.95rem; color:var(--gold);">The Way Of Success Academy</div>
-  <div>📞 <span>9088846651</span> &nbsp;|&nbsp; <a href="https://g.page/r/CYSScHBNe2d3EBM/review" target="_blank" style="color:var(--gold); text-decoration:none;">⭐ Rate Us on Google</a></div>
-  <div style="margin-top:8px; font-size:0.75rem; opacity:0.5;">Knowledge is the Way — Success is the Destination</div>
-</footer>
-
 <script>
-// ===== CONFIG =====
-const YEARS = Array.from({length: 26}, (_, i) => 2025 + i); // 2025–2050
-
-let config = JSON.parse(localStorage.getItem('wosa_config') || '{}');
-
-function saveConfig() {
-  config['gk'] = document.getElementById('cfg-gk').value.trim();
-  config['gs'] = document.getElementById('cfg-gs').value.trim();
-  config['math'] = document.getElementById('cfg-math').value.trim();
-  config['english'] = document.getElementById('cfg-english').value.trim();
-  config['sheet'] = document.getElementById('cfg-sheet').value.trim();
-  YEARS.forEach(y => {
-    const el = document.getElementById('cfg-year-' + y);
-    if(el) config['year_' + y] = el.value.trim();
-  });
-  localStorage.setItem('wosa_config', JSON.stringify(config));
-  const msg = document.getElementById('save-msg');
-  msg.style.display = 'inline';
-  setTimeout(() => msg.style.display = 'none', 2500);
-}
-
-function loadConfigUI() {
-  ['gk','gs','math','english','sheet'].forEach(k => {
-    const el = document.getElementById('cfg-' + k);
-    if(el) el.value = config[k] || '';
-  });
-  const grid = document.getElementById('year-cfg-grid');
-  if(!grid) return;
-  grid.innerHTML = '';
-  YEARS.forEach(y => {
-    const div = document.createElement('div');
-    div.className = 'form-group';
-    const saved = config['year_' + y] || '';
-    div.innerHTML = `<label>📅 ${y} — Current Affairs Folder ID</label><input id="cfg-year-${y}" type="text" placeholder="Paste ${y} folder ID here" value="${saved}">`;
-    grid.appendChild(div);
-  });
-}
-
-function openDriveFolder(key) {
-  const id = config[key];
-  if(id) {
-    window.open('https://drive.google.com/drive/folders/' + id, '_blank');
-  } else {
-    alert('Please set the Folder ID in the Setup section first!');
-  }
-  return false;
-}
-
-function openYearFolder(year) {
-  const id = config['year_' + year];
-  if(id) {
-    window.open('https://drive.google.com/drive/folders/' + id, '_blank');
-  } else {
-    alert('Please set the ' + year + ' Folder ID in the Setup section first!');
-  }
-}
-
-// ===== YEAR GRID =====
-function buildYearGrid() {
-  const grid = document.getElementById('year-grid');
-  grid.innerHTML = '';
-  YEARS.forEach(y => {
-    const btn = document.createElement('div');
-    btn.className = 'year-btn';
-    btn.textContent = y;
-    btn.onclick = () => openYearFolder(y);
-    grid.appendChild(btn);
-  });
-}
-
-// ===== NAV =====
-function showSection(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
-  document.getElementById(id).classList.add('visible');
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  const btns = document.querySelectorAll('.nav-btn');
-  const map = {home:0, gkgs:1, current:2, mcq:3, feedback:4, setup:5};
-  if(map[id] !== undefined) btns[map[id]].classList.add('active');
-  if(id === 'setup') loadConfigUI();
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-
-// ===== STARS =====
-function rateStar(n) {
-  document.querySelectorAll('.star').forEach((s, i) => {
-    s.classList.toggle('lit', i < n);
-  });
-}
-
-// ===== SAMPLE MCQ DATA =====
-const SAMPLE_MCQ = {
-  gk: [
-    {q:"Who was the first President of India?",opts:["Jawaharlal Nehru","Sardar Patel","Dr. Rajendra Prasad","B.R. Ambedkar"],ans:2},
-    {q:"The Preamble of the Indian Constitution was adopted on:",opts:["15 August 1947","26 January 1950","26 November 1949","2 October 1952"],ans:2},
-    {q:"Which river is known as the 'Sorrow of Bihar'?",opts:["Ganga","Kosi","Son","Gandak"],ans:1},
-    {q:"The Battle of Plassey was fought in:",opts:["1757","1764","1775","1799"],ans:0},
-    {q:"Which is the largest state of India by area?",opts:["Maharashtra","Uttar Pradesh","Rajasthan","Madhya Pradesh"],ans:2},
-    {q:"The Indian National Congress was founded in:",opts:["1875","1885","1890","1905"],ans:1},
-    {q:"Who wrote 'Discovery of India'?",opts:["Mahatma Gandhi","B.R. Ambedkar","Jawaharlal Nehru","Rabindranath Tagore"],ans:2},
-    {q:"Mount Everest is located in which country?",opts:["India","China","Nepal","Bhutan"],ans:2},
-    {q:"Which planet is known as the Red Planet?",opts:["Jupiter","Venus","Saturn","Mars"],ans:3},
-    {q:"The UN was established in:",opts:["1939","1945","1948","1950"],ans:1},
-    {q:"Who invented the telephone?",opts:["Thomas Edison","Alexander Graham Bell","Nikola Tesla","James Watt"],ans:1},
-    {q:"The Rajya Sabha has a maximum of how many members?",opts:["250","245","240","260"],ans:0},
-    {q:"Which gas is most abundant in Earth's atmosphere?",opts:["Oxygen","Carbon Dioxide","Nitrogen","Argon"],ans:2},
-    {q:"Gandhi Jayanti is celebrated on:",opts:["2 October","15 August","26 January","30 January"],ans:0},
-    {q:"The capital of Japan is:",opts:["Beijing","Seoul","Tokyo","Bangkok"],ans:2},
-    {q:"Which is the smallest continent?",opts:["Europe","Antarctica","Australia","South America"],ans:2},
-    {q:"Who is the Father of the Indian Constitution?",opts:["Mahatma Gandhi","Nehru","B.R. Ambedkar","Sardar Patel"],ans:2},
-    {q:"The first Five Year Plan of India was launched in:",opts:["1947","1950","1951","1952"],ans:2},
-    {q:"Which is the national animal of India?",opts:["Lion","Tiger","Elephant","Leopard"],ans:1},
-    {q:"The Tropic of Cancer passes through how many Indian states?",opts:["6","7","8","9"],ans:2},
-    {q:"WHO stands for:",opts:["World Health Order","World Health Organization","World Human Organization","World Health Office"],ans:1},
-    {q:"The longest river in the world is:",opts:["Amazon","Nile","Yangtze","Mississippi"],ans:1},
-    {q:"Dandi March took place in:",opts:["1920","1930","1942","1947"],ans:1},
-    {q:"Who designed the Indian National Flag?",opts:["Rabindranath Tagore","Bhikaiji Cama","Pingali Venkaiah","Sardar Patel"],ans:2},
-    {q:"Which is the highest civilian award in India?",opts:["Padma Vibhushan","Bharat Ratna","Padma Shri","Padma Bhushan"],ans:1},
-    {q:"The headquarters of ISRO is in:",opts:["Mumbai","Delhi","Chennai","Bengaluru"],ans:3},
-    {q:"The Sundarbans is located in which state?",opts:["Odisha","West Bengal","Assam","Andhra Pradesh"],ans:1},
-    {q:"Which country is the largest producer of rice?",opts:["India","USA","China","Brazil"],ans:2},
-    {q:"The coldest planet in the solar system is:",opts:["Pluto","Neptune","Uranus","Saturn"],ans:1},
-    {q:"Which year did India become a Republic?",opts:["1947","1948","1950","1952"],ans:2},
-  ],
-  gs: [
-    {q:"The chemical formula of water is:",opts:["H2O2","HO","H2O","H3O"],ans:2},
-    {q:"Which vitamin is produced by the skin in sunlight?",opts:["Vitamin A","Vitamin C","Vitamin D","Vitamin K"],ans:2},
-    {q:"Photosynthesis requires which gas?",opts:["Oxygen","Nitrogen","Carbon Dioxide","Argon"],ans:2},
-    {q:"The speed of light is approximately:",opts:["3×10⁶ m/s","3×10⁸ m/s","3×10¹⁰ m/s","3×10⁴ m/s"],ans:1},
-    {q:"Which organ produces insulin?",opts:["Liver","Kidney","Pancreas","Heart"],ans:2},
-    {q:"DNA stands for:",opts:["Deoxyribose Nucleic Acid","Deoxyribonucleic Acid","Deoxyribosome Nucleic Acid","Deoxyribonucleo Acid"],ans:1},
-    {q:"Ohm's Law states V =",opts:["I/R","IR","I+R","I-R"],ans:1},
-    {q:"The unit of electric current is:",opts:["Volt","Watt","Ampere","Ohm"],ans:2},
-    {q:"Which planet has the most moons?",opts:["Jupiter","Saturn","Uranus","Neptune"],ans:1},
-    {q:"Newton's Third Law states:",opts:["F=ma","Every action has equal & opposite reaction","Energy cannot be created","Objects remain at rest unless acted on"],ans:1},
-  ],
-  ca: [
-    {q:"India's Union Budget 2025-26 was presented by:",opts:["Nirmala Sitharaman","Piyush Goyal","Arun Jaitley","Sushma Swaraj"],ans:0},
-    {q:"Which country hosted the G20 Summit in 2024?",opts:["India","Brazil","South Africa","Italy"],ans:1},
-    {q:"India's rank in the 2024 Global Innovation Index:",opts:["36","39","42","45"],ans:1},
-    {q:"The 2024 Paris Olympics was held in which month?",opts:["June","July","August","September"],ans:1},
-    {q:"Which country became the 55th member of the African Union in 2024?",opts:["Somalia","Comoros","Somalia","None"],ans:3},
-    {q:"ISRO launched which mission to study the Sun?",opts:["Chandrayaan-3","Aditya-L1","Mangalyaan-2","Gaganyaan"],ans:1},
-    {q:"Which state became the 29th state of India?",opts:["Telangana","Uttarakhand","Jharkhand","Chhattisgarh"],ans:0},
-    {q:"The first Indian to win a Nobel Prize was:",opts:["C.V. Raman","Amartya Sen","Rabindranath Tagore","Mother Teresa"],ans:2},
-    {q:"UPI was launched in India in:",opts:["2014","2016","2018","2020"],ans:1},
-    {q:"Operation Sindoor was conducted in:",opts:["2024","2025","2026","2023"],ans:1},
-  ],
-  math: [
-    {q:"What is 15% of 200?",opts:["25","30","35","40"],ans:1},
-    {q:"If x + 5 = 12, then x = ?",opts:["5","6","7","8"],ans:2},
-    {q:"The area of a circle with radius 7 cm is (π=22/7):",opts:["154 cm²","144 cm²","134 cm²","164 cm²"],ans:0},
-    {q:"LCM of 12 and 18 is:",opts:["24","36","48","54"],ans:1},
-    {q:"√144 = ?",opts:["11","12","13","14"],ans:1},
-    {q:"A train travels 300 km in 5 hours. Its speed is:",opts:["50 km/h","55 km/h","60 km/h","70 km/h"],ans:2},
-    {q:"2³ × 2⁴ = ?",opts:["2⁶","2⁷","2⁸","2¹²"],ans:1},
-    {q:"The sum of angles in a triangle is:",opts:["90°","180°","270°","360°"],ans:1},
-    {q:"Simple Interest on ₹1000 at 10% for 2 years:",opts:["₹100","₹150","₹200","₹250"],ans:2},
-    {q:"If a:b = 3:4 and b:c = 2:3, then a:c = ?",opts:["1:2","3:6","6:12","1:3"],ans:0},
-  ],
-  english: [
-    {q:"The synonym of 'Elated' is:",opts:["Sad","Happy","Angry","Confused"],ans:1},
-    {q:"Identify the noun in: 'She runs fast'",opts:["She","runs","fast","none"],ans:0},
-    {q:"The antonym of 'Brave' is:",opts:["Cowardly","Bold","Strong","Smart"],ans:0},
-    {q:"'He went to the market.' — Which tense?",opts:["Present","Past","Future","Perfect"],ans:1},
-    {q:"'A group of fish' is called a:",opts:["Herd","School","Pack","Flock"],ans:1},
-    {q:"Choose the correct spelling:",opts:["Accomodate","Accommodate","Acommodate","Accommadate"],ans:1},
-    {q:"Passive voice of 'She writes a letter':",opts:["A letter is written by her","A letter was written by her","A letter will be written","A letter has been written"],ans:0},
-    {q:"The plural of 'Ox' is:",opts:["Oxes","Ox","Oxen","Oxs"],ans:2},
-    {q:"Fill in: He is good ___ cricket.",opts:["in","on","at","for"],ans:2},
-    {q:"Identify the adjective: 'The tall boy ran.'",opts:["The","tall","boy","ran"],ans:1},
+// ══ CONFIG ══
+const STORE = 'wosa_v5';
+const DEFAULTS = {
+  pwd:'admin123',
+  info:[
+    {icon:'🏆',title:'Proven Results',desc:'Students consistently achieve top ranks in competitive examinations across India.'},
+    {icon:'📲',title:'Digital Materials',desc:'All study materials accessible online via Google Drive. Study anytime, anywhere.'},
+    {icon:'🔄',title:'Regular Updates',desc:'Content updated regularly to reflect latest exam patterns and current events.'}
   ]
 };
+const SUBKEYS = ['history','geography','polity','economy','science','env','culture','staticgk','reasoning','computer'];
 
-// ===== QUIZ ENGINE =====
-let quizQuestions = [], currentQ = 0, score = 0, answered = false;
+function getCfg(){
+  try{ return Object.assign({},DEFAULTS, JSON.parse(localStorage.getItem(STORE)||'{}')); }
+  catch(e){ return Object.assign({},DEFAULTS); }
+}
+function setCfg(o){ try{ localStorage.setItem(STORE,JSON.stringify(o)); }catch(e){} }
 
-function shuffle(arr) {
-  return arr.slice().sort(() => Math.random() - 0.5);
+// Init password
+(function(){ const c=getCfg(); if(!c.pwd){c.pwd='admin123';setCfg(c);} })();
+
+// ══ HELPERS ══
+function extractId(v){
+  if(!v) return '';
+  const m=v.match(/\/folders\/([a-zA-Z0-9_-]{10,})/);
+  if(m) return m[1];
+  const m2=v.match(/[a-zA-Z0-9_-]{15,}/);
+  return m2?m2[0]:v.trim();
 }
 
-function parseCSV(text) {
-  const lines = text.trim().split('\n');
-  if(lines.length < 2) return [];
-  // Skip header row (row 0), parse data rows
-  const questions = [];
-  for(let i = 1; i < lines.length; i++) {
-    // Handle quoted CSV fields properly
-    const cols = [];
-    let cur = '', inQ = false;
-    for(let c = 0; c < lines[i].length; c++) {
-      const ch = lines[i][c];
-      if(ch === '"') { inQ = !inQ; }
-      else if(ch === ',' && !inQ) { cols.push(cur.trim()); cur = ''; }
-      else { cur += ch; }
-    }
-    cols.push(cur.trim());
-    // Columns: Question(0), A(1), B(2), C(3), D(4), Answer(5), Subject(6)
-    if(cols.length >= 6 && cols[0]) {
-      const ansLetter = (cols[5] || 'A').trim().toUpperCase();
-      const ansIndex = ['A','B','C','D'].indexOf(ansLetter);
-      questions.push({
-        q: cols[0],
-        opts: [cols[1]||'', cols[2]||'', cols[3]||'', cols[4]||''],
-        ans: ansIndex >= 0 ? ansIndex : 0,
-        subject: (cols[6]||'gk').trim().toLowerCase()
-      });
-    }
-  }
-  return questions;
+function driveBox(label,fid,icon){
+  return `<div class="drive-open-box">
+    <span class="dob-icon">${icon||'📁'}</span>
+    <div class="dob-title">${label}</div>
+    <div class="dob-sub">Your study material is ready in Google Drive.<br>Click below to open and browse all files.</div>
+    <a href="https://drive.google.com/drive/folders/${fid}" target="_blank" rel="noopener" class="dob-btn">📂 Open Folder in Google Drive</a>
+    <div class="dob-note">Opens in a new tab · Sign into Google to view</div>
+  </div>`;
 }
 
-async function testSheetConnection() {
-  const sheetId = document.getElementById('cfg-sheet').value.trim();
-  const msg = document.getElementById('sheet-test-msg');
-  if(!sheetId) { msg.style.color='#E74C3C'; msg.textContent = '✗ Please enter a Sheet ID first'; return; }
-  msg.style.color = 'var(--text-muted)'; msg.textContent = '⏳ Testing...';
-  try {
-    const url = `https://docs.google.com/spreadsheets/d/${sheetId}/pub?output=csv`;
-    const res = await fetch(url);
-    if(!res.ok) throw new Error('HTTP ' + res.status);
-    const text = await res.text();
-    const rows = parseCSV(text);
-    if(rows.length === 0) { msg.style.color='#E74C3C'; msg.textContent = '✗ Connected but no valid MCQ rows found. Check column format.'; }
-    else { msg.style.color='#27AE60'; msg.textContent = `✓ Connected! Found ${rows.length} questions.`; }
-  } catch(e) {
-    msg.style.color='#E74C3C';
-    msg.textContent = '✗ Cannot connect. Make sure sheet is published as CSV (File → Share → Publish to web → CSV).';
-  }
+function noFolder(label){
+  return `<div class="placeholder"><div class="pi">⏳</div>
+    <p><strong>${label}</strong> will be available soon.<br>Contact: <strong>📞 9088846651</strong></p></div>`;
 }
 
-async function startQuiz() {
-  const subject = document.getElementById('quiz-subject').value;
-  const count = parseInt(document.getElementById('quiz-count').value);
-  const sheetId = config['sheet'] || '';
-
-  // Show loading state
-  const startBtn = document.querySelector('#mcq-setup .btn-gold');
-  const origHTML = startBtn.innerHTML;
-  startBtn.innerHTML = '<span class="spinner"></span> Loading...';
-  startBtn.disabled = true;
-
-  let pool = [];
-
-  if(sheetId) {
-    try {
-      const url = `https://docs.google.com/spreadsheets/d/${sheetId}/pub?output=csv`;
-      const res = await fetch(url);
-      if(!res.ok) throw new Error('fetch failed');
-      const text = await res.text();
-      const allRows = parseCSV(text);
-      // Filter by subject; if none match, use all rows
-      const filtered = allRows.filter(r => r.subject === subject);
-      pool = shuffle(filtered.length > 0 ? filtered : allRows);
-      if(pool.length === 0) throw new Error('empty');
-    } catch(e) {
-      // Fallback to sample MCQ with a notice
-      pool = shuffle(SAMPLE_MCQ[subject] || SAMPLE_MCQ['gk']);
-      setTimeout(() => alert('⚠️ Could not load from Google Sheets. Using built-in sample questions.\n\nMake sure your sheet is published as CSV (File → Share → Publish to web).'), 100);
-    }
-  } else {
-    pool = shuffle(SAMPLE_MCQ[subject] || SAMPLE_MCQ['gk']);
-  }
-
-  startBtn.innerHTML = origHTML;
-  startBtn.disabled = false;
-
-  quizQuestions = pool.slice(0, Math.min(count, pool.length));
-  currentQ = 0; score = 0;
-  document.getElementById('mcq-setup').style.display = 'none';
-  document.getElementById('quiz-area').style.display = 'block';
-  document.getElementById('result-area').style.display = 'none';
-  showQuestion();
+// ══ SECTION SWITCHER ══
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const idx={home:0,gkgs:1,current:2,mcq:3,course:4};
+  if(idx[id]!==undefined) document.querySelectorAll('.nav-btn')[idx[id]].classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='mcq') refreshMcq();
+  if(id==='course') refreshCourse();
 }
 
-function showQuestion() {
-  answered = false;
-  document.getElementById('next-btn').style.display = 'none';
-  document.getElementById('answer-hint').textContent = '';
-  const q = quizQuestions[currentQ];
-  const total = quizQuestions.length;
-  const pct = (currentQ / total) * 100;
-  document.getElementById('progress-fill').style.width = pct + '%';
-  document.getElementById('progress-label').textContent = (currentQ + 1) + ' / ' + total;
-  document.getElementById('question-text').textContent = 'Q' + (currentQ + 1) + '. ' + q.q;
-  const ol = document.getElementById('options-list');
-  ol.innerHTML = '';
-  const labels = ['A','B','C','D'];
-  q.opts.forEach((opt, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'option-btn';
-    btn.innerHTML = `<span class="option-label">${labels[i]}</span><span>${opt}</span>`;
-    btn.onclick = () => selectOption(i, q.ans, btn);
-    ol.appendChild(btn);
+// ══ SUBJECT OPEN ══
+function openSubject(key){
+  const cfg=getCfg();
+  const fid=cfg['gk_'+key]||'';
+  if(fid){ window.open('https://drive.google.com/drive/folders/'+fid,'_blank','noopener'); }
+  else { showToast('⏳ This folder is not set up yet. Contact: 9088846651'); }
+}
+
+// ══ YEAR OPEN ══
+function openYear(y){
+  document.querySelectorAll('.year-btn').forEach(b=>{
+    b.classList.toggle('active', b.textContent==y);
   });
+  const cfg=getCfg();
+  const fid=cfg['yr_'+y]||'';
+  const el=document.getElementById('current-result');
+  el.innerHTML = fid ? driveBox('📰 Current Affairs — '+y, fid, '📰') : noFolder(y+' Current Affairs');
+  el.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function selectOption(chosen, correct, btn) {
-  if(answered) return;
-  answered = true;
-  const all = document.querySelectorAll('.option-btn');
-  all.forEach((b, i) => {
-    b.disabled = true;
-    if(i === correct) b.classList.add('correct');
+// ══ MCQ & COURSE ══
+function refreshMcq(){
+  const cfg=getCfg();
+  const el=document.getElementById('mcq-result');
+  el.innerHTML = cfg.mcq ? driveBox('✏️ MCQ Practice Sets',cfg.mcq,'✏️') :
+    `<div class="placeholder"><div class="pi">✏️</div><p>MCQ folder coming soon.<br>Contact: <strong>📞 9088846651</strong></p></div>`;
+}
+function refreshCourse(){
+  const cfg=getCfg();
+  const el=document.getElementById('course-result');
+  el.innerHTML = cfg.course ? driveBox('🎓 Our Course Materials',cfg.course,'🎓') :
+    `<div class="placeholder"><div class="pi">🎓</div><p>Course materials coming soon.<br>For enrollment: <strong>📞 9088846651</strong></p></div>`;
+}
+
+// ══ APPLY INFO CARDS ══
+function applyInfoCards(){
+  const cfg=getCfg();
+  const info=cfg.info||DEFAULTS.info;
+
+  // Card 0 — Proven Results: student photo
+  const d0=info[0]||DEFAULTS.info[0];
+  const wrap0=document.getElementById('ic-photo-0');
+  if(wrap0){
+    wrap0.innerHTML = d0.img
+      ? `<img src="${d0.img}" alt="Student Photo" onerror="this.parentElement.innerHTML='<span class=ic-emoji>🏆</span>'">`
+      : `<span class="ic-emoji">🏆</span>`;
+  }
+  const t0=document.getElementById('ic-title-0'); if(t0) t0.textContent=d0.title;
+  const de0=document.getElementById('ic-desc-0'); if(de0) de0.textContent=d0.desc;
+
+  // Card 1 — Digital Materials: notes image
+  const d1=info[1]||DEFAULTS.info[1];
+  const wrap1=document.getElementById('ic-photo-1');
+  if(wrap1){
+    wrap1.innerHTML = d1.img
+      ? `<img src="${d1.img}" alt="Notes Image" onerror="this.parentElement.innerHTML='<span class=ic-emoji>📲</span>'">`
+      : `<span class="ic-emoji">📲</span>`;
+  }
+  const t1=document.getElementById('ic-title-1'); if(t1) t1.textContent=d1.title;
+  const de1=document.getElementById('ic-desc-1'); if(de1) de1.textContent=d1.desc;
+
+  // Card 2 — Regular Updates: Drive folder button
+  const d2=info[2]||DEFAULTS.info[2];
+  const t2=document.getElementById('ic-title-2'); if(t2) t2.textContent=d2.title;
+  const de2=document.getElementById('ic-desc-2'); if(de2) de2.textContent=d2.desc;
+  const driveWrap=document.getElementById('ic-drive-2');
+  const driveBtn=document.getElementById('ic-drive-btn-2');
+  if(driveWrap && driveBtn){
+    if(d2.driveId){
+      driveBtn.href='https://drive.google.com/drive/folders/'+d2.driveId;
+      driveWrap.style.display='block';
+    } else {
+      driveWrap.style.display='none';
+    }
+  }
+}
+
+// Run on load
+applyInfoCards();
+refreshMcq();
+refreshCourse();
+
+// ══ ADMIN ══
+function openAdmin(){
+  document.getElementById('admin-overlay').classList.add('open');
+  document.getElementById('admin-login').style.display='block';
+  document.getElementById('admin-dashboard').style.display='none';
+  document.getElementById('admin-err').style.display='none';
+  document.getElementById('admin-pwd').value='';
+}
+function closeAdmin(){ document.getElementById('admin-overlay').classList.remove('open'); }
+
+function checkPwd(){
+  const cfg=getCfg();
+  if(document.getElementById('admin-pwd').value===cfg.pwd){
+    document.getElementById('admin-login').style.display='none';
+    document.getElementById('admin-dashboard').style.display='block';
+    loadAdminFields();
+  } else {
+    document.getElementById('admin-err').style.display='block';
+  }
+}
+
+function switchTab(e,id){
+  document.querySelectorAll('.atab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.atab').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  e.target.classList.add('active');
+}
+
+function loadAdminFields(){
+  const cfg=getCfg();
+  // GK/GS
+  SUBKEYS.forEach(k=>{ const el=document.getElementById('ag-'+k); if(el) el.value=cfg['gk_'+k]||''; });
+  // Years
+  for(let y=2025;y<=2050;y++){ const el=document.getElementById('ay-'+y); if(el) el.value=cfg['yr_'+y]||''; }
+  // MCQ & Course
+  document.getElementById('a-mcq').value=cfg.mcq||'';
+  document.getElementById('a-course').value=cfg.course||'';
+  // Home cards
+  const info=cfg.info||DEFAULTS.info;
+  [0,1].forEach(i=>{
+    const d=info[i]||DEFAULTS.info[i];
+    const imgEl=document.getElementById('ic-img-'+i); if(imgEl) imgEl.value=d.img||'';
+    const tEl=document.getElementById('ic-t-'+i); if(tEl) tEl.value=d.title||'';
+    const dEl=document.getElementById('ic-d-'+i); if(dEl) dEl.value=d.desc||'';
   });
-  if(chosen === correct) {
-    score++;
-    document.getElementById('answer-hint').textContent = '✓ Correct!';
-    document.getElementById('answer-hint').style.color = '#27AE60';
-  } else {
-    btn.classList.add('wrong');
-    document.getElementById('answer-hint').textContent = '✗ Incorrect';
-    document.getElementById('answer-hint').style.color = '#E74C3C';
+  // Card 2 drive
+  const d2=info[2]||DEFAULTS.info[2];
+  const drEl=document.getElementById('ic-drive-id-2'); if(drEl) drEl.value=d2.driveId||'';
+  const t2=document.getElementById('ic-t-2'); if(t2) t2.value=d2.title||'';
+  const dd2=document.getElementById('ic-d-2'); if(dd2) dd2.value=d2.desc||'';
+  document.getElementById('a-newpwd').value='';
+}
+
+function saveAdmin(){
+  const cfg=getCfg();
+  // GK/GS
+  SUBKEYS.forEach(k=>{
+    const v=document.getElementById('ag-'+k).value.trim();
+    if(v) cfg['gk_'+k]=extractId(v); else delete cfg['gk_'+k];
+  });
+  // Years
+  for(let y=2025;y<=2050;y++){
+    const v=document.getElementById('ay-'+y).value.trim();
+    if(v) cfg['yr_'+y]=extractId(v); else delete cfg['yr_'+y];
   }
-  document.getElementById('next-btn').style.display = 'flex';
+  // MCQ & Course
+  const mv=document.getElementById('a-mcq').value.trim();
+  if(mv) cfg.mcq=extractId(mv); else delete cfg.mcq;
+  const cv=document.getElementById('a-course').value.trim();
+  if(cv) cfg.course=extractId(cv); else delete cfg.course;
+  // Info cards
+  const info=[];
+  // Card 0 — image
+  info.push({
+    img:   (document.getElementById('ic-img-0').value||'').trim(),
+    title: (document.getElementById('ic-t-0').value||'').trim()||DEFAULTS.info[0].title,
+    desc:  (document.getElementById('ic-d-0').value||'').trim()||DEFAULTS.info[0].desc
+  });
+  // Card 1 — image
+  info.push({
+    img:   (document.getElementById('ic-img-1').value||'').trim(),
+    title: (document.getElementById('ic-t-1').value||'').trim()||DEFAULTS.info[1].title,
+    desc:  (document.getElementById('ic-d-1').value||'').trim()||DEFAULTS.info[1].desc
+  });
+  // Card 2 — drive ID
+  info.push({
+    driveId: extractId((document.getElementById('ic-drive-id-2').value||'').trim()),
+    title:   (document.getElementById('ic-t-2').value||'').trim()||DEFAULTS.info[2].title,
+    desc:    (document.getElementById('ic-d-2').value||'').trim()||DEFAULTS.info[2].desc
+  });
+  cfg.info=info;
+  // Password
+  const np=document.getElementById('a-newpwd').value.trim();
+  if(np&&np.length>=4) cfg.pwd=np;
+  setCfg(cfg);
+  // Refresh UI
+  applyInfoCards();
+  refreshMcq();
+  refreshCourse();
+  const ok=document.getElementById('aok');
+  ok.style.display='block';
+  setTimeout(()=>ok.style.display='none',3500);
+  showToast('✅ All changes saved!');
 }
 
-function nextQuestion() {
-  currentQ++;
-  if(currentQ >= quizQuestions.length) {
-    showResult();
-  } else {
-    showQuestion();
-  }
+document.getElementById('admin-overlay').addEventListener('click',function(e){if(e.target===this)closeAdmin();});
+
+// ══ TOAST ══
+let _t;
+function showToast(m){
+  const t=document.getElementById('toast');
+  t.textContent=m;t.style.display='block';
+  clearTimeout(_t);_t=setTimeout(()=>t.style.display='none',3200);
 }
-
-function showResult() {
-  document.getElementById('quiz-area').style.display = 'none';
-  document.getElementById('result-area').style.display = 'block';
-  const total = quizQuestions.length;
-  const pct = Math.round((score / total) * 100);
-  document.getElementById('final-score').textContent = score;
-  document.getElementById('final-total').textContent = total;
-  let msg = '', sub = '';
-  if(pct >= 80) { msg = '🏆 Excellent Performance!'; sub = 'Outstanding! You are on the way to success.'; }
-  else if(pct >= 60) { msg = '👍 Good Job!'; sub = 'Keep practicing — you\'re improving fast!'; }
-  else if(pct >= 40) { msg = '📚 Keep Studying!'; sub = 'Review the topics and try again.'; }
-  else { msg = '💪 Don\'t Give Up!'; sub = 'Practice makes perfect. Try again!'; }
-  document.getElementById('result-msg').textContent = msg;
-  document.getElementById('result-sub').textContent = sub;
-  document.getElementById('progress-fill').style.width = '100%';
-}
-
-function resetQuiz() {
-  document.getElementById('mcq-setup').style.display = 'block';
-  document.getElementById('quiz-area').style.display = 'none';
-  document.getElementById('result-area').style.display = 'none';
-}
-
-// ===== INIT =====
-buildYearGrid();
-
-// ===== SECRET SETUP ACCESS =====
-// Password (change this to whatever you want)
-const ADMIN_PASSWORD = 'wosa@admin2025';
-
-// Triple-click on footer year text to open password prompt
-let footerClicks = 0, footerTimer = null;
-document.querySelector('footer').addEventListener('click', function() {
-  footerClicks++;
-  if(footerTimer) clearTimeout(footerTimer);
-  footerTimer = setTimeout(() => { footerClicks = 0; }, 600);
-  if(footerClicks >= 3) {
-    footerClicks = 0;
-    openPwdModal();
-  }
-});
-
-function openPwdModal() {
-  document.getElementById('pwd-input').value = '';
-  document.getElementById('pwd-error').textContent = '';
-  const overlay = document.getElementById('pwd-overlay');
-  overlay.style.display = 'flex';
-  setTimeout(() => document.getElementById('pwd-input').focus(), 100);
-}
-
-function closePwdModal() {
-  document.getElementById('pwd-overlay').style.display = 'none';
-}
-
-function checkPassword() {
-  const val = document.getElementById('pwd-input').value;
-  if(val === ADMIN_PASSWORD) {
-    closePwdModal();
-    showSection('setup');
-  } else {
-    document.getElementById('pwd-error').textContent = '✗ Incorrect password. Try again.';
-    document.getElementById('pwd-input').value = '';
-    document.getElementById('pwd-input').focus();
-  }
-}
-
-// Close modal on overlay background click
-document.getElementById('pwd-overlay').addEventListener('click', function(e) {
-  if(e.target === this) closePwdModal();
-});
 </script>
 </body>
 </html>
