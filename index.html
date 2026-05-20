@@ -1,854 +1,1042 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Way Of Success Academy</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --gold:#FFD700;--gold-light:#FFE55C;--gold-dark:#B8860B;
-  --navy:#0A0F2C;--navy-mid:#111836;--navy-light:#1A2550;
-  --crimson:#C0392B;--white:#F8F6F0;--gray:#A0A8C0;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--navy);color:var(--white);font-family:'Rajdhani',sans-serif;min-height:100vh;overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:radial-gradient(ellipse at 20% 30%,rgba(255,215,0,.07) 0%,transparent 55%),
-             radial-gradient(ellipse at 80% 70%,rgba(192,57,43,.07) 0%,transparent 55%);}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Way of Success Academy | WBCS, SSC, Railway, WBP Coaching in West Bengal</title>
+  <meta name="description" content="The Way of Success Academy — West Bengal's premier coaching institute for WBCS, WBPSC, SSC, Railway, WBP & Miscellaneous competitive exams. Expert faculty, proven results, affordable fees." />
+  <meta name="keywords" content="WBCS coaching, SSC coaching West Bengal, Railway exam coaching, WBP coaching, WBPSC, competitive exam coaching Kolkata, Bengali medium coaching" />
+  <meta name="author" content="The Way of Success Academy" />
+  <meta property="og:title" content="The Way of Success Academy" />
+  <meta property="og:description" content="West Bengal's Premier Coaching for WBCS, SSC, Railway, WBP & Miscellaneous Exams." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://thewayofsuccessacademy.in" />
 
-/* HEADER */
-header{position:relative;z-index:10;background:linear-gradient(135deg,#060A1A,#0D1530,#060A1A);border-bottom:2px solid var(--gold-dark);}
-header::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,transparent,var(--gold),var(--crimson),var(--gold),transparent);animation:shimmer 3s infinite;}
-@keyframes shimmer{0%,100%{opacity:.5}50%{opacity:1}}
-.header-inner{max-width:1200px;margin:0 auto;padding:18px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.logo-crest{width:68px;height:68px;flex-shrink:0;}
-.logo-crest svg{width:100%;height:100%;}
-.header-text{flex:1;min-width:200px;}
-.academy-name{font-family:'Cinzel Decorative',serif;font-size:clamp(13px,2.8vw,22px);font-weight:900;color:var(--gold);
-  text-shadow:0 0 28px rgba(255,215,0,.5),2px 2px 0 var(--gold-dark);line-height:1.2;}
-.academy-tagline{font-size:11px;color:var(--gray);letter-spacing:3px;text-transform:uppercase;margin-top:4px;}
-.header-contact{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
-.contact-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3);
-  border-radius:20px;padding:6px 13px;font-size:13px;font-weight:600;color:var(--gold);text-decoration:none;transition:all .3s;white-space:nowrap;}
-.contact-pill:hover{background:rgba(255,215,0,.2);}
-.feedback-pill{background:rgba(192,57,43,.15);border-color:rgba(192,57,43,.4);color:#FF6B5B;}
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-/* NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(6,10,26,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,215,0,.2);}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;overflow-x:auto;scrollbar-width:none;padding:0 8px;}
-.nav-inner::-webkit-scrollbar{display:none;}
-.nav-btn{white-space:nowrap;padding:13px 16px;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;
-  letter-spacing:1px;text-transform:uppercase;color:var(--gray);background:none;border:none;
-  border-bottom:3px solid transparent;cursor:pointer;transition:all .25s;}
-.nav-btn:hover{color:var(--gold);}
-.nav-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
+  <style>
+    /* ─── DESIGN TOKENS ─────────────────────────────── */
+    :root {
+      --navy:     #0B1D3A;
+      --navy2:    #132344;
+      --gold:     #E8A020;
+      --gold2:    #F5C842;
+      --orange:   #E85D20;
+      --white:    #FFFFFF;
+      --offwhite: #F8F6F1;
+      --light:    #EEF1F7;
+      --muted:    #6B7A99;
+      --green:    #16A34A;
+      --red:      #DC2626;
+      --blue:     #2563EB;
+      --border:   #D9DFF0;
+      --shadow:   0 4px 24px rgba(11,29,58,0.10);
+      --shadow-lg:0 12px 48px rgba(11,29,58,0.16);
+      --radius:   14px;
+      --radius-sm:8px;
+      --font-display: 'Playfair Display', serif;
+      --font-body:    'DM Sans', sans-serif;
+    }
 
-/* SECTIONS */
-.section{display:none;max-width:1200px;margin:0 auto;padding:24px 16px 70px;position:relative;z-index:1;}
-.section.active{display:block;animation:fadeIn .35s ease;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.sec-title{font-family:'Cinzel Decorative',serif;font-size:clamp(15px,2.5vw,21px);color:var(--gold);
-  margin-bottom:6px;display:flex;align-items:center;gap:12px;}
-.sec-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold-dark),transparent);}
-.sec-sub{color:var(--gray);font-size:13px;margin-bottom:24px;}
-.divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold-dark),transparent);margin:30px 0;}
+    /* ─── RESET ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); background: var(--white); color: var(--navy); line-height: 1.6; overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
 
-/* HERO */
-.hero{text-align:center;padding:50px 16px 34px;max-width:800px;margin:0 auto;}
-.hero-badge{display:inline-block;background:linear-gradient(135deg,var(--crimson),#8B0000);
-  color:#fff;font-size:11px;font-weight:700;letter-spacing:3px;padding:5px 18px;border-radius:20px;margin-bottom:16px;text-transform:uppercase;}
-.hero h1{font-family:'Cinzel Decorative',serif;font-size:clamp(22px,5vw,44px);font-weight:900;line-height:1.15;margin-bottom:14px;}
-.hero h1 span{background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-dark));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero p{font-size:15px;color:var(--gray);line-height:1.7;max-width:560px;margin:0 auto;}
+    /* ─── UTILITY ────────────────────────────────────── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .section { padding: 80px 0; }
+    .section-alt { background: var(--offwhite); }
+    .section-dark { background: var(--navy); color: var(--white); }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 900; color: var(--navy); margin-bottom: 8px; line-height: 1.2; }
+    .section-dark .section-title { color: var(--white); }
+    .section-sub { color: var(--muted); font-size: 1rem; margin-bottom: 48px; }
+    .section-dark .section-sub { color: #9BAAC5; }
+    .badge { display: inline-block; padding: 4px 14px; border-radius: 100px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .badge-gold { background: var(--gold2); color: var(--navy); }
+    .badge-green { background: #DCFCE7; color: var(--green); }
+    .badge-red { background: #FEE2E2; color: var(--red); }
+    .badge-blue { background: #DBEAFE; color: var(--blue); }
+    .badge-navy { background: var(--navy); color: var(--white); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.2s; border: none; }
+    .btn-gold { background: var(--gold); color: var(--navy); }
+    .btn-gold:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,160,32,0.35); }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5); }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+    .btn-navy { background: var(--navy); color: var(--white); }
+    .btn-navy:hover { background: var(--navy2); transform: translateY(-2px); }
+    .card { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .tag-new { background: #DCFCE7; color: var(--green); }
+    .tag-hot { background: #FEE2E2; color: var(--red); }
+    .tag-latest { background: #DBEAFE; color: var(--blue); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .flex-center { display: flex; align-items: center; justify-content: center; }
+    .text-gold { color: var(--gold); }
+    .text-green { color: var(--green); }
+    .text-red { color: var(--red); }
 
-/* FEATURE CARDS */
-.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:28px;}
-.feat-card{background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));border:1px solid rgba(255,215,0,.14);
-  border-radius:14px;padding:22px;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;}
-.feat-card:hover{border-color:rgba(255,215,0,.5);transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.5);}
-.feat-card .ci{font-size:32px;margin-bottom:12px;display:block;}
-.feat-card .ct{font-family:'Cinzel Decorative',serif;font-size:13px;color:var(--gold);margin-bottom:7px;}
-.feat-card .cd{font-size:13px;color:var(--gray);line-height:1.55;}
-.feat-card .cbadge{position:absolute;top:12px;right:12px;color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:10px;}
+    /* ─── MARQUEE ────────────────────────────────────── */
+    .marquee-bar { background: var(--gold); color: var(--navy); padding: 10px 0; font-weight: 600; font-size: 0.88rem; overflow: hidden; }
+    .marquee-inner { display: flex; white-space: nowrap; animation: marquee 38s linear infinite; }
+    .marquee-inner span { padding-right: 80px; }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-/* INFO CARDS */
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
-.info-card{background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));border:1px solid rgba(255,215,0,.1);border-radius:14px;padding:22px;}
-.info-card .ic{font-size:30px;margin-bottom:10px;display:block;}
-.info-card .it{font-family:'Cinzel Decorative',serif;font-size:13px;color:var(--gold);margin-bottom:6px;}
-.info-card .id{font-size:13px;color:var(--gray);line-height:1.55;}
-/* Photo wrapper for cards 1 & 2 */
-.ic-photo-wrap{width:100%;height:140px;border-radius:10px;overflow:hidden;margin-bottom:12px;
-  background:rgba(255,215,0,.06);border:1px solid rgba(255,215,0,.12);
-  display:flex;align-items:center;justify-content:center;}
-.ic-photo-wrap img{width:100%;height:100%;object-fit:cover;border-radius:10px;}
-.ic-emoji{font-size:38px;}
+    /* ─── NAVBAR ─────────────────────────────────────── */
+    .navbar { position: sticky; top: 0; z-index: 1000; background: var(--navy); box-shadow: 0 2px 16px rgba(11,29,58,0.25); }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo-icon { width: 44px; height: 44px; background: var(--gold); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; color: var(--navy); }
+    .logo-text { display: flex; flex-direction: column; }
+    .logo-name { font-family: var(--font-display); font-size: 1rem; font-weight: 900; color: var(--white); line-height: 1.1; }
+    .logo-sub { font-size: 0.65rem; color: var(--gold); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a { color: rgba(255,255,255,0.8); padding: 8px 13px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; transition: all 0.18s; }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.1); }
+    .nav-cta { background: var(--gold); color: var(--navy) !important; font-weight: 700 !important; padding: 10px 18px !important; }
+    .nav-cta:hover { background: var(--gold2) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+    .mobile-menu { display: none; }
 
-/* SUBJECT CARDS */
-.sub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;}
-.sub-card{background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));border:1px solid rgba(255,215,0,.15);
-  border-radius:12px;overflow:hidden;transition:all .3s;display:flex;flex-direction:column;}
-.sub-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.5);}
-.sub-top{padding:18px 12px 12px;text-align:center;flex:1;}
-.sub-icon{font-size:28px;margin-bottom:8px;display:block;}
-.sub-name{font-weight:700;font-size:14px;color:var(--white);line-height:1.3;margin-bottom:3px;}
-.sub-hint{font-size:11px;color:var(--gray);}
-.sub-btn{display:block;width:100%;background:linear-gradient(135deg,var(--gold-dark),var(--gold));
-  color:var(--navy);border:none;padding:9px 6px;font-family:'Rajdhani',sans-serif;font-size:12px;
-  font-weight:700;cursor:pointer;letter-spacing:.3px;transition:filter .2s;}
-.sub-btn:hover{filter:brightness(1.12);}
-.sub-btn.soon{background:rgba(160,168,192,.12);color:rgba(160,168,192,.5);cursor:default;}
+    /* ─── HERO ───────────────────────────────────────── */
+    .hero { background: linear-gradient(135deg, var(--navy) 0%, #1A3260 60%, #0D2553 100%); color: var(--white); padding: 80px 0 60px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(232,160,32,0.12) 0%, transparent 70%); pointer-events: none; }
+    .hero::after { content: ''; position: absolute; bottom: -80px; left: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(232,160,32,0.08) 0%, transparent 70%); pointer-events: none; }
+    .hero-inner { display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: center; position: relative; z-index: 1; }
+    .hero-badge { margin-bottom: 20px; }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(2rem,5vw,3.4rem); font-weight: 900; line-height: 1.15; margin-bottom: 16px; }
+    .hero h1 .highlight { color: var(--gold); display: block; }
+    .hero-desc { color: rgba(255,255,255,0.75); font-size: 1.05rem; margin-bottom: 32px; max-width: 520px; }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+    .hero-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+    .stat-box { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 18px 14px; text-align: center; backdrop-filter: blur(8px); }
+    .stat-val { font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; color: var(--gold); line-height: 1; }
+    .stat-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.65); margin-top: 4px; font-weight: 500; }
+    .hero-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; padding: 32px; backdrop-filter: blur(12px); }
+    .hero-card h3 { font-family: var(--font-display); font-size: 1.3rem; color: var(--gold); margin-bottom: 20px; }
+    .exam-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+    .exam-tag { background: rgba(232,160,32,0.15); border: 1px solid rgba(232,160,32,0.3); color: var(--gold2); padding: 7px 15px; border-radius: 100px; font-size: 0.82rem; font-weight: 600; }
+    .hero-contact { text-align: center; }
+    .hero-contact p { color: rgba(255,255,255,0.6); font-size: 0.82rem; margin-bottom: 10px; }
+    .hero-contact a { display: block; font-size: 1.6rem; font-weight: 700; color: var(--gold); }
+    .hero-contact small { color: rgba(255,255,255,0.5); font-size: 0.75rem; }
 
-/* YEAR GRID */
-.year-grid{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
-.year-btn{background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.22);color:var(--gold);
-  padding:7px 15px;border-radius:18px;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .25s;}
-.year-btn:hover,.year-btn.active{background:var(--gold);color:var(--navy);border-color:var(--gold);}
+    /* ─── CURRENT AFFAIRS ────────────────────────────── */
+    .ca-tabs { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+    .ca-tab { padding: 10px 20px; border-radius: 100px; border: 2px solid var(--border); font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: all 0.18s; background: var(--white); color: var(--navy); }
+    .ca-tab.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .ca-panel { display: none; }
+    .ca-panel.active { display: block; }
+    .ca-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .ca-category { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); padding: 24px; }
+    .ca-cat-title { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--gold); }
+    .ca-cat-title .icon { font-size: 1.3rem; }
+    .ca-item { display: flex; gap: 10px; margin-bottom: 12px; font-size: 0.9rem; color: #374151; line-height: 1.5; }
+    .ca-item::before { content: '▸'; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+    .ca-week-header { background: var(--navy); color: var(--white); border-radius: var(--radius); padding: 20px 28px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .ca-week-header h3 { font-family: var(--font-display); font-size: 1.2rem; }
+    .ca-week-header .updated { color: rgba(255,255,255,0.6); font-size: 0.8rem; }
+    .daily-list { display: flex; flex-direction: column; gap: 14px; }
+    .daily-item { display: flex; gap: 14px; background: var(--white); border-radius: var(--radius-sm); padding: 16px; border: 1px solid var(--border); font-size: 0.92rem; align-items: flex-start; }
+    .daily-num { background: var(--navy); color: var(--white); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+    .one-liner-box { background: var(--navy); border-radius: var(--radius); padding: 24px 28px; margin-top: 28px; }
+    .one-liner-box h4 { color: var(--gold); font-weight: 700; margin-bottom: 16px; font-size: 0.95rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    .one-liner { display: flex; gap: 10px; color: rgba(255,255,255,0.85); font-size: 0.88rem; margin-bottom: 10px; }
+    .one-liner::before { content: '★'; color: var(--gold); flex-shrink: 0; }
 
-/* DRIVE OPEN BOX */
-.drive-open-box{background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));border:1px solid rgba(255,215,0,.22);
-  border-radius:16px;padding:40px 28px;text-align:center;position:relative;overflow:hidden;}
-.drive-open-box::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at center,rgba(255,215,0,.04) 0%,transparent 70%);pointer-events:none;}
-.dob-icon{font-size:52px;margin-bottom:14px;display:block;}
-.dob-title{font-family:'Cinzel Decorative',serif;font-size:17px;color:var(--gold);margin-bottom:8px;}
-.dob-sub{font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:22px;}
-.dob-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));
-  color:var(--navy);border:none;border-radius:12px;padding:13px 28px;font-family:'Rajdhani',sans-serif;
-  font-size:15px;font-weight:700;cursor:pointer;transition:all .3s;text-decoration:none;}
-.dob-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,215,0,.35);}
-.dob-note{margin-top:14px;font-size:12px;color:rgba(160,168,192,.55);}
+    /* ─── NOTIFICATIONS ──────────────────────────────── */
+    .notif-table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+    .notif-table th { background: var(--navy); color: var(--white); padding: 15px 18px; text-align: left; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+    .notif-table td { padding: 16px 18px; border-bottom: 1px solid var(--border); font-size: 0.88rem; vertical-align: middle; }
+    .notif-table tr:last-child td { border-bottom: none; }
+    .notif-table tr:hover td { background: #F8F9FF; }
+    .notif-exam { font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .notif-org { color: var(--muted); font-size: 0.78rem; }
+    .status-open { color: var(--green); font-weight: 600; font-size: 0.82rem; }
+    .status-soon { color: var(--orange); font-weight: 600; font-size: 0.82rem; }
+    .status-result { color: var(--blue); font-weight: 600; font-size: 0.82rem; }
+    .notif-btn { padding: 7px 16px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; display: inline-block; }
+    .notif-btn-apply { background: var(--navy); color: var(--white); }
+    .notif-btn-view { background: var(--light); color: var(--navy); }
 
-/* PLACEHOLDER */
-.placeholder{text-align:center;padding:60px 20px;color:var(--gray);}
-.placeholder .pi{font-size:48px;margin-bottom:14px;}
-.placeholder p{font-size:14px;line-height:1.8;}
-.placeholder strong{color:var(--gold);}
+    /* ─── COURSES ────────────────────────────────────── */
+    .course-card { border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; background: var(--white); transition: transform 0.2s, box-shadow 0.2s; }
+    .course-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .course-header { background: var(--navy); padding: 22px 24px; position: relative; }
+    .course-badge { position: absolute; top: 18px; right: 18px; }
+    .course-exam-tag { display: inline-block; background: rgba(232,160,32,0.2); color: var(--gold2); border: 1px solid rgba(232,160,32,0.3); padding: 3px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; }
+    .course-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 900; color: var(--white); line-height: 1.25; }
+    .course-body { padding: 22px 24px; }
+    .course-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+    .course-meta-item { display: flex; gap: 7px; align-items: flex-start; }
+    .meta-icon { font-size: 1rem; flex-shrink: 0; }
+    .meta-text { font-size: 0.8rem; }
+    .meta-label { color: var(--muted); display: block; font-size: 0.72rem; }
+    .meta-value { font-weight: 600; color: var(--navy); }
+    .seats-bar { margin-bottom: 18px; }
+    .seats-label { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--muted); margin-bottom: 6px; }
+    .seats-track { height: 6px; background: var(--light); border-radius: 100px; overflow: hidden; }
+    .seats-fill { height: 100%; background: var(--gold); border-radius: 100px; transition: width 0.5s; }
+    .seats-fill.critical { background: var(--red); }
+    .course-fee { font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; color: var(--navy); margin-bottom: 4px; }
+    .course-emi { font-size: 0.75rem; color: var(--green); font-weight: 600; }
+    .course-footer { padding: 0 24px 22px; }
 
-/* COURSE BANNER */
-.course-banner{background:linear-gradient(135deg,#6B0000,#C0392B,#6B0000);border-radius:16px;padding:34px 24px;
-  text-align:center;margin-bottom:24px;position:relative;overflow:hidden;}
-.course-banner::before{content:'🎓';position:absolute;font-size:110px;opacity:.07;top:-10px;right:-5px;transform:rotate(-15deg);}
-.course-banner h2{font-family:'Cinzel Decorative',serif;font-size:clamp(16px,3vw,24px);color:var(--gold);margin-bottom:8px;}
-.course-banner p{color:rgba(255,255,255,.8);font-size:14px;margin-bottom:18px;}
+    /* ─── ROUTINE ────────────────────────────────────── */
+    .routine-tabs { display: flex; gap: 6px; margin-bottom: 24px; flex-wrap: wrap; }
+    .routine-tab { padding: 9px 18px; border-radius: 8px; border: 1.5px solid var(--border); font-size: 0.82rem; font-weight: 600; cursor: pointer; background: var(--white); color: var(--navy); transition: all 0.18s; }
+    .routine-tab.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .routine-panel { display: none; }
+    .routine-panel.active { display: block; }
+    .routine-list { display: flex; flex-direction: column; gap: 12px; }
+    .routine-row { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 18px 22px; display: grid; grid-template-columns: 180px 1fr 140px 100px; gap: 16px; align-items: center; transition: box-shadow 0.2s; }
+    .routine-row:hover { box-shadow: var(--shadow); }
+    .r-time { font-weight: 700; color: var(--navy); font-size: 0.85rem; }
+    .r-subject { font-weight: 600; color: var(--navy); }
+    .r-batch { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+    .r-faculty { font-size: 0.82rem; color: var(--muted); }
+    .r-room { display: inline-block; padding: 4px 12px; border-radius: 100px; font-size: 0.72rem; font-weight: 700; background: var(--light); color: var(--navy); text-align: center; }
+    .r-room.online { background: #DCFCE7; color: var(--green); }
 
-/* BUTTONS */
-.gold-btn{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--navy);border:none;
-  border-radius:10px;padding:11px 22px;font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;
-  cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block;}
-.gold-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(255,215,0,.3);}
-.red-btn{background:linear-gradient(135deg,#8B0000,var(--crimson));color:#fff;border:none;border-radius:10px;
-  padding:11px 22px;font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;
-  cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block;}
-.red-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(192,57,43,.3);}
+    /* ─── YOUTUBE ────────────────────────────────────── */
+    .yt-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .yt-card { border-radius: var(--radius); overflow: hidden; background: var(--white); border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; }
+    .yt-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .yt-thumb { position: relative; aspect-ratio: 16/9; background: var(--navy); overflow: hidden; }
+    .yt-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .yt-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.35); opacity: 0; transition: opacity 0.2s; }
+    .yt-card:hover .yt-play { opacity: 1; }
+    .yt-play-btn { width: 56px; height: 56px; background: #FF0000; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .yt-play-btn svg { fill: white; margin-left: 4px; }
+    .yt-duration { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.8); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+    .yt-body { padding: 16px; }
+    .yt-cat { display: inline-block; padding: 2px 10px; border-radius: 100px; background: var(--navy); color: var(--gold2); font-size: 0.68rem; font-weight: 700; margin-bottom: 8px; }
+    .yt-title { font-weight: 700; font-size: 0.9rem; color: var(--navy); line-height: 1.4; margin-bottom: 8px; }
+    .yt-meta { display: flex; justify-content: space-between; color: var(--muted); font-size: 0.75rem; }
+    .yt-channel-banner { background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%); border-radius: var(--radius); padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
+    .yt-channel-info h3 { color: var(--white); font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; }
+    .yt-channel-info p { color: rgba(255,255,255,0.8); font-size: 0.85rem; margin-top: 4px; }
+    .btn-yt { background: var(--white); color: #CC0000; font-weight: 700; padding: 12px 24px; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; }
+    .btn-yt:hover { transform: scale(1.04); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
 
-/* TOAST */
-.toast{position:fixed;bottom:20px;right:20px;background:var(--navy-light);border:1px solid var(--gold);
-  color:var(--white);padding:12px 18px;border-radius:10px;font-size:13px;z-index:9999;
-  display:none;animation:slideUp .3s ease;max-width:300px;}
-@keyframes slideUp{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+    /* ─── MOCK TESTS ─────────────────────────────────── */
+    .mock-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+    .mock-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .mock-card.featured { border-color: var(--gold); }
+    .mock-card.featured::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gold); }
+    .mock-exam-badge { margin-bottom: 14px; }
+    .mock-name { font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; color: var(--navy); margin-bottom: 14px; line-height: 1.3; }
+    .mock-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 18px; padding: 14px; background: var(--offwhite); border-radius: var(--radius-sm); }
+    .mock-stat-item { text-align: center; }
+    .mock-stat-val { font-weight: 700; color: var(--navy); font-size: 1rem; }
+    .mock-stat-lbl { font-size: 0.68rem; color: var(--muted); }
+    .mock-freq { font-size: 0.82rem; color: var(--muted); margin-bottom: 16px; }
+    .mock-price { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; color: var(--navy); margin-bottom: 14px; }
+    .mock-price.free { color: var(--green); }
 
-/* ADMIN OVERLAY */
-#admin-overlay{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.92);
-  backdrop-filter:blur(10px);align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;}
-#admin-overlay.open{display:flex;}
-.admin-panel{background:linear-gradient(135deg,#0C1228,#162048);border:1px solid var(--gold-dark);
-  border-radius:18px;padding:26px;width:min(680px,96vw);margin:auto;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.8);}
-.admin-panel>h2{font-family:'Cinzel Decorative',serif;font-size:16px;color:var(--gold);margin-bottom:4px;}
-.admin-top-sub{font-size:12px;color:var(--gray);margin-bottom:18px;line-height:1.6;padding-bottom:14px;border-bottom:1px solid rgba(255,215,0,.1);}
-.admin-close{position:absolute;top:14px;right:14px;background:rgba(192,57,43,.2);border:1px solid rgba(192,57,43,.4);
-  color:#FF6B5B;width:30px;height:30px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;}
-.admin-close:hover{background:rgba(192,57,43,.4);}
-.admin-tabs{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap;}
-.atab{background:rgba(255,215,0,.06);border:1px solid rgba(255,215,0,.15);color:var(--gray);
-  padding:7px 14px;border-radius:18px;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all .3s;}
-.atab:hover{color:var(--gold);}
-.atab.active{background:rgba(255,215,0,.15);border-color:var(--gold);color:var(--gold);}
-.atab-panel{display:none;}
-.atab-panel.active{display:block;}
-.afield{margin-bottom:14px;}
-.afield label{display:block;font-size:11px;font-weight:700;color:var(--gold);margin-bottom:5px;letter-spacing:1px;text-transform:uppercase;}
-.ainput{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,215,0,.2);border-radius:8px;
-  padding:10px 13px;color:var(--white);font-family:'Rajdhani',sans-serif;font-size:13px;outline:none;transition:border-color .3s;}
-.ainput:focus{border-color:var(--gold);}
-.ainput::placeholder{color:rgba(160,168,192,.35);}
-.atextarea{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,215,0,.2);border-radius:8px;
-  padding:10px 13px;color:var(--white);font-family:'Rajdhani',sans-serif;font-size:13px;outline:none;
-  transition:border-color .3s;resize:vertical;min-height:65px;}
-.atextarea:focus{border-color:var(--gold);}
-.arow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.asave{width:100%;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--navy);border:none;
-  border-radius:10px;padding:13px;font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;
-  cursor:pointer;transition:all .3s;margin-top:10px;}
-.asave:hover{box-shadow:0 8px 22px rgba(255,215,0,.3);}
-.aok{background:rgba(39,174,96,.12);border:1px solid rgba(39,174,96,.3);border-radius:8px;padding:8px 13px;
-  font-size:12px;color:#6EDB8F;margin-bottom:12px;display:none;}
-.asec-title{font-size:12px;font-weight:700;color:var(--gold-light);margin:16px 0 8px;
-  padding-bottom:5px;border-bottom:1px solid rgba(255,215,0,.1);}
-.ahint{font-size:11px;color:var(--gray);margin-top:3px;line-height:1.5;}
-.admin-login-title{font-family:'Cinzel Decorative',serif;font-size:15px;color:var(--gold);margin-bottom:6px;}
-.admin-login-sub{font-size:12px;color:var(--gray);margin-bottom:18px;line-height:1.6;}
-.admin-err{color:#FF6B5B;font-size:13px;margin-top:8px;display:none;text-align:center;}
-.howto-box{background:rgba(255,215,0,.04);border:1px solid rgba(255,215,0,.1);border-radius:8px;
-  padding:11px 13px;margin-bottom:16px;font-size:12px;color:var(--gray);line-height:1.8;}
-.howto-box strong{color:var(--gold-light);}
-code{background:rgba(255,215,0,.08);padding:2px 5px;border-radius:3px;font-size:11px;color:var(--gold-light);}
+    /* ─── TESTIMONIALS ───────────────────────────────── */
+    .testi-slider { overflow: hidden; position: relative; }
+    .testi-track { display: flex; gap: 24px; transition: transform 0.4s ease; }
+    .testi-card { flex-shrink: 0; width: 380px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; position: relative; }
+    .testi-quote { font-size: 3rem; color: var(--gold); line-height: 0.7; margin-bottom: 12px; font-family: Georgia, serif; }
+    .testi-text { color: #374151; font-size: 0.92rem; line-height: 1.65; margin-bottom: 20px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 14px; }
+    .testi-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: var(--gold); flex-shrink: 0; }
+    .testi-name { font-weight: 700; color: var(--navy); font-size: 0.92rem; }
+    .testi-exam { font-size: 0.78rem; color: var(--muted); }
+    .testi-rank { font-size: 0.75rem; color: var(--green); font-weight: 700; margin-top: 2px; }
+    .testi-stars { color: var(--gold); font-size: 0.85rem; margin-top: 4px; }
+    .slider-controls { display: flex; gap: 12px; margin-top: 28px; justify-content: center; }
+    .slider-btn { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--border); background: var(--white); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: all 0.18s; }
+    .slider-btn:hover { background: var(--navy); border-color: var(--navy); color: var(--white); }
 
-/* ADMIN TRIGGER */
-.admin-trigger{position:fixed;bottom:16px;left:16px;z-index:500;width:30px;height:30px;border-radius:50%;
-  background:rgba(255,255,255,.01);border:1px solid rgba(255,255,255,.02);color:rgba(255,255,255,.04);
-  font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .5s;}
-.admin-trigger:hover{background:rgba(255,215,0,.07);color:rgba(255,215,0,.3);border-color:rgba(255,215,0,.1);}
+    /* ─── FACULTY ────────────────────────────────────── */
+    .faculty-card { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; text-align: center; }
+    .faculty-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .faculty-avatar { height: 100px; background: linear-gradient(135deg, var(--navy) 0%, #1A3260 100%); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 2.5rem; font-weight: 900; color: var(--gold); }
+    .faculty-body { padding: 22px 18px; }
+    .faculty-name { font-family: var(--font-display); font-size: 1.05rem; font-weight: 900; color: var(--navy); margin-bottom: 4px; }
+    .faculty-desig { font-size: 0.78rem; color: var(--gold); font-weight: 700; margin-bottom: 10px; }
+    .faculty-exp { background: var(--navy); color: var(--gold2); display: inline-block; padding: 3px 12px; border-radius: 100px; font-size: 0.72rem; font-weight: 700; margin-bottom: 12px; }
+    .faculty-subjects { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; margin-bottom: 12px; }
+    .subject-tag { background: var(--light); color: var(--navy); padding: 3px 10px; border-radius: 100px; font-size: 0.7rem; font-weight: 600; }
+    .faculty-achieve { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
 
-/* FOOTER */
-footer{position:relative;z-index:1;background:#060A1A;border-top:2px solid var(--gold-dark);text-align:center;padding:26px 20px;margin-top:40px;}
-footer p{color:var(--gray);font-size:13px;line-height:1.8;}
-footer strong{color:var(--gold);}
-.footer-links{display:flex;justify-content:center;gap:16px;margin-top:12px;flex-wrap:wrap;}
-.footer-links a{color:var(--gray);text-decoration:none;font-size:13px;transition:color .3s;}
-.footer-links a:hover{color:var(--gold);}
-</style>
+    /* ─── CONTACT ────────────────────────────────────── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .contact-card-item { display: flex; gap: 18px; align-items: flex-start; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px 22px; margin-bottom: 14px; }
+    .contact-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+    .contact-label { font-size: 0.75rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+    .contact-value { font-weight: 700; color: var(--navy); font-size: 0.95rem; }
+    .contact-value a { color: var(--navy); }
+    .contact-value a:hover { color: var(--gold); }
+    .social-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+    .social-btn { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 0.82rem; transition: all 0.2s; }
+    .social-yt { background: #FF0000; color: white; }
+    .social-google { background: #34A853; color: white; }
+    .social-wa { background: #25D366; color: white; }
+    .social-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+    .contact-form-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; }
+    .contact-form-box h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; color: var(--navy); margin-bottom: 24px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 0.9rem; color: var(--navy); background: var(--white); transition: border-color 0.18s; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--navy); }
+    .form-group textarea { height: 90px; resize: vertical; }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    .footer { background: #060E1C; color: rgba(255,255,255,0.7); padding: 60px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand p { font-size: 0.88rem; line-height: 1.7; margin-top: 14px; }
+    .footer-heading { font-weight: 700; color: var(--white); font-size: 0.9rem; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.18s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 20px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+    .footer-bottom a { color: var(--gold); }
+
+    /* ─── FLOATING CTA ───────────────────────────────── */
+    .float-cta { position: fixed; bottom: 24px; right: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 999; }
+    .float-btn { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 6px 20px rgba(0,0,0,0.25); transition: transform 0.2s; text-decoration: none; }
+    .float-btn:hover { transform: scale(1.12); }
+    .float-wa { background: #25D366; }
+    .float-call { background: var(--gold); }
+    .float-yt { background: #FF0000; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .hero-stats { grid-template-columns: repeat(4,1fr); }
+      .grid-4 { grid-template-columns: repeat(2,1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .yt-grid { grid-template-columns: repeat(2,1fr); }
+      .routine-row { grid-template-columns: 1fr 1fr; gap: 8px; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 56px 0; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: none; position: fixed; inset: 0; background: var(--navy); z-index: 2000; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
+      .mobile-menu.open { display: flex; }
+      .mobile-menu a { color: var(--white); font-size: 1.2rem; font-weight: 600; padding: 12px 0; }
+      .mobile-menu a.nav-cta { background: var(--gold); color: var(--navy) !important; padding: 14px 32px !important; border-radius: 8px; }
+      .mobile-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
+      .hero-stats { grid-template-columns: repeat(2,1fr); }
+      .hero-ctas { flex-direction: column; }
+      .ca-grid { grid-template-columns: 1fr; }
+      .notif-table { font-size: 0.78rem; }
+      .notif-table th:nth-child(3), .notif-table td:nth-child(3),
+      .notif-table th:nth-child(4), .notif-table td:nth-child(4) { display: none; }
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .yt-grid { grid-template-columns: 1fr; }
+      .testi-card { width: 300px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .routine-row { grid-template-columns: 1fr; }
+      .float-cta { bottom: 16px; right: 16px; }
+    }
+
+    /* ─── SCROLL REVEAL ANIMATION ─────────────────────── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="header-inner">
-    <div class="logo-crest">
-      <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="40,5 55,20 75,25 60,42 65,62 40,52 15,62 20,42 5,25 25,20" fill="none" stroke="#FFD700" stroke-width="2"/>
-        <circle cx="40" cy="40" r="18" fill="none" stroke="#FFD700" stroke-width="1.5"/>
-        <text x="40" y="37" text-anchor="middle" font-size="10" fill="#FFD700" font-family="serif" font-weight="bold">THE</text>
-        <text x="40" y="49" text-anchor="middle" font-size="8" fill="#B8860B" font-family="serif">WAY</text>
-      </svg>
-    </div>
-    <div class="header-text">
-      <div class="academy-name">The Way Of Success Academy</div>
-      <div class="academy-tagline">Knowledge · Excellence · Achievement</div>
-    </div>
-    <div class="header-contact">
-      <a href="tel:9088846651" class="contact-pill">📞 9088846651</a>
-      <a href="https://g.page/r/CYSScHBNe2d3EBM/review" target="_blank" class="contact-pill feedback-pill">⭐ Give Feedback</a>
-    </div>
-  </div>
-</header>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <button class="nav-btn active" onclick="showSection('home')">🏠 Home</button>
-    <button class="nav-btn" onclick="showSection('gkgs')">📚 GK / GS</button>
-    <button class="nav-btn" onclick="showSection('current')">📰 Current Affairs</button>
-    <button class="nav-btn" onclick="showSection('mcq')">✏️ MCQ</button>
-    <button class="nav-btn" onclick="showSection('course')">🎓 Our Course</button>
-  </div>
-</nav>
-
-<!-- ══ HOME ══ -->
-<section id="home" class="section active">
-  <div class="hero">
-    <div class="hero-badge">Welcome to Excellence</div>
-    <h1>Your Path to <span>Success</span> Starts Here</h1>
-    <p>Comprehensive study materials, current affairs, MCQ practice, and expert-curated courses — all in one place for competitive exam aspirants.</p>
-  </div>
-  <div class="card-grid">
-    <div class="feat-card" onclick="showSection('gkgs')">
-      <span class="cbadge" style="background:var(--crimson)">NEW</span>
-      <span class="ci">📚</span><div class="ct">GK / GS Subjects</div>
-      <div class="cd">General Knowledge & General Studies covering all major topics for competitive exams.</div>
-    </div>
-    <div class="feat-card" onclick="showSection('current')">
-      <span class="ci">📰</span><div class="ct">Current Affairs</div>
-      <div class="cd">Year-wise current affairs from 2025 to 2050. Stay updated with important events.</div>
-    </div>
-    <div class="feat-card" onclick="showSection('mcq')">
-      <span class="ci">✏️</span><div class="ct">MCQ Practice</div>
-      <div class="cd">Practice thousands of Multiple Choice Questions. Strengthen your preparation daily.</div>
-    </div>
-    <div class="feat-card" onclick="showSection('course')">
-      <span class="cbadge" style="background:var(--gold-dark);color:var(--navy)">ENROLL</span>
-      <span class="ci">🎓</span><div class="ct">Our Course</div>
-      <div class="cd">Structured courses to maximise your exam success. Full study material & expert guidance.</div>
-    </div>
-  </div>
-  <div class="divider"></div>
-  <div class="info-grid">
-
-    <!-- CARD 1: Proven Results — student photo -->
-    <div class="info-card">
-      <div id="ic-photo-0" class="ic-photo-wrap">
-        <span class="ic-emoji">🏆</span>
-      </div>
-      <div class="it" id="ic-title-0">Proven Results</div>
-      <div class="id" id="ic-desc-0">Students consistently achieve top ranks in competitive examinations across India.</div>
-    </div>
-
-    <!-- CARD 2: Digital Materials — note image -->
-    <div class="info-card">
-      <div id="ic-photo-1" class="ic-photo-wrap">
-        <span class="ic-emoji">📲</span>
-      </div>
-      <div class="it" id="ic-title-1">Digital Materials</div>
-      <div class="id" id="ic-desc-1">All study materials accessible online via Google Drive. Study anytime, anywhere.</div>
-    </div>
-
-    <!-- CARD 3: Regular Updates — Google Drive folder button -->
-    <div class="info-card">
-      <span class="ic">🔄</span>
-      <div class="it" id="ic-title-2">Regular Updates</div>
-      <div class="id" id="ic-desc-2">Content updated regularly to reflect latest exam patterns and current events.</div>
-      <div id="ic-drive-2" style="margin-top:14px;display:none;">
-        <a id="ic-drive-btn-2" href="#" target="_blank" rel="noopener"
-          style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));
-          color:var(--navy);border-radius:8px;padding:9px 18px;font-family:'Rajdhani',sans-serif;
-          font-size:13px;font-weight:700;text-decoration:none;transition:all .3s;">
-          📂 Open Updates Folder
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══ GK / GS ══ -->
-<section id="gkgs" class="section">
-  <div class="sec-title">📚 GK / GS Subjects</div>
-  <div class="sec-sub">Click any subject below to open its study material folder in Google Drive</div>
-  <!-- SUBJECT CARDS — hardcoded in HTML, always visible -->
-  <div class="sub-grid">
-    <div class="sub-card">
-      <div class="sub-top"><span class="sub-icon">🏛️</span><div class="sub-name">History</div><div class="sub-hint">Ancient · Medieval · Modern</div></div>
-      <button class="sub-btn" id="btn-history" onclick="openSubject('history')">📂 Open Folder</button>
-    </div>
-    <div class="sub-card">
-      <div class="sub-top"><span class="sub-icon">🌍</span><div class="sub-name">Geography</div><div class="sub-hint">Physical · Human · Indian</div></div>
-      <button class="sub-btn" id="btn-geography" onclick="openSubject('geography')">📂 Open Folder</button>
-    </div>
-    <div class="sub-card">
-      <div class="sub-top"><span class="sub-icon">⚖️</span><div class="sub-name">Indian Polity</div><div class="sub-hint">Constitution · Governance</div></div>
-      <button class="sub-btn" id="btn-polity" onclick="openSubject('polity')">📂 Open Folder</button>
-    </div>
-    <div class="sub-card">
-      <div class="sub-top"><span class="sub-icon">📈</span><div class="sub-name">Economy</div><div class="sub-hint">Macro · Micro · Indian</div></div>
-      <button class="sub-btn" id="btn-economy" onclick="openSubject('economy')">📂 Open Folder</button>
-    </div>
-    <div class="sub-card">
-      <div class="sub-top"><span class="sub-icon">🔬</span><div class="sub-name">General Science</div><div class="sub-hint">Physics · Chemistry · Biology</div></div>
-      <button class="sub-btn" id="btn-science" onclick="openSubject('science')">📂 Open Folder</button>
-    </div>
-    <div class="sub-card">
-      <div class="sub-top"><span class="sub-icon">🌿</span><div class="sub-name">Environment</div><div class="sub-hint">Ecology · Climate · Biodiversity</div></div>
-      <button class="sub-btn" id="btn-env" onclick="openSubject('env')">📂 Open Folder</button>
-    </div>
-    <div class="sub-card">
-      <div class="sub-top"><span class="sub-icon">🎭</span><div class="sub-name">Art & Culture</div><div class="sub-hint">Indian Heritage & Traditions</div></div>
-      <button class="sub-btn" id="btn-culture" onclick="openSubject('culture')">📂 Open Folder</button>
-    </div>
-    <div class="sub-card">
-      <div class="sub-top"><span class="sub-icon">🗂️</span><div class="sub-name">Static GK</div><div class="sub-hint">Facts · Awards · Books</div></div>
-      <button class="sub-btn" id="btn-staticgk" onclick="openSubject('staticgk')">📂 Open Folder</button>
-    </div>
-    <div class="sub-card">
-      <div class="sub-top"><span class="sub-icon">🧠</span><div class="sub-name">Reasoning & Aptitude</div><div class="sub-hint">Logical · Verbal · Non-Verbal</div></div>
-      <button class="sub-btn" id="btn-reasoning" onclick="openSubject('reasoning')">📂 Open Folder</button>
-    </div>
-    <div class="sub-card">
-      <div class="sub-top"><span class="sub-icon">💻</span><div class="sub-name">Computer GK</div><div class="sub-hint">Basics · Internet · MS Office</div></div>
-      <button class="sub-btn" id="btn-computer" onclick="openSubject('computer')">📂 Open Folder</button>
-    </div>
-  </div>
-</section>
-
-<!-- ══ CURRENT AFFAIRS ══ -->
-<section id="current" class="section">
-  <div class="sec-title">📰 Current Affairs</div>
-  <div class="sec-sub">Year-wise current affairs 2025–2050 — select a year to open its folder</div>
-  <!-- YEAR BUTTONS — hardcoded in HTML, always visible -->
-  <div class="year-grid">
-    <button class="year-btn" onclick="openYear(2025)">2025</button>
-    <button class="year-btn" onclick="openYear(2026)">2026</button>
-    <button class="year-btn" onclick="openYear(2027)">2027</button>
-    <button class="year-btn" onclick="openYear(2028)">2028</button>
-    <button class="year-btn" onclick="openYear(2029)">2029</button>
-    <button class="year-btn" onclick="openYear(2030)">2030</button>
-    <button class="year-btn" onclick="openYear(2031)">2031</button>
-    <button class="year-btn" onclick="openYear(2032)">2032</button>
-    <button class="year-btn" onclick="openYear(2033)">2033</button>
-    <button class="year-btn" onclick="openYear(2034)">2034</button>
-    <button class="year-btn" onclick="openYear(2035)">2035</button>
-    <button class="year-btn" onclick="openYear(2036)">2036</button>
-    <button class="year-btn" onclick="openYear(2037)">2037</button>
-    <button class="year-btn" onclick="openYear(2038)">2038</button>
-    <button class="year-btn" onclick="openYear(2039)">2039</button>
-    <button class="year-btn" onclick="openYear(2040)">2040</button>
-    <button class="year-btn" onclick="openYear(2041)">2041</button>
-    <button class="year-btn" onclick="openYear(2042)">2042</button>
-    <button class="year-btn" onclick="openYear(2043)">2043</button>
-    <button class="year-btn" onclick="openYear(2044)">2044</button>
-    <button class="year-btn" onclick="openYear(2045)">2045</button>
-    <button class="year-btn" onclick="openYear(2046)">2046</button>
-    <button class="year-btn" onclick="openYear(2047)">2047</button>
-    <button class="year-btn" onclick="openYear(2048)">2048</button>
-    <button class="year-btn" onclick="openYear(2049)">2049</button>
-    <button class="year-btn" onclick="openYear(2050)">2050</button>
-  </div>
-  <div id="current-result" class="placeholder">
-    <div class="pi">📅</div>
-    <p>Select a year above to open that year's current affairs folder.</p>
-  </div>
-</section>
-
-<!-- ══ MCQ ══ -->
-<section id="mcq" class="section">
-  <div class="sec-title">✏️ MCQ Practice</div>
-  <div class="sec-sub">Browse all Multiple Choice Question sets — click to open in Google Drive</div>
-  <div id="mcq-result" class="placeholder">
-    <div class="pi">✏️</div>
-    <p>MCQ folder will appear here once added by admin.<br>Contact: <strong>📞 9088846651</strong></p>
-  </div>
-</section>
-
-<!-- ══ OUR COURSE ══ -->
-<section id="course" class="section">
-  <div class="course-banner">
-    <h2>🎓 Our Course</h2>
-    <p>Complete structured courses by The Way Of Success Academy</p>
-    <a href="tel:9088846651" class="gold-btn">📞 Enroll Now — 9088846651</a>
-  </div>
-  <div id="course-result" class="placeholder">
-    <div class="pi">🎓</div>
-    <p>Course materials will appear here once added by admin.<br>For enrollment: <strong>📞 9088846651</strong></p>
-  </div>
-  <div class="divider"></div>
-  <div style="text-align:center;padding:8px 0 18px;">
-    <a href="https://g.page/r/CYSScHBNe2d3EBM/review" target="_blank" class="red-btn">⭐ Rate Us on Google</a>
-    <p style="margin-top:12px;color:var(--gray);font-size:13px;">Your feedback helps us grow!</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p><strong>The Way Of Success Academy</strong><br>Knowledge · Excellence · Achievement<br>
-  📞 <a href="tel:9088846651" style="color:var(--gold);text-decoration:none;">9088846651</a></p>
-  <div class="footer-links">
-    <a href="#" onclick="showSection('home');return false;">Home</a>
-    <a href="#" onclick="showSection('gkgs');return false;">GK / GS</a>
-    <a href="#" onclick="showSection('current');return false;">Current Affairs</a>
-    <a href="#" onclick="showSection('mcq');return false;">MCQ</a>
-    <a href="#" onclick="showSection('course');return false;">Our Course</a>
-    <a href="https://g.page/r/CYSScHBNe2d3EBM/review" target="_blank">⭐ Feedback</a>
-  </div>
-  <p style="margin-top:12px;font-size:11px;color:rgba(160,168,192,.3);">© 2025 The Way Of Success Academy. All rights reserved.</p>
-</footer>
-
-<!-- ADMIN TRIGGER (tiny, bottom-left) -->
-<button class="admin-trigger" onclick="openAdmin()">⚙</button>
-<div class="toast" id="toast"></div>
-
-<!-- ADMIN OVERLAY -->
-<div id="admin-overlay">
-  <div class="admin-panel">
-    <button class="admin-close" onclick="closeAdmin()">✕</button>
-
-    <!-- LOGIN -->
-    <div id="admin-login">
-      <div class="admin-login-title">🔐 Admin Panel</div>
-      <div class="admin-login-sub">Only for The Way Of Success Academy admin.</div>
-      <input class="ainput" type="password" id="admin-pwd" placeholder="Enter admin password"
-        onkeydown="if(event.key==='Enter')checkPwd()" style="margin-bottom:12px;">
-      <button class="asave" onclick="checkPwd()">🔓 Unlock</button>
-      <div class="admin-err" id="admin-err">❌ Wrong password.</div>
-    </div>
-
-    <!-- DASHBOARD -->
-    <div id="admin-dashboard" style="display:none;">
-      <h2>⚙️ Content Manager</h2>
-      <div class="admin-top-sub">Students <strong style="color:var(--gold)">never see folder IDs.</strong> Paste IDs below and save.</div>
-
-      <div class="howto-box">
-        <strong>Get Folder ID from Google Drive URL:</strong><br>
-        <code>drive.google.com/drive/folders/<strong style="color:var(--gold)">COPY_THIS_PART</strong></code><br>
-        Set sharing: <strong>"Anyone with the link → Viewer"</strong>
-      </div>
-
-      <div class="aok" id="aok">✅ Saved! Students can now access the content.</div>
-
-      <div class="admin-tabs">
-        <button class="atab active" onclick="switchTab(event,'tab-gkgs')">📚 GK/GS</button>
-        <button class="atab" onclick="switchTab(event,'tab-current')">📰 Current Affairs</button>
-        <button class="atab" onclick="switchTab(event,'tab-mcq')">✏️ MCQ</button>
-        <button class="atab" onclick="switchTab(event,'tab-course')">🎓 Course</button>
-        <button class="atab" onclick="switchTab(event,'tab-home')">🏠 Home Cards</button>
-        <button class="atab" onclick="switchTab(event,'tab-pwd')">🔑 Password</button>
-      </div>
-
-      <!-- GK/GS TAB -->
-      <div class="atab-panel active" id="tab-gkgs">
-        <div style="font-size:12px;color:var(--gray);margin-bottom:12px;">Paste a separate Google Drive Folder ID for each subject.</div>
-        <div class="afield"><label>🏛️ History</label><input class="ainput" id="ag-history" placeholder="Folder ID"></div>
-        <div class="afield"><label>🌍 Geography</label><input class="ainput" id="ag-geography" placeholder="Folder ID"></div>
-        <div class="afield"><label>⚖️ Indian Polity</label><input class="ainput" id="ag-polity" placeholder="Folder ID"></div>
-        <div class="afield"><label>📈 Economy</label><input class="ainput" id="ag-economy" placeholder="Folder ID"></div>
-        <div class="afield"><label>🔬 General Science</label><input class="ainput" id="ag-science" placeholder="Folder ID"></div>
-        <div class="afield"><label>🌿 Environment</label><input class="ainput" id="ag-env" placeholder="Folder ID"></div>
-        <div class="afield"><label>🎭 Art & Culture</label><input class="ainput" id="ag-culture" placeholder="Folder ID"></div>
-        <div class="afield"><label>🗂️ Static GK</label><input class="ainput" id="ag-staticgk" placeholder="Folder ID"></div>
-        <div class="afield"><label>🧠 Reasoning & Aptitude</label><input class="ainput" id="ag-reasoning" placeholder="Folder ID"></div>
-        <div class="afield"><label>💻 Computer GK</label><input class="ainput" id="ag-computer" placeholder="Folder ID"></div>
-      </div>
-
-      <!-- CURRENT AFFAIRS TAB -->
-      <div class="atab-panel" id="tab-current">
-        <div style="font-size:12px;color:var(--gray);margin-bottom:12px;">Paste a folder ID for each year. Leave blank if not yet available.</div>
-        <div class="afield"><label>📅 2025</label><input class="ainput" id="ay-2025" placeholder="Folder ID for 2025"></div>
-        <div class="afield"><label>📅 2026</label><input class="ainput" id="ay-2026" placeholder="Folder ID for 2026"></div>
-        <div class="afield"><label>📅 2027</label><input class="ainput" id="ay-2027" placeholder="Folder ID for 2027"></div>
-        <div class="afield"><label>📅 2028</label><input class="ainput" id="ay-2028" placeholder="Folder ID for 2028"></div>
-        <div class="afield"><label>📅 2029</label><input class="ainput" id="ay-2029" placeholder="Folder ID for 2029"></div>
-        <div class="afield"><label>📅 2030</label><input class="ainput" id="ay-2030" placeholder="Folder ID for 2030"></div>
-        <div class="afield"><label>📅 2031</label><input class="ainput" id="ay-2031" placeholder="Folder ID for 2031"></div>
-        <div class="afield"><label>📅 2032</label><input class="ainput" id="ay-2032" placeholder="Folder ID for 2032"></div>
-        <div class="afield"><label>📅 2033</label><input class="ainput" id="ay-2033" placeholder="Folder ID for 2033"></div>
-        <div class="afield"><label>📅 2034</label><input class="ainput" id="ay-2034" placeholder="Folder ID for 2034"></div>
-        <div class="afield"><label>📅 2035</label><input class="ainput" id="ay-2035" placeholder="Folder ID for 2035"></div>
-        <div class="afield"><label>📅 2036</label><input class="ainput" id="ay-2036" placeholder="Folder ID for 2036"></div>
-        <div class="afield"><label>📅 2037</label><input class="ainput" id="ay-2037" placeholder="Folder ID for 2037"></div>
-        <div class="afield"><label>📅 2038</label><input class="ainput" id="ay-2038" placeholder="Folder ID for 2038"></div>
-        <div class="afield"><label>📅 2039</label><input class="ainput" id="ay-2039" placeholder="Folder ID for 2039"></div>
-        <div class="afield"><label>📅 2040</label><input class="ainput" id="ay-2040" placeholder="Folder ID for 2040"></div>
-        <div class="afield"><label>📅 2041</label><input class="ainput" id="ay-2041" placeholder="Folder ID for 2041"></div>
-        <div class="afield"><label>📅 2042</label><input class="ainput" id="ay-2042" placeholder="Folder ID for 2042"></div>
-        <div class="afield"><label>📅 2043</label><input class="ainput" id="ay-2043" placeholder="Folder ID for 2043"></div>
-        <div class="afield"><label>📅 2044</label><input class="ainput" id="ay-2044" placeholder="Folder ID for 2044"></div>
-        <div class="afield"><label>📅 2045</label><input class="ainput" id="ay-2045" placeholder="Folder ID for 2045"></div>
-        <div class="afield"><label>📅 2046</label><input class="ainput" id="ay-2046" placeholder="Folder ID for 2046"></div>
-        <div class="afield"><label>📅 2047</label><input class="ainput" id="ay-2047" placeholder="Folder ID for 2047"></div>
-        <div class="afield"><label>📅 2048</label><input class="ainput" id="ay-2048" placeholder="Folder ID for 2048"></div>
-        <div class="afield"><label>📅 2049</label><input class="ainput" id="ay-2049" placeholder="Folder ID for 2049"></div>
-        <div class="afield"><label>📅 2050</label><input class="ainput" id="ay-2050" placeholder="Folder ID for 2050"></div>
-      </div>
-
-      <!-- MCQ TAB -->
-      <div class="atab-panel" id="tab-mcq">
-        <div class="afield">
-          <label>✏️ MCQ Folder ID</label>
-          <input class="ainput" id="a-mcq" placeholder="Google Drive Folder ID for MCQ">
-          <div class="ahint">All MCQ sets in this folder. Students click "Open Folder" to browse.</div>
-        </div>
-      </div>
-
-      <!-- COURSE TAB -->
-      <div class="atab-panel" id="tab-course">
-        <div class="afield">
-          <label>🎓 Our Course Folder ID</label>
-          <input class="ainput" id="a-course" placeholder="Google Drive Folder ID for Course">
-          <div class="ahint">Course materials folder. Students click "Open Folder" to access.</div>
-        </div>
-      </div>
-
-      <!-- HOME CARDS TAB -->
-      <div class="atab-panel" id="tab-home">
-        <div style="font-size:12px;color:var(--gray);margin-bottom:14px;line-height:1.7;">Edit the 3 info cards on the Home page.</div>
-
-        <div class="asec-title">🏆 Card 1 — Proven Results (Student Photo)</div>
-        <div class="afield">
-          <label>Student Photo — Paste Image URL</label>
-          <input class="ainput" id="ic-img-0" placeholder="https://example.com/student-photo.jpg">
-          <div class="ahint">Paste a direct image link (ends in .jpg/.png). Upload your photo to Google Photos / ImgBB / Drive and copy the direct link.</div>
-        </div>
-        <div class="afield"><label>Title</label><input class="ainput" id="ic-t-0" placeholder="Proven Results"></div>
-        <div class="afield"><label>Description</label><textarea class="atextarea" id="ic-d-0"></textarea></div>
-
-        <div class="asec-title">📲 Card 2 — Digital Materials (Notes Image)</div>
-        <div class="afield">
-          <label>Notes Image — Paste Image URL</label>
-          <input class="ainput" id="ic-img-1" placeholder="https://example.com/notes-image.jpg">
-          <div class="ahint">Paste a direct image link of your notes. Upload to ImgBB or Google Photos and copy the direct image URL.</div>
-        </div>
-        <div class="afield"><label>Title</label><input class="ainput" id="ic-t-1" placeholder="Digital Materials"></div>
-        <div class="afield"><label>Description</label><textarea class="atextarea" id="ic-d-1"></textarea></div>
-
-        <div class="asec-title">🔄 Card 3 — Regular Updates (Google Drive Folder)</div>
-        <div class="afield">
-          <label>Google Drive Folder ID for Updates</label>
-          <input class="ainput" id="ic-drive-id-2" placeholder="Paste Google Drive Folder ID here">
-          <div class="ahint">Students will see a "Open Updates Folder" button linking to this Drive folder.</div>
-        </div>
-        <div class="afield"><label>Title</label><input class="ainput" id="ic-t-2" placeholder="Regular Updates"></div>
-        <div class="afield"><label>Description</label><textarea class="atextarea" id="ic-d-2"></textarea></div>
-      </div>
-
-      <!-- PASSWORD TAB -->
-      <div class="atab-panel" id="tab-pwd">
-        <div class="afield">
-          <label>🔑 New Password</label>
-          <input class="ainput" type="password" id="a-newpwd" placeholder="Min 4 characters">
-          <div class="ahint">Default: <strong style="color:var(--gold)">admin123</strong> — change it!</div>
-        </div>
-      </div>
-
-      <button class="asave" onclick="saveAdmin()">💾 Save & Publish All Changes</button>
-    </div>
+<!-- ══ MARQUEE ══════════════════════════════════════════ -->
+<div class="marquee-bar" id="marquee-bar">
+  <div class="marquee-inner" id="marquee-text">
+    <span>Loading latest updates...</span>
+    <span>Loading latest updates...</span>
   </div>
 </div>
 
+<!-- ══ NAVBAR ═══════════════════════════════════════════ -->
+<nav class="navbar">
+  <div class="container">
+    <a href="#" class="logo">
+      <div class="logo-icon">W</div>
+      <div class="logo-text">
+        <span class="logo-name">Way of Success Academy</span>
+        <span class="logo-sub">Competitive Exam Coaching</span>
+      </div>
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="#current-affairs">Current Affairs</a>
+      <a href="#notifications">Notifications</a>
+      <a href="#courses">Courses</a>
+      <a href="#routine">Routine</a>
+      <a href="#youtube">Videos</a>
+      <a href="#mock-tests">Mock Tests</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:9088846651" class="nav-cta">📞 Enroll Now</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ MOBILE MENU ═══════════════════════════════════════ -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-close" id="mobile-close">✕</button>
+  <a href="#current-affairs" class="mobile-link">📰 Current Affairs</a>
+  <a href="#notifications" class="mobile-link">🔔 Notifications</a>
+  <a href="#courses" class="mobile-link">📚 Courses</a>
+  <a href="#routine" class="mobile-link">📅 Class Routine</a>
+  <a href="#youtube" class="mobile-link">▶️ YouTube</a>
+  <a href="#mock-tests" class="mobile-link">📝 Mock Tests</a>
+  <a href="#contact" class="mobile-link">📞 Contact</a>
+  <a href="tel:9088846651" class="nav-cta mobile-link">Enroll Now →</a>
+</div>
+
+<!-- ══ HERO ══════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge badge-gold" id="hero-badge">West Bengal's Premier Coaching Institute</span>
+        </div>
+        <h1 id="hero-headline">
+          Crack Your Dream Exam with
+          <span class="highlight" id="hero-highlight">The Way of Success Academy</span>
+        </h1>
+        <p class="hero-desc" id="hero-desc">Expert coaching for WBCS, WBPSC, SSC, Railway, WBP & Miscellaneous Exams</p>
+        <div class="hero-ctas" id="hero-ctas">
+          <a href="#courses" class="btn btn-gold">📚 Enroll Now</a>
+          <a href="https://www.youtube.com/@Thewayofsuccessacademy" target="_blank" class="btn btn-outline">▶ Watch Demo Class</a>
+        </div>
+        <div class="hero-stats" id="hero-stats">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>🎯 Exams We Cover</h3>
+        <div class="exam-tags" id="hero-exam-tags"></div>
+        <div class="hero-contact">
+          <p>📞 Call / WhatsApp to Enroll</p>
+          <a href="tel:9088846651">9088846651</a>
+          <small>Mon – Sat | 6:00 AM – 9:00 PM</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CURRENT AFFAIRS ═══════════════════════════════════ -->
+<section class="section section-alt" id="current-affairs">
+  <div class="container">
+    <div class="reveal">
+      <div class="badge badge-navy" style="margin-bottom:10px">📰 Current Affairs</div>
+      <h2 class="section-title">Stay Updated, Stay Ahead</h2>
+      <p class="section-sub">Daily and weekly current affairs curated specifically for WBCS, SSC, Railway, WBP exam aspirants</p>
+    </div>
+    <div class="ca-tabs reveal">
+      <button class="ca-tab active" onclick="switchCA('weekly',this)">📅 This Week's Affairs</button>
+      <button class="ca-tab" onclick="switchCA('daily',this)">🗓 Today's Affairs</button>
+    </div>
+    <div class="ca-panel active" id="ca-weekly">
+      <div class="ca-week-header" id="ca-week-header">
+        <h3>Loading...</h3>
+        <span class="updated"></span>
+      </div>
+      <div class="ca-grid" id="ca-weekly-grid"></div>
+    </div>
+    <div class="ca-panel" id="ca-daily">
+      <div class="ca-week-header" id="ca-daily-header">
+        <h3>Loading...</h3>
+      </div>
+      <div class="daily-list" id="ca-daily-list"></div>
+      <div class="one-liner-box" id="ca-oneliners"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NOTIFICATIONS ═════════════════════════════════════ -->
+<section class="section" id="notifications">
+  <div class="container">
+    <div class="reveal">
+      <div class="badge badge-navy" style="margin-bottom:10px">🔔 Exam Notifications</div>
+      <h2 class="section-title">Latest Exam Notifications</h2>
+      <p class="section-sub">Stay updated with the latest government job notifications, application dates, and exam schedules</p>
+    </div>
+    <div class="reveal" style="overflow-x:auto">
+      <table class="notif-table" id="notif-table">
+        <thead>
+          <tr>
+            <th>Exam</th>
+            <th>Posts</th>
+            <th>Last Date</th>
+            <th>Exam Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="notif-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COURSES / BATCHES ══════════════════════════════════ -->
+<section class="section section-alt" id="courses">
+  <div class="container">
+    <div class="reveal">
+      <div class="badge badge-navy" style="margin-bottom:10px">📚 Our Batches</div>
+      <h2 class="section-title">Upcoming Batches 2025</h2>
+      <p class="section-sub">Expert-led batches with comprehensive study material, mock tests, and doubt-clearing sessions</p>
+    </div>
+    <div class="grid-2" id="courses-grid"></div>
+  </div>
+</section>
+
+<!-- ══ CLASS ROUTINE ══════════════════════════════════════ -->
+<section class="section" id="routine">
+  <div class="container">
+    <div class="reveal">
+      <div class="badge badge-navy" style="margin-bottom:10px">📅 Class Schedule</div>
+      <h2 class="section-title">Class Routine</h2>
+      <p class="section-sub" id="routine-effective">Loading effective dates...</p>
+    </div>
+    <div class="routine-tabs reveal" id="routine-tabs"></div>
+    <div id="routine-panels"></div>
+  </div>
+</section>
+
+<!-- ══ YOUTUBE ════════════════════════════════════════════ -->
+<section class="section section-alt" id="youtube">
+  <div class="container">
+    <div class="reveal">
+      <div class="badge badge-navy" style="margin-bottom:10px">▶ Free Education</div>
+      <h2 class="section-title">Free Video Lectures</h2>
+      <p class="section-sub">Watch our curated video lectures on YouTube — absolutely free!</p>
+    </div>
+    <div class="reveal" id="yt-channel-banner"></div>
+    <div class="yt-grid reveal" id="yt-grid"></div>
+    <div style="text-align:center;margin-top:32px" class="reveal">
+      <a href="https://www.youtube.com/@Thewayofsuccessacademy" target="_blank" class="btn btn-navy">▶ View All Videos on YouTube →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MOCK TESTS ════════════════════════════════════════ -->
+<section class="section" id="mock-tests">
+  <div class="container">
+    <div class="reveal">
+      <div class="badge badge-navy" style="margin-bottom:10px">📝 Practice Tests</div>
+      <h2 class="section-title">Mock Test Series</h2>
+      <p class="section-sub">Practice with exam-pattern mock tests to boost your confidence and accuracy</p>
+    </div>
+    <div class="grid-2" id="mock-grid"></div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ═══════════════════════════════════════ -->
+<section class="section section-alt" id="testimonials">
+  <div class="container">
+    <div class="reveal">
+      <div class="badge badge-navy" style="margin-bottom:10px">🏆 Success Stories</div>
+      <h2 class="section-title">Our Students' Success</h2>
+      <p class="section-sub">Real stories from real achievers who cracked competitive exams with us</p>
+    </div>
+    <div class="testi-slider reveal">
+      <div class="testi-track" id="testi-track"></div>
+      <div class="slider-controls">
+        <button class="slider-btn" onclick="slideTestimonials(-1)">◀</button>
+        <button class="slider-btn" onclick="slideTestimonials(1)">▶</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FACULTY ════════════════════════════════════════════ -->
+<section class="section section-dark" id="faculty">
+  <div class="container">
+    <div class="reveal">
+      <div class="badge badge-gold" style="margin-bottom:10px">👨‍🏫 Expert Faculty</div>
+      <h2 class="section-title">Meet Our Faculty</h2>
+      <p class="section-sub">Experienced educators dedicated to your success</p>
+    </div>
+    <div class="grid-3" id="faculty-grid"></div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ════════════════════════════════════════════ -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="reveal">
+      <div class="badge badge-navy" style="margin-bottom:10px">📞 Get In Touch</div>
+      <h2 class="section-title">Contact & Enrollment</h2>
+      <p class="section-sub">Reach out to enroll, ask questions, or get guidance on which batch suits you best</p>
+    </div>
+    <div class="contact-grid reveal" id="contact-section"></div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════ -->
+<footer class="footer" id="footer-section">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:14px">
+          <div class="logo-icon">W</div>
+          <div class="logo-text">
+            <span class="logo-name" style="font-size:0.95rem">Way of Success Academy</span>
+            <span class="logo-sub">Your Success, Our Mission</span>
+          </div>
+        </div>
+        <p>West Bengal's premier coaching institute for WBCS, WBPSC, SSC, Railway, WBP & Miscellaneous Exams. Guiding students since 2014.</p>
+        <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap" id="footer-social"></div>
+      </div>
+      <div>
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#current-affairs">Current Affairs</a></li>
+          <li><a href="#notifications">Notifications</a></li>
+          <li><a href="#courses">Batches</a></li>
+          <li><a href="#routine">Class Routine</a></li>
+          <li><a href="#youtube">Free Videos</a></li>
+          <li><a href="#mock-tests">Mock Tests</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Exams</div>
+        <ul class="footer-links">
+          <li><a href="#courses">WBCS</a></li>
+          <li><a href="#courses">WBPSC Misc.</a></li>
+          <li><a href="#courses">SSC CGL / CHSL</a></li>
+          <li><a href="#courses">Railway NTPC</a></li>
+          <li><a href="#courses">Railway Group D</a></li>
+          <li><a href="#courses">WBP SI / Constable</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:9088846651">📞 9088846651</a></li>
+          <li><a href="https://wa.me/919088846651">💬 WhatsApp</a></li>
+          <li><a href="https://www.youtube.com/@Thewayofsuccessacademy" target="_blank">▶ YouTube Channel</a></li>
+          <li><a href="https://g.page/r/CYSScHBNe2d3EBM/review" target="_blank">⭐ Google Review</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 The Way of Success Academy. All Rights Reserved.</p>
+      <p>Designed with ❤️ for Student Success | <a href="https://g.page/r/CYSScHBNe2d3EBM/review" target="_blank">Leave a Review ⭐</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ FLOATING BUTTONS ═══════════════════════════════════ -->
+<div class="float-cta">
+  <a href="https://www.youtube.com/@Thewayofsuccessacademy" target="_blank" class="float-btn float-yt" title="YouTube">▶</a>
+  <a href="https://wa.me/919088846651" target="_blank" class="float-btn float-wa" title="WhatsApp">💬</a>
+  <a href="tel:9088846651" class="float-btn float-call" title="Call">📞</a>
+</div>
+
+<!-- ══ JAVASCRIPT ══════════════════════════════════════════ -->
 <script>
-// ══ CONFIG ══
-const STORE = 'wosa_v5';
-const DEFAULTS = {
-  pwd:'admin123',
-  info:[
-    {icon:'🏆',title:'Proven Results',desc:'Students consistently achieve top ranks in competitive examinations across India.'},
-    {icon:'📲',title:'Digital Materials',desc:'All study materials accessible online via Google Drive. Study anytime, anywhere.'},
-    {icon:'🔄',title:'Regular Updates',desc:'Content updated regularly to reflect latest exam patterns and current events.'}
-  ]
-};
-const SUBKEYS = ['history','geography','polity','economy','science','env','culture','staticgk','reasoning','computer'];
+/* ─────────────────────────────────────────────────────────
+   DATA LOADER — Reads from /content/*.json files
+   In production this uses fetch(); here we embed data inline
+   so the site works as a single file too.
+───────────────────────────────────────────────────────────*/
 
-function getCfg(){
-  try{ return Object.assign({},DEFAULTS, JSON.parse(localStorage.getItem(STORE)||'{}')); }
-  catch(e){ return Object.assign({},DEFAULTS); }
-}
-function setCfg(o){ try{ localStorage.setItem(STORE,JSON.stringify(o)); }catch(e){} }
+const DATA = {};
 
-// Init password
-(function(){ const c=getCfg(); if(!c.pwd){c.pwd='admin123';setCfg(c);} })();
-
-// ══ HELPERS ══
-function extractId(v){
-  if(!v) return '';
-  const m=v.match(/\/folders\/([a-zA-Z0-9_-]{10,})/);
-  if(m) return m[1];
-  const m2=v.match(/[a-zA-Z0-9_-]{15,}/);
-  return m2?m2[0]:v.trim();
-}
-
-function driveBox(label,fid,icon){
-  return `<div class="drive-open-box">
-    <span class="dob-icon">${icon||'📁'}</span>
-    <div class="dob-title">${label}</div>
-    <div class="dob-sub">Your study material is ready in Google Drive.<br>Click below to open and browse all files.</div>
-    <a href="https://drive.google.com/drive/folders/${fid}" target="_blank" rel="noopener" class="dob-btn">📂 Open Folder in Google Drive</a>
-    <div class="dob-note">Opens in a new tab · Sign into Google to view</div>
-  </div>`;
-}
-
-function noFolder(label){
-  return `<div class="placeholder"><div class="pi">⏳</div>
-    <p><strong>${label}</strong> will be available soon.<br>Contact: <strong>📞 9088846651</strong></p></div>`;
-}
-
-// ══ SECTION SWITCHER ══
-function showSection(id){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  const idx={home:0,gkgs:1,current:2,mcq:3,course:4};
-  if(idx[id]!==undefined) document.querySelectorAll('.nav-btn')[idx[id]].classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-  if(id==='mcq') refreshMcq();
-  if(id==='course') refreshCourse();
-}
-
-// ══ SUBJECT OPEN ══
-function openSubject(key){
-  const cfg=getCfg();
-  const fid=cfg['gk_'+key]||'';
-  if(fid){ window.open('https://drive.google.com/drive/folders/'+fid,'_blank','noopener'); }
-  else { showToast('⏳ This folder is not set up yet. Contact: 9088846651'); }
-}
-
-// ══ YEAR OPEN ══
-function openYear(y){
-  document.querySelectorAll('.year-btn').forEach(b=>{
-    b.classList.toggle('active', b.textContent==y);
-  });
-  const cfg=getCfg();
-  const fid=cfg['yr_'+y]||'';
-  const el=document.getElementById('current-result');
-  el.innerHTML = fid ? driveBox('📰 Current Affairs — '+y, fid, '📰') : noFolder(y+' Current Affairs');
-  el.scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-// ══ MCQ & COURSE ══
-function refreshMcq(){
-  const cfg=getCfg();
-  const el=document.getElementById('mcq-result');
-  el.innerHTML = cfg.mcq ? driveBox('✏️ MCQ Practice Sets',cfg.mcq,'✏️') :
-    `<div class="placeholder"><div class="pi">✏️</div><p>MCQ folder coming soon.<br>Contact: <strong>📞 9088846651</strong></p></div>`;
-}
-function refreshCourse(){
-  const cfg=getCfg();
-  const el=document.getElementById('course-result');
-  el.innerHTML = cfg.course ? driveBox('🎓 Our Course Materials',cfg.course,'🎓') :
-    `<div class="placeholder"><div class="pi">🎓</div><p>Course materials coming soon.<br>For enrollment: <strong>📞 9088846651</strong></p></div>`;
-}
-
-// ══ APPLY INFO CARDS ══
-function applyInfoCards(){
-  const cfg=getCfg();
-  const info=cfg.info||DEFAULTS.info;
-
-  // Card 0 — Proven Results: student photo
-  const d0=info[0]||DEFAULTS.info[0];
-  const wrap0=document.getElementById('ic-photo-0');
-  if(wrap0){
-    wrap0.innerHTML = d0.img
-      ? `<img src="${d0.img}" alt="Student Photo" onerror="this.parentElement.innerHTML='<span class=ic-emoji>🏆</span>'">`
-      : `<span class="ic-emoji">🏆</span>`;
-  }
-  const t0=document.getElementById('ic-title-0'); if(t0) t0.textContent=d0.title;
-  const de0=document.getElementById('ic-desc-0'); if(de0) de0.textContent=d0.desc;
-
-  // Card 1 — Digital Materials: notes image
-  const d1=info[1]||DEFAULTS.info[1];
-  const wrap1=document.getElementById('ic-photo-1');
-  if(wrap1){
-    wrap1.innerHTML = d1.img
-      ? `<img src="${d1.img}" alt="Notes Image" onerror="this.parentElement.innerHTML='<span class=ic-emoji>📲</span>'">`
-      : `<span class="ic-emoji">📲</span>`;
-  }
-  const t1=document.getElementById('ic-title-1'); if(t1) t1.textContent=d1.title;
-  const de1=document.getElementById('ic-desc-1'); if(de1) de1.textContent=d1.desc;
-
-  // Card 2 — Regular Updates: Drive folder button
-  const d2=info[2]||DEFAULTS.info[2];
-  const t2=document.getElementById('ic-title-2'); if(t2) t2.textContent=d2.title;
-  const de2=document.getElementById('ic-desc-2'); if(de2) de2.textContent=d2.desc;
-  const driveWrap=document.getElementById('ic-drive-2');
-  const driveBtn=document.getElementById('ic-drive-btn-2');
-  if(driveWrap && driveBtn){
-    if(d2.driveId){
-      driveBtn.href='https://drive.google.com/drive/folders/'+d2.driveId;
-      driveWrap.style.display='block';
-    } else {
-      driveWrap.style.display='none';
-    }
+async function loadJSON(path) {
+  try {
+    const r = await fetch(path);
+    if (!r.ok) throw new Error('Not found');
+    return await r.json();
+  } catch(e) {
+    console.warn('Could not fetch', path, '— using embedded fallback');
+    return null;
   }
 }
 
-// Run on load
-applyInfoCards();
-refreshMcq();
-refreshCourse();
+/* ── HERO ─────────────────────────────────────────────── */
+async function renderHero() {
+  const d = await loadJSON('./content/hero/hero.json') || {
+    badge: "West Bengal's Premier Coaching Institute",
+    headline: "Crack Your Dream Exam with",
+    highlight: "The Way of Success Academy",
+    description: "Expert coaching for WBCS, WBPSC, SSC, Railway, WBP & Miscellaneous Exams",
+    stats: [
+      {value:"5000+",label:"Students Enrolled"},
+      {value:"850+",label:"Selections Made"},
+      {value:"10+",label:"Years Experience"},
+      {value:"98%",label:"Success Rate"}
+    ],
+    marquee_text: "🏆 WBCS 2024: 45 Selected | 🎯 SSC CGL: 120 Selections | 🚆 Railway: 78 Selections | 👮 WBP SI: 32 Selections | Congratulations!"
+  };
 
-// ══ ADMIN ══
-function openAdmin(){
-  document.getElementById('admin-overlay').classList.add('open');
-  document.getElementById('admin-login').style.display='block';
-  document.getElementById('admin-dashboard').style.display='none';
-  document.getElementById('admin-err').style.display='none';
-  document.getElementById('admin-pwd').value='';
+  document.getElementById('hero-badge').textContent = d.badge;
+  document.getElementById('hero-headline').innerHTML = d.headline + ' <span class="highlight" id="hero-highlight">' + d.highlight + '</span>';
+  document.getElementById('hero-desc').textContent = d.description;
+
+  const statsEl = document.getElementById('hero-stats');
+  statsEl.innerHTML = d.stats.map(s => `
+    <div class="stat-box">
+      <div class="stat-val">${s.value}</div>
+      <div class="stat-lbl">${s.label}</div>
+    </div>
+  `).join('');
+
+  const examTags = ['WBCS','WBPSC','SSC','Railway','WBP','Misc.'];
+  document.getElementById('hero-exam-tags').innerHTML = examTags.map(e => `<span class="exam-tag">${e}</span>`).join('');
+
+  const marqueeText = d.marquee_text;
+  document.getElementById('marquee-text').innerHTML = `<span>${marqueeText}</span><span>${marqueeText}</span>`;
 }
-function closeAdmin(){ document.getElementById('admin-overlay').classList.remove('open'); }
 
-function checkPwd(){
-  const cfg=getCfg();
-  if(document.getElementById('admin-pwd').value===cfg.pwd){
-    document.getElementById('admin-login').style.display='none';
-    document.getElementById('admin-dashboard').style.display='block';
-    loadAdminFields();
-  } else {
-    document.getElementById('admin-err').style.display='block';
+/* ── WEEKLY CURRENT AFFAIRS ────────────────────────────── */
+async function renderCurrentAffairs() {
+  const w = await loadJSON('./content/current-affairs/weekly.json') || { week:"May 2025", last_updated:"2025-05-20", categories:[], important_days:[] };
+  const dly = await loadJSON('./content/current-affairs/daily.json') || { date:"May 20, 2025", highlights:[], one_liner_gk:[] };
+
+  document.getElementById('ca-week-header').innerHTML = `
+    <div>
+      <h3>📅 Weekly Current Affairs: ${w.week}</h3>
+      ${w.important_days && w.important_days.length ? '<div style="color:rgba(255,255,255,0.7);font-size:0.8rem;margin-top:4px">📌 Important Days: '+w.important_days.map(d=>d.date+' — '+d.name).join(' | ')+'</div>' : ''}
+    </div>
+    <span class="updated">Updated: ${w.last_updated}</span>
+  `;
+
+  document.getElementById('ca-weekly-grid').innerHTML = w.categories.map(cat => `
+    <div class="ca-category">
+      <div class="ca-cat-title"><span class="icon">${cat.icon}</span>${cat.name}</div>
+      ${cat.items.map(item => `<div class="ca-item">${item}</div>`).join('')}
+    </div>
+  `).join('');
+
+  document.getElementById('ca-daily-header').innerHTML = `
+    <h3>🗓 Today's Current Affairs — ${dly.date}</h3>
+    <span class="updated">Updated: ${dly.last_updated || dly.date}</span>
+  `;
+
+  document.getElementById('ca-daily-list').innerHTML = dly.highlights.map((item, i) => `
+    <div class="daily-item">
+      <div class="daily-num">${i+1}</div>
+      <div>${item}</div>
+    </div>
+  `).join('');
+
+  if (dly.one_liner_gk && dly.one_liner_gk.length) {
+    document.getElementById('ca-oneliners').innerHTML = `
+      <h4>⚡ One-Liner GK</h4>
+      ${dly.one_liner_gk.map(q => `<div class="one-liner">${q}</div>`).join('')}
+    `;
   }
 }
 
-function switchTab(e,id){
-  document.querySelectorAll('.atab-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.atab').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  e.target.classList.add('active');
+function switchCA(tab, btn) {
+  document.querySelectorAll('.ca-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.ca-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('ca-'+tab).classList.add('active');
+  btn.classList.add('active');
 }
 
-function loadAdminFields(){
-  const cfg=getCfg();
-  // GK/GS
-  SUBKEYS.forEach(k=>{ const el=document.getElementById('ag-'+k); if(el) el.value=cfg['gk_'+k]||''; });
-  // Years
-  for(let y=2025;y<=2050;y++){ const el=document.getElementById('ay-'+y); if(el) el.value=cfg['yr_'+y]||''; }
-  // MCQ & Course
-  document.getElementById('a-mcq').value=cfg.mcq||'';
-  document.getElementById('a-course').value=cfg.course||'';
-  // Home cards
-  const info=cfg.info||DEFAULTS.info;
-  [0,1].forEach(i=>{
-    const d=info[i]||DEFAULTS.info[i];
-    const imgEl=document.getElementById('ic-img-'+i); if(imgEl) imgEl.value=d.img||'';
-    const tEl=document.getElementById('ic-t-'+i); if(tEl) tEl.value=d.title||'';
-    const dEl=document.getElementById('ic-d-'+i); if(dEl) dEl.value=d.desc||'';
-  });
-  // Card 2 drive
-  const d2=info[2]||DEFAULTS.info[2];
-  const drEl=document.getElementById('ic-drive-id-2'); if(drEl) drEl.value=d2.driveId||'';
-  const t2=document.getElementById('ic-t-2'); if(t2) t2.value=d2.title||'';
-  const dd2=document.getElementById('ic-d-2'); if(dd2) dd2.value=d2.desc||'';
-  document.getElementById('a-newpwd').value='';
+/* ── NOTIFICATIONS ─────────────────────────────────────── */
+async function renderNotifications() {
+  const data = await loadJSON('./content/notifications/notifications.json') || { notifications:[] };
+  const tagColors = { green:'tag-new', red:'tag-hot', blue:'tag-latest' };
+  const statusClass = { 'Application Open':'status-open','Coming Soon':'status-soon','Result Out':'status-result' };
+
+  document.getElementById('notif-tbody').innerHTML = data.notifications.map(n => `
+    <tr>
+      <td>
+        <div class="notif-exam">${n.exam} <span class="badge badge-${n.tag_color === 'green' ? 'green' : n.tag_color === 'red' ? 'red' : 'blue'}" style="font-size:0.65rem">${n.tag}</span></div>
+        <div class="notif-org">${n.organization}</div>
+      </td>
+      <td><strong>${n.total_posts.toLocaleString()}</strong></td>
+      <td>${n.last_date}</td>
+      <td>${n.exam_date}</td>
+      <td><span class="${statusClass[n.status] || 'status-open'}">${n.status}</span></td>
+      <td>
+        ${n.apply_link !== '#' ? `<a href="${n.apply_link}" target="_blank" class="notif-btn notif-btn-apply">Apply →</a>` : `<span class="notif-btn notif-btn-view">View</span>`}
+      </td>
+    </tr>
+  `).join('');
 }
 
-function saveAdmin(){
-  const cfg=getCfg();
-  // GK/GS
-  SUBKEYS.forEach(k=>{
-    const v=document.getElementById('ag-'+k).value.trim();
-    if(v) cfg['gk_'+k]=extractId(v); else delete cfg['gk_'+k];
-  });
-  // Years
-  for(let y=2025;y<=2050;y++){
-    const v=document.getElementById('ay-'+y).value.trim();
-    if(v) cfg['yr_'+y]=extractId(v); else delete cfg['yr_'+y];
-  }
-  // MCQ & Course
-  const mv=document.getElementById('a-mcq').value.trim();
-  if(mv) cfg.mcq=extractId(mv); else delete cfg.mcq;
-  const cv=document.getElementById('a-course').value.trim();
-  if(cv) cfg.course=extractId(cv); else delete cfg.course;
-  // Info cards
-  const info=[];
-  // Card 0 — image
-  info.push({
-    img:   (document.getElementById('ic-img-0').value||'').trim(),
-    title: (document.getElementById('ic-t-0').value||'').trim()||DEFAULTS.info[0].title,
-    desc:  (document.getElementById('ic-d-0').value||'').trim()||DEFAULTS.info[0].desc
-  });
-  // Card 1 — image
-  info.push({
-    img:   (document.getElementById('ic-img-1').value||'').trim(),
-    title: (document.getElementById('ic-t-1').value||'').trim()||DEFAULTS.info[1].title,
-    desc:  (document.getElementById('ic-d-1').value||'').trim()||DEFAULTS.info[1].desc
-  });
-  // Card 2 — drive ID
-  info.push({
-    driveId: extractId((document.getElementById('ic-drive-id-2').value||'').trim()),
-    title:   (document.getElementById('ic-t-2').value||'').trim()||DEFAULTS.info[2].title,
-    desc:    (document.getElementById('ic-d-2').value||'').trim()||DEFAULTS.info[2].desc
-  });
-  cfg.info=info;
-  // Password
-  const np=document.getElementById('a-newpwd').value.trim();
-  if(np&&np.length>=4) cfg.pwd=np;
-  setCfg(cfg);
-  // Refresh UI
-  applyInfoCards();
-  refreshMcq();
-  refreshCourse();
-  const ok=document.getElementById('aok');
-  ok.style.display='block';
-  setTimeout(()=>ok.style.display='none',3500);
-  showToast('✅ All changes saved!');
+/* ── COURSES / BATCHES ─────────────────────────────────── */
+async function renderCourses() {
+  const data = await loadJSON('./content/courses/batches.json') || { batches:[] };
+  const badgeColors = { gold:'badge-gold', green:'badge-green', blue:'badge-blue', red:'badge-red' };
+
+  document.getElementById('courses-grid').innerHTML = data.batches.map(b => {
+    const pct = Math.round((b.seats_filled / b.seats_total) * 100);
+    const isCritical = pct >= 80;
+    return `
+    <div class="course-card">
+      <div class="course-header">
+        <div class="course-badge"><span class="badge ${badgeColors[b.badge_color] || 'badge-gold'}">${b.badge}</span></div>
+        <div class="course-exam-tag">${b.exam}</div>
+        <div class="course-name">${b.name}</div>
+      </div>
+      <div class="course-body">
+        <div class="course-meta">
+          <div class="course-meta-item"><span class="meta-icon">📅</span><div class="meta-text"><span class="meta-label">Start Date</span><span class="meta-value">${b.start_date}</span></div></div>
+          <div class="course-meta-item"><span class="meta-icon">⏱</span><div class="meta-text"><span class="meta-label">Duration</span><span class="meta-value">${b.duration}</span></div></div>
+          <div class="course-meta-item"><span class="meta-icon">💻</span><div class="meta-text"><span class="meta-label">Mode</span><span class="meta-value">${b.mode}</span></div></div>
+          <div class="course-meta-item"><span class="meta-icon">🗣</span><div class="meta-text"><span class="meta-label">Language</span><span class="meta-value">${b.language}</span></div></div>
+          <div class="course-meta-item"><span class="meta-icon">🕐</span><div class="meta-text"><span class="meta-label">Schedule</span><span class="meta-value">${b.schedule}</span></div></div>
+          <div class="course-meta-item"><span class="meta-icon">👨‍🏫</span><div class="meta-text"><span class="meta-label">Faculty</span><span class="meta-value">${b.faculty}</span></div></div>
+        </div>
+        <div class="seats-bar">
+          <div class="seats-label"><span>Seats Filled: ${b.seats_filled}/${b.seats_total}</span><span style="color:${isCritical?'var(--red)':'var(--muted)'}">${isCritical?'⚠ Almost Full':pct+'% filled'}</span></div>
+          <div class="seats-track"><div class="seats-fill ${isCritical?'critical':''}" style="width:${pct}%"></div></div>
+        </div>
+        <div class="course-fee">${b.fee} <small style="font-size:0.75rem;font-weight:500;color:var(--muted)">/ course</small></div>
+        <div class="course-emi">✓ EMI ${b.emi}</div>
+      </div>
+      <div class="course-footer">
+        <a href="${b.enrollment_link}" class="btn btn-gold" style="width:100%;justify-content:center">📞 Enroll Now</a>
+      </div>
+    </div>
+  `}).join('');
 }
 
-document.getElementById('admin-overlay').addEventListener('click',function(e){if(e.target===this)closeAdmin();});
+/* ── CLASS ROUTINE ─────────────────────────────────────── */
+async function renderRoutine() {
+  const data = await loadJSON('./content/routine/routine.json') || { effective_from:"", routine:[] };
+  document.getElementById('routine-effective').textContent = `Effective from: ${data.effective_from}`;
 
-// ══ TOAST ══
-let _t;
-function showToast(m){
-  const t=document.getElementById('toast');
-  t.textContent=m;t.style.display='block';
-  clearTimeout(_t);_t=setTimeout(()=>t.style.display='none',3200);
+  const tabsEl = document.getElementById('routine-tabs');
+  const panelsEl = document.getElementById('routine-panels');
+
+  tabsEl.innerHTML = data.routine.map((day,i) => `
+    <button class="routine-tab ${i===0?'active':''}" onclick="switchRoutine('${day.day}',this)">${day.day.slice(0,3)}</button>
+  `).join('');
+
+  panelsEl.innerHTML = data.routine.map((day,i) => `
+    <div class="routine-panel ${i===0?'active':''}" id="routine-${day.day}">
+      <div class="routine-list">
+        ${day.classes.map(cls => `
+          <div class="routine-row">
+            <div class="r-time">⏰ ${cls.time}</div>
+            <div><div class="r-subject">${cls.subject}</div><div class="r-batch">${cls.batch}</div></div>
+            <div class="r-faculty">👨‍🏫 ${cls.faculty}</div>
+            <div><span class="r-room ${cls.room==='Online'?'online':''}">${cls.room}</span></div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
 }
+
+function switchRoutine(day, btn) {
+  document.querySelectorAll('.routine-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.routine-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('routine-'+day).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ── YOUTUBE ───────────────────────────────────────────── */
+async function renderYouTube() {
+  const data = await loadJSON('./content/youtube/videos.json') || { channel_url:"#", channel_name:"", videos:[] };
+
+  document.getElementById('yt-channel-banner').innerHTML = `
+    <div class="yt-channel-banner">
+      <div class="yt-channel-info">
+        <h3>▶ ${data.channel_name}</h3>
+        <p>Free lectures, current affairs, exam tips — Subscribe for daily updates!</p>
+      </div>
+      <a href="${data.channel_url}" target="_blank" class="btn-yt">▶ Subscribe on YouTube</a>
+    </div>
+  `;
+
+  document.getElementById('yt-grid').innerHTML = data.videos.map(v => `
+    <div class="yt-card">
+      <div class="yt-thumb">
+        <img src="${v.thumbnail}" alt="${v.title}" loading="lazy" onerror="this.style.background='#132344';this.style.minHeight='160px'">
+        <a href="https://www.youtube.com/watch?v=${v.youtube_id}" target="_blank" class="yt-play">
+          <div class="yt-play-btn"><svg width="20" height="20" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+        </a>
+        <span class="yt-duration">${v.duration}</span>
+      </div>
+      <div class="yt-body">
+        <span class="yt-cat">${v.category}</span>
+        <a href="https://www.youtube.com/watch?v=${v.youtube_id}" target="_blank">
+          <div class="yt-title">${v.title}</div>
+        </a>
+        <div class="yt-meta"><span>👁 ${v.views} views</span><span>${v.date}</span></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ── MOCK TESTS ────────────────────────────────────────── */
+async function renderMockTests() {
+  const data = await loadJSON('./content/mock-tests/mock-tests.json') || { mock_tests:[] };
+
+  document.getElementById('mock-grid').innerHTML = data.mock_tests.map(m => `
+    <div class="mock-card ${m.featured?'featured':''}">
+      <div class="mock-exam-badge"><span class="badge ${m.exam==='All Exams'?'badge-navy':'badge-gold'}">${m.exam}</span></div>
+      <div class="mock-name">${m.name}</div>
+      <div class="mock-stats">
+        <div class="mock-stat-item"><div class="mock-stat-val">${m.questions}</div><div class="mock-stat-lbl">Questions</div></div>
+        <div class="mock-stat-item"><div class="mock-stat-val">${m.duration}</div><div class="mock-stat-lbl">Duration</div></div>
+        <div class="mock-stat-item"><div class="mock-stat-val">${m.marks}</div><div class="mock-stat-lbl">Total Marks</div></div>
+      </div>
+      <div class="mock-freq">🗓 ${m.frequency} | 💻 ${m.mode}</div>
+      <div class="mock-price ${m.free?'free':''}">${m.price}</div>
+      <a href="${m.link}" class="btn ${m.free?'btn-gold':'btn-navy'}" style="width:100%;justify-content:center">${m.free?'Start Free Test →':'Enroll for Test →'}</a>
+    </div>
+  `).join('');
+}
+
+/* ── TESTIMONIALS ──────────────────────────────────────── */
+let testiOffset = 0;
+let testiData = [];
+async function renderTestimonials() {
+  const data = await loadJSON('./content/testimonials/testimonials.json') || { testimonials:[] };
+  testiData = data.testimonials;
+
+  document.getElementById('testi-track').innerHTML = testiData.map(t => `
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <div class="testi-text">${t.quote}</div>
+      <div class="testi-author">
+        <div class="testi-avatar">${t.name.charAt(0)}</div>
+        <div>
+          <div class="testi-name">${t.name}</div>
+          <div class="testi-exam">${t.exam}</div>
+          <div class="testi-rank">🏆 ${t.rank}</div>
+          <div class="testi-stars">${'★'.repeat(t.rating)}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function slideTestimonials(dir) {
+  const track = document.getElementById('testi-track');
+  const cardWidth = 380 + 24;
+  const maxOffset = Math.max(0, testiData.length - 2);
+  testiOffset = Math.max(0, Math.min(testiOffset + dir, maxOffset));
+  track.style.transform = `translateX(-${testiOffset * cardWidth}px)`;
+}
+
+/* ── FACULTY ───────────────────────────────────────────── */
+async function renderFaculty() {
+  const data = await loadJSON('./content/faculty/faculty.json') || { faculty:[] };
+  const featured = data.faculty.filter(f => f.featured);
+
+  document.getElementById('faculty-grid').innerHTML = featured.map(f => `
+    <div class="faculty-card">
+      <div class="faculty-avatar">${f.name.charAt(0)}</div>
+      <div class="faculty-body">
+        <div class="faculty-name">${f.name}</div>
+        <div class="faculty-desig">${f.designation}</div>
+        <span class="faculty-exp">Exp: ${f.experience}</span>
+        <div class="faculty-subjects">
+          ${f.subjects.slice(0,3).map(s => `<span class="subject-tag">${s}</span>`).join('')}
+        </div>
+        <div class="faculty-achieve">${f.qualification} | ${f.achievements}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ── CONTACT ───────────────────────────────────────────── */
+async function renderContact() {
+  const data = await loadJSON('./content/contact/contact.json') || {
+    phone:"9088846651", whatsapp:"9088846651", email:"", address:{line1:"West Bengal"},
+    timings:{weekdays:"Mon-Sat: 6AM-9PM", sunday:"Sun: 9AM-1PM"},
+    social:{ youtube:"https://www.youtube.com/@Thewayofsuccessacademy", google_review:"https://g.page/r/CYSScHBNe2d3EBM/review" }
+  };
+
+  document.getElementById('contact-section').innerHTML = `
+    <div>
+      <div class="contact-card-item">
+        <div class="contact-icon">📞</div>
+        <div><div class="contact-label">Phone / WhatsApp</div><div class="contact-value"><a href="tel:${data.phone}">${data.phone}</a></div></div>
+      </div>
+      <div class="contact-card-item">
+        <div class="contact-icon">📍</div>
+        <div><div class="contact-label">Address</div><div class="contact-value">${data.address.line1}${data.address.line2?', '+data.address.line2:''}</div></div>
+      </div>
+      <div class="contact-card-item">
+        <div class="contact-icon">🕐</div>
+        <div><div class="contact-label">Office Hours</div><div class="contact-value" style="font-size:0.85rem">${data.timings.weekdays}<br>${data.timings.sunday}</div></div>
+      </div>
+      <div class="social-links">
+        <a href="${data.social.youtube}" target="_blank" class="social-btn social-yt">▶ YouTube</a>
+        <a href="https://wa.me/91${data.whatsapp}" target="_blank" class="social-btn social-wa">💬 WhatsApp</a>
+        <a href="${data.social.google_review}" target="_blank" class="social-btn social-google">⭐ Review Us</a>
+      </div>
+    </div>
+    <div class="contact-form-box">
+      <h3>📝 Send an Enquiry</h3>
+      <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"></div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="Your phone number"></div>
+      <div class="form-group"><label>Exam You're Preparing For</label>
+        <select><option>WBCS</option><option>WBPSC Misc.</option><option>SSC CGL</option><option>SSC CHSL</option><option>Railway NTPC</option><option>Railway Group D</option><option>WBP SI</option><option>WBP Constable</option></select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea placeholder="Any specific question or message..."></textarea></div>
+      <a href="tel:9088846651" class="btn btn-gold" style="width:100%;justify-content:center">📞 Call to Enroll: 9088846651</a>
+    </div>
+  `;
+
+  // Footer social
+  document.getElementById('footer-social').innerHTML = `
+    <a href="${data.social.youtube}" target="_blank" class="social-btn social-yt" style="font-size:0.78rem;padding:8px 14px">▶ YouTube</a>
+    <a href="https://wa.me/91${data.whatsapp}" target="_blank" class="social-btn social-wa" style="font-size:0.78rem;padding:8px 14px">💬 WhatsApp</a>
+    <a href="${data.social.google_review}" target="_blank" class="social-btn social-google" style="font-size:0.78rem;padding:8px 14px">⭐ Review</a>
+  `;
+}
+
+/* ── MOBILE MENU ───────────────────────────────────────── */
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobile-menu').classList.add('open');
+});
+document.getElementById('mobile-close').addEventListener('click', () => {
+  document.getElementById('mobile-menu').classList.remove('open');
+});
+document.querySelectorAll('.mobile-link').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.remove('open');
+  });
+});
+
+/* ── SCROLL REVEAL ─────────────────────────────────────── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+
+/* ── INIT ──────────────────────────────────────────────── */
+async function init() {
+  await Promise.all([
+    renderHero(),
+    renderCurrentAffairs(),
+    renderNotifications(),
+    renderCourses(),
+    renderRoutine(),
+    renderYouTube(),
+    renderMockTests(),
+    renderTestimonials(),
+    renderFaculty(),
+    renderContact()
+  ]);
+
+  // Attach scroll observer after all rendered
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+init();
 </script>
 </body>
 </html>
